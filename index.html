@@ -1,455 +1,394 @@
-HTML
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
-<html>
+<!DOCTYPE html>
+<html lang="en" class="h-full bg-slate-950 text-slate-100">
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-  <meta http-equiv="Content-Style-Type" content="text/css">
-  <title></title>
-  <meta name="Generator" content="Cocoa HTML Writer">
-  <meta name="CocoaVersion" content="1894.6">
-  <style type="text/css">
-    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; line-height: 21.0px; font: 14.0px Menlo; color: #6d6d6d; -webkit-text-stroke: #6d6d6d}
-    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; line-height: 21.0px; font: 14.0px Menlo; color: #0000ff; -webkit-text-stroke: #0000ff}
-    p.p3 {margin: 0.0px 0.0px 0.0px 0.0px; line-height: 21.0px; font: 14.0px Menlo; color: #6b0001; -webkit-text-stroke: #6b0001}
-    p.p4 {margin: 0.0px 0.0px 0.0px 0.0px; line-height: 21.0px; font: 14.0px Menlo; color: #fb0007; -webkit-text-stroke: #fb0007}
-    p.p5 {margin: 0.0px 0.0px 0.0px 0.0px; line-height: 21.0px; font: 14.0px Menlo; color: #000000; -webkit-text-stroke: #000000}
-    p.p6 {margin: 0.0px 0.0px 0.0px 0.0px; line-height: 21.0px; font: 14.0px Menlo; color: #0f7001; -webkit-text-stroke: #0f7001}
-    p.p7 {margin: 0.0px 0.0px 0.0px 0.0px; line-height: 21.0px; font: 14.0px Menlo; color: #900112; -webkit-text-stroke: #900112}
-    p.p8 {margin: 0.0px 0.0px 0.0px 0.0px; line-height: 21.0px; font: 14.0px Menlo; color: #000000; -webkit-text-stroke: #000000; min-height: 16.0px}
-    p.p9 {margin: 0.0px 0.0px 0.0px 0.0px; line-height: 21.0px; font: 14.0px Menlo; color: #137646; -webkit-text-stroke: #137646}
-    p.p10 {margin: 0.0px 0.0px 0.0px 0.0px; line-height: 21.0px; font: 14.0px Menlo; color: #093c94; -webkit-text-stroke: #093c94}
-    span.s1 {font-kerning: none; background-color: #fffffe}
-    span.s2 {font-kerning: none; color: #fb0007; background-color: #fffffe; -webkit-text-stroke: 0px #fb0007}
-    span.s3 {font-kerning: none; color: #2a2a2a; background-color: #fffffe; -webkit-text-stroke: 0px #2a2a2a}
-    span.s4 {font-kerning: none; color: #6b0001; background-color: #fffffe; -webkit-text-stroke: 0px #6b0001}
-    span.s5 {font-kerning: none; color: #000000; background-color: #fffffe; -webkit-text-stroke: 0px #000000}
-    span.s6 {font-kerning: none; color: #0000ff; background-color: #fffffe; -webkit-text-stroke: 0px #0000ff}
-    span.s7 {font-kerning: none; color: #900112; background-color: #fffffe; -webkit-text-stroke: 0px #900112}
-    span.s8 {font-kerning: none; color: #137646; background-color: #fffffe; -webkit-text-stroke: 0px #137646}
-    span.s9 {font-kerning: none; color: #093c94; background-color: #fffffe; -webkit-text-stroke: 0px #093c94}
-    span.s10 {font-kerning: none}
-    span.s11 {font: 14.0px 'Apple Color Emoji'; font-kerning: none; color: #000000; background-color: #fffffe; -webkit-text-stroke: 0px #000000}
-    span.s12 {font: 14.0px 'Apple Color Emoji'; font-kerning: none; color: #900112; background-color: #fffffe; -webkit-text-stroke: 0px #900112}
-    span.s13 {font: 14.0px 'Apple Color Emoji'; font-kerning: none; background-color: #fffffe}
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>STREAM⚡VERSE — Cinematic Reviews & Analysis</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts: Syne for futuristic display headers + Inter for clean body -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                        syne: ['Syne', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            cyan: '#06B6D4',
+                            neon: '#22D3EE',
+                            violet: '#A855F7',
+                            pink: '#EC4899',
+                            dark: '#030712'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 6px;
+            height: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #030712;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #1e293b;
+            border-radius: 3px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #06B6D4;
+        }
+    </style>
 </head>
-<body>
-<p class="p1"><span class="s1">&lt;!DOCTYPE</span><span class="s2"> html</span><span class="s1">&gt;</span></p>
-<p class="p2"><span class="s3">&lt;</span><span class="s4">html</span><span class="s5"> </span><span class="s2">lang</span><span class="s3">=</span><span class="s1">"en"</span><span class="s5"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"h-full bg-slate-950 text-slate-100"</span><span class="s3">&gt;</span></p>
-<p class="p3"><span class="s3">&lt;</span><span class="s1">head</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s5"><span class="Apple-converted-space">  </span></span><span class="s3">&lt;</span><span class="s4">meta</span><span class="s5"> </span><span class="s1">charset</span><span class="s3">=</span><span class="s6">"UTF-8"</span><span class="s3">&gt;</span></p>
-<p class="p2"><span class="s5"><span class="Apple-converted-space">  </span></span><span class="s3">&lt;</span><span class="s4">meta</span><span class="s5"> </span><span class="s2">name</span><span class="s3">=</span><span class="s1">"viewport"</span><span class="s5"> </span><span class="s2">content</span><span class="s3">=</span><span class="s1">"width=device-width, initial-scale=1.0"</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">  </span></span><span class="s3">&lt;</span><span class="s4">title</span><span class="s3">&gt;</span><span class="s1">CineVerse — Cinematic Reviews &amp; Analysis</span><span class="s3">&lt;/</span><span class="s4">title</span><span class="s3">&gt;</span></p>
-<p class="p6"><span class="s5"><span class="Apple-converted-space">  </span></span><span class="s1">&lt;!-- Tailwind CSS --&gt;</span></p>
-<p class="p2"><span class="s5"><span class="Apple-converted-space">  </span></span><span class="s3">&lt;</span><span class="s4">script</span><span class="s5"> </span><span class="s2">src</span><span class="s3">=</span><span class="s1">"https://cdn.tailwindcss.com"</span><span class="s3">&gt;&lt;/</span><span class="s4">script</span><span class="s3">&gt;</span></p>
-<p class="p6"><span class="s5"><span class="Apple-converted-space">  </span></span><span class="s1">&lt;!-- Font Awesome Icons --&gt;</span></p>
-<p class="p2"><span class="s5"><span class="Apple-converted-space">  </span></span><span class="s3">&lt;</span><span class="s4">link</span><span class="s5"> </span><span class="s2">rel</span><span class="s3">=</span><span class="s1">"stylesheet"</span><span class="s5"> </span><span class="s2">href</span><span class="s3">=</span><span class="s1">"https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"</span><span class="s3">&gt;</span></p>
-<p class="p6"><span class="s5"><span class="Apple-converted-space">  </span></span><span class="s1">&lt;!-- Google Fonts: Syne for futuristic display headers + Inter for clean body --&gt;</span></p>
-<p class="p2"><span class="s5"><span class="Apple-converted-space">  </span></span><span class="s3">&lt;</span><span class="s4">link</span><span class="s5"> </span><span class="s2">rel</span><span class="s3">=</span><span class="s1">"preconnect"</span><span class="s5"> </span><span class="s2">href</span><span class="s3">=</span><span class="s1">"https://fonts.googleapis.com"</span><span class="s3">&gt;</span></p>
-<p class="p2"><span class="s5"><span class="Apple-converted-space">  </span></span><span class="s3">&lt;</span><span class="s4">link</span><span class="s5"> </span><span class="s2">rel</span><span class="s3">=</span><span class="s1">"preconnect"</span><span class="s5"> </span><span class="s2">href</span><span class="s3">=</span><span class="s1">"https://fonts.gstatic.com"</span><span class="s5"> </span><span class="s2">crossorigin</span><span class="s3">&gt;</span></p>
-<p class="p2"><span class="s5"><span class="Apple-converted-space">  </span></span><span class="s3">&lt;</span><span class="s4">link</span><span class="s5"> </span><span class="s2">href</span><span class="s3">=</span><span class="s1">"https://fonts.googleapis.com/css2?family=Syne:wght@700;800&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap"</span><span class="s5"> </span><span class="s2">rel</span><span class="s3">=</span><span class="s1">"stylesheet"</span><span class="s3">&gt;</span></p>
-<p class="p3"><span class="s5"><span class="Apple-converted-space">  </span></span><span class="s3">&lt;</span><span class="s1">script</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">    </span>tailwind.config = {</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">      </span>theme: {</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">        </span>extend: {</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">          </span>fontFamily: {</span></p>
-<p class="p7"><span class="s5"><span class="Apple-converted-space">            </span>sans: [</span><span class="s1">'"Plus Jakarta Sans"'</span><span class="s5">, </span><span class="s1">'sans-serif'</span><span class="s5">],</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span>syne: [</span><span class="s7">'Syne'</span><span class="s1">, </span><span class="s7">'sans-serif'</span><span class="s1">],</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">          </span>},</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">          </span>colors: {</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span>brand: {</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">              </span>cyan: </span><span class="s7">'#06B6D4'</span><span class="s1">,</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">              </span>neon: </span><span class="s7">'#22D3EE'</span><span class="s1">,</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">              </span>violet: </span><span class="s7">'#A855F7'</span><span class="s1">,</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">              </span>pink: </span><span class="s7">'#EC4899'</span><span class="s1">,</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">              </span>dark: </span><span class="s7">'#030712'</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span>}</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">          </span>}</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">      </span>}</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">    </span>}</span></p>
-<p class="p3"><span class="s5"><span class="Apple-converted-space">  </span></span><span class="s3">&lt;/</span><span class="s1">script</span><span class="s3">&gt;</span></p>
-<p class="p3"><span class="s5"><span class="Apple-converted-space">  </span></span><span class="s3">&lt;</span><span class="s1">style</span><span class="s3">&gt;</span></p>
-<p class="p6"><span class="s5"><span class="Apple-converted-space">    </span></span><span class="s1">/* Custom Scrollbar */</span></p>
-<p class="p3"><span class="s5"><span class="Apple-converted-space">    </span></span><span class="s1">::-webkit-scrollbar</span><span class="s5"> {</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">      </span></span><span class="s2">width:</span><span class="s1"> </span><span class="s8">6px</span><span class="s1">;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">      </span></span><span class="s2">height:</span><span class="s1"> </span><span class="s8">6px</span><span class="s1">;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">    </span>}</span></p>
-<p class="p3"><span class="s5"><span class="Apple-converted-space">    </span></span><span class="s1">::-webkit-scrollbar-track</span><span class="s5"> {</span></p>
-<p class="p4"><span class="s5"><span class="Apple-converted-space">      </span></span><span class="s1">background:</span><span class="s5"> </span><span class="s9">#030712</span><span class="s5">;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">    </span>}</span></p>
-<p class="p3"><span class="s5"><span class="Apple-converted-space">    </span></span><span class="s1">::-webkit-scrollbar-thumb</span><span class="s5"> {</span></p>
-<p class="p4"><span class="s5"><span class="Apple-converted-space">      </span></span><span class="s1">background:</span><span class="s5"> </span><span class="s9">#1f2937</span><span class="s5">;</span></p>
-<p class="p4"><span class="s5"><span class="Apple-converted-space">      </span></span><span class="s1">border-radius:</span><span class="s5"> </span><span class="s8">9999px</span><span class="s5">;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">    </span>}</span></p>
-<p class="p3"><span class="s5"><span class="Apple-converted-space">    </span></span><span class="s1">::-webkit-scrollbar-thumb:hover</span><span class="s5"> {</span></p>
-<p class="p4"><span class="s5"><span class="Apple-converted-space">      </span></span><span class="s1">background:</span><span class="s5"> </span><span class="s9">#06b6d4</span><span class="s5">;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">    </span>}</span></p>
-<p class="p8"><span class="s1"><span class="Apple-converted-space">    </span></span></p>
-<p class="p6"><span class="s5"><span class="Apple-converted-space">    </span></span><span class="s1">/* Cyber/AI Glow Effects */</span></p>
-<p class="p3"><span class="s5"><span class="Apple-converted-space">    </span></span><span class="s1">.neon-glow</span><span class="s5"> {</span></p>
-<p class="p9"><span class="s5"><span class="Apple-converted-space">      </span></span><span class="s2">box-shadow:</span><span class="s5"> </span><span class="s1">0</span><span class="s5"> </span><span class="s1">0</span><span class="s5"> </span><span class="s1">25px</span><span class="s5"> </span><span class="s1">-5px</span><span class="s5"> </span><span class="s9">rgba(</span><span class="s1">6</span><span class="s5">, </span><span class="s1">182</span><span class="s5">, </span><span class="s1">212</span><span class="s5">, </span><span class="s1">0.35</span><span class="s9">)</span><span class="s5">;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">    </span>}</span></p>
-<p class="p3"><span class="s5"><span class="Apple-converted-space">    </span></span><span class="s1">.neon-border</span><span class="s5"> {</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">      </span></span><span class="s2">border:</span><span class="s1"> </span><span class="s8">1px</span><span class="s1"> </span><span class="s9">solid</span><span class="s1"> </span><span class="s9">rgba(</span><span class="s8">34</span><span class="s1">, </span><span class="s8">211</span><span class="s1">, </span><span class="s8">238</span><span class="s1">, </span><span class="s8">0.25</span><span class="s9">)</span><span class="s1">;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">    </span>}</span></p>
-<p class="p3"><span class="s5"><span class="Apple-converted-space">    </span></span><span class="s1">.neon-border:hover</span><span class="s5"> {</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">      </span></span><span class="s2">border-color:</span><span class="s1"> </span><span class="s9">rgba(</span><span class="s8">34</span><span class="s1">, </span><span class="s8">211</span><span class="s1">, </span><span class="s8">238</span><span class="s1">, </span><span class="s8">0.7</span><span class="s9">)</span><span class="s1">;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">      </span></span><span class="s2">box-shadow:</span><span class="s1"> </span><span class="s8">0</span><span class="s1"> </span><span class="s8">0</span><span class="s1"> </span><span class="s8">20px</span><span class="s1"> </span><span class="s9">rgba(</span><span class="s8">6</span><span class="s1">, </span><span class="s8">182</span><span class="s1">, </span><span class="s8">212</span><span class="s1">, </span><span class="s8">0.3</span><span class="s9">)</span><span class="s1">;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">    </span>}</span></p>
-<p class="p3"><span class="s5"><span class="Apple-converted-space">    </span></span><span class="s1">.bg-cyber-grid</span><span class="s5"> {</span></p>
-<p class="p10"><span class="s5"><span class="Apple-converted-space">      </span></span><span class="s2">background-image:</span><span class="s5"> </span><span class="s1">radial-gradient(rgba(</span><span class="s8">34</span><span class="s5">, </span><span class="s8">211</span><span class="s5">, </span><span class="s8">238</span><span class="s5">, </span><span class="s8">0.08</span><span class="s1">)</span><span class="s5"> </span><span class="s8">1px</span><span class="s5">, </span><span class="s1">transparent</span><span class="s5"> </span><span class="s8">1px</span><span class="s1">)</span><span class="s5">;</span></p>
-<p class="p4"><span class="s5"><span class="Apple-converted-space">      </span></span><span class="s1">background-size:</span><span class="s5"> </span><span class="s8">24px</span><span class="s5"> </span><span class="s8">24px</span><span class="s5">;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">    </span>}</span></p>
-<p class="p3"><span class="s5"><span class="Apple-converted-space">  </span></span><span class="s3">&lt;/</span><span class="s1">style</span><span class="s3">&gt;</span></p>
-<p class="p3"><span class="s3">&lt;/</span><span class="s1">head</span><span class="s3">&gt;</span></p>
-<p class="p2"><span class="s3">&lt;</span><span class="s4">body</span><span class="s5"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"min-h-screen bg-[#030712] text-slate-100 font-sans antialiased flex flex-col justify-between overflow-x-hidden bg-cyber-grid"</span><span class="s3">&gt;</span></p>
-<p class="p8"><span class="s10"></span><br></p>
-<p class="p6"><span class="s5"><span class="Apple-converted-space">  </span></span><span class="s1">&lt;!-- TOP NAVIGATION BAR (STREAMVERSE LOGO &amp; TABS) --&gt;</span></p>
-<p class="p2"><span class="s5"><span class="Apple-converted-space">  </span></span><span class="s3">&lt;</span><span class="s4">header</span><span class="s5"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"w-full bg-[#030712]/90 backdrop-blur-xl border-b border-cyan-500/10 sticky top-0 z-50 px-6 lg:px-12 py-4"</span><span class="s3">&gt;</span></p>
-<p class="p2"><span class="s5"><span class="Apple-converted-space">    </span></span><span class="s3">&lt;</span><span class="s4">div</span><span class="s5"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"max-w-7xl mx-auto flex items-center justify-between gap-4"</span><span class="s3">&gt;</span></p>
-<p class="p8"><span class="s1"><span class="Apple-converted-space">      </span></span></p>
-<p class="p6"><span class="s5"><span class="Apple-converted-space">      </span></span><span class="s1">&lt;!-- STREAMVERSE LOGO --&gt;</span></p>
-<p class="p2"><span class="s5"><span class="Apple-converted-space">      </span></span><span class="s3">&lt;</span><span class="s4">a</span><span class="s5"> </span><span class="s2">href</span><span class="s3">=</span><span class="s1">"#"</span><span class="s5"> </span><span class="s2">onclick</span><span class="s3">=</span><span class="s1">"filterCategory('all')"</span><span class="s5"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"flex items-center gap-3 group"</span><span class="s3">&gt;</span></p>
-<p class="p2"><span class="s5"><span class="Apple-converted-space">        </span></span><span class="s3">&lt;</span><span class="s4">div</span><span class="s5"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"relative w-10 h-10 flex items-center justify-center bg-gradient-to-tr from-cyan-500 via-teal-400 to-indigo-500 rounded-xl p-[1px] shadow-lg shadow-cyan-500/20 group-hover:shadow-cyan-400/40 transition-all duration-300"</span><span class="s3">&gt;</span></p>
-<p class="p2"><span class="s5"><span class="Apple-converted-space">          </span></span><span class="s3">&lt;</span><span class="s4">div</span><span class="s5"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"w-full h-full bg-[#030712] rounded-[11px] flex items-center justify-center relative overflow-hidden"</span><span class="s3">&gt;</span></p>
-<p class="p2"><span class="s5"><span class="Apple-converted-space">            </span></span><span class="s3">&lt;</span><span class="s4">div</span><span class="s5"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"absolute inset-0 bg-cyan-500/10 group-hover:bg-cyan-500/20 transition-all"</span><span class="s3">&gt;&lt;/</span><span class="s4">div</span><span class="s3">&gt;</span></p>
-<p class="p2"><span class="s5"><span class="Apple-converted-space">            </span></span><span class="s3">&lt;</span><span class="s4">svg</span><span class="s5"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"w-5 h-5 text-cyan-400 group-hover:scale-110 transition-transform"</span><span class="s5"> </span><span class="s2">viewBox</span><span class="s3">=</span><span class="s1">"0 0 24 24"</span><span class="s5"> </span><span class="s2">fill</span><span class="s3">=</span><span class="s1">"currentColor"</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">              </span></span><span class="s3">&lt;</span><span class="s4">path</span><span class="s1"> </span><span class="s2">d</span><span class="s3">=</span><span class="s6">"M8 5v14l11-7z"</span><span class="s3">/&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s3">&lt;/</span><span class="s4">svg</span><span class="s3">&gt;</span></p>
-<p class="p2"><span class="s5"><span class="Apple-converted-space">            </span></span><span class="s3">&lt;</span><span class="s4">span</span><span class="s5"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"absolute top-1 right-1 w-1.5 h-1.5 bg-cyan-400 rounded-full animate-ping"</span><span class="s3">&gt;&lt;/</span><span class="s4">span</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">          </span></span><span class="s3">&lt;/</span><span class="s4">div</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">        </span></span><span class="s3">&lt;/</span><span class="s4">div</span><span class="s3">&gt;</span></p>
-<p class="p2"><span class="s5"><span class="Apple-converted-space">        </span></span><span class="s3">&lt;</span><span class="s4">div</span><span class="s5"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"flex flex-col"</span><span class="s3">&gt;</span></p>
-<p class="p2"><span class="s5"><span class="Apple-converted-space">          </span></span><span class="s3">&lt;</span><span class="s4">span</span><span class="s5"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"text-2xl font-syne font-extrabold tracking-tight text-white leading-none"</span><span class="s3">&gt;</span></p>
-<p class="p2"><span class="s5"><span class="Apple-converted-space">            </span>STREAM</span><span class="s3">&lt;</span><span class="s4">span</span><span class="s5"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-teal-300"</span><span class="s3">&gt;</span><span class="s5">⚡VERSE</span><span class="s3">&lt;/</span><span class="s4">span</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">          </span></span><span class="s3">&lt;/</span><span class="s4">span</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">        </span></span><span class="s3">&lt;/</span><span class="s4">div</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">      </span></span><span class="s3">&lt;/</span><span class="s4">a</span><span class="s3">&gt;</span></p>
-<p class="p8"><span class="s10"></span><br></p>
-<p class="p6"><span class="s5"><span class="Apple-converted-space">      </span></span><span class="s1">&lt;!-- NAV LINKS --&gt;</span></p>
-<p class="p2"><span class="s5"><span class="Apple-converted-space">      </span></span><span class="s3">&lt;</span><span class="s4">nav</span><span class="s5"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"hidden md:flex items-center gap-2 font-semibold text-xs tracking-wide text-slate-300"</span><span class="s3">&gt;</span></p>
-<p class="p2"><span class="s5"><span class="Apple-converted-space">        </span></span><span class="s3">&lt;</span><span class="s4">button</span><span class="s5"> </span><span class="s2">onclick</span><span class="s3">=</span><span class="s1">"filterCategory('all')"</span><span class="s5"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"nav-link px-4 py-2 rounded-full hover:text-cyan-300 hover:bg-cyan-950/40 transition-all text-cyan-400 bg-cyan-950/60 border border-cyan-500/30"</span><span class="s5"> </span><span class="s2">data-cat</span><span class="s3">=</span><span class="s1">"all"</span><span class="s3">&gt;</span><span class="s5">[All]</span><span class="s3">&lt;/</span><span class="s4">button</span><span class="s3">&gt;</span></p>
-<p class="p2"><span class="s5"><span class="Apple-converted-space">        </span></span><span class="s3">&lt;</span><span class="s4">button</span><span class="s5"> </span><span class="s2">onclick</span><span class="s3">=</span><span class="s1">"filterCategory('movies')"</span><span class="s5"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"nav-link px-4 py-2 rounded-full hover:text-cyan-300 hover:bg-cyan-950/40 transition-all border border-transparent"</span><span class="s5"> </span><span class="s2">data-cat</span><span class="s3">=</span><span class="s1">"movies"</span><span class="s3">&gt;</span><span class="s5">[Movies]</span><span class="s3">&lt;/</span><span class="s4">button</span><span class="s3">&gt;</span></p>
-<p class="p2"><span class="s5"><span class="Apple-converted-space">        </span></span><span class="s3">&lt;</span><span class="s4">button</span><span class="s5"> </span><span class="s2">onclick</span><span class="s3">=</span><span class="s1">"filterCategory('series')"</span><span class="s5"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"nav-link px-4 py-2 rounded-full hover:text-cyan-300 hover:bg-cyan-950/40 transition-all border border-transparent"</span><span class="s5"> </span><span class="s2">data-cat</span><span class="s3">=</span><span class="s1">"series"</span><span class="s3">&gt;</span><span class="s5">[Series]</span><span class="s3">&lt;/</span><span class="s4">button</span><span class="s3">&gt;</span></p>
-<p class="p2"><span class="s5"><span class="Apple-converted-space">        </span></span><span class="s3">&lt;</span><span class="s4">button</span><span class="s5"> </span><span class="s2">onclick</span><span class="s3">=</span><span class="s1">"filterCategory('documentaries')"</span><span class="s5"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"nav-link px-4 py-2 rounded-full hover:text-cyan-300 hover:bg-cyan-950/40 transition-all border border-transparent"</span><span class="s5"> </span><span class="s2">data-cat</span><span class="s3">=</span><span class="s1">"documentaries"</span><span class="s3">&gt;</span><span class="s5">[Documentaries]</span><span class="s3">&lt;/</span><span class="s4">button</span><span class="s3">&gt;</span></p>
-<p class="p2"><span class="s5"><span class="Apple-converted-space">        </span></span><span class="s3">&lt;</span><span class="s4">button</span><span class="s5"> </span><span class="s2">onclick</span><span class="s3">=</span><span class="s1">"filterCategory('videos')"</span><span class="s5"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"nav-link px-4 py-2 rounded-full hover:text-cyan-300 hover:bg-cyan-950/40 transition-all border border-transparent"</span><span class="s5"> </span><span class="s2">data-cat</span><span class="s3">=</span><span class="s1">"videos"</span><span class="s3">&gt;</span><span class="s5">[Videos]</span><span class="s3">&lt;/</span><span class="s4">button</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">      </span></span><span class="s3">&lt;/</span><span class="s4">nav</span><span class="s3">&gt;</span></p>
-<p class="p8"><span class="s10"></span><br></p>
-<p class="p6"><span class="s5"><span class="Apple-converted-space">      </span></span><span class="s1">&lt;!-- SEARCH BAR --&gt;</span></p>
-<p class="p2"><span class="s5"><span class="Apple-converted-space">      </span></span><span class="s3">&lt;</span><span class="s4">div</span><span class="s5"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"relative w-44 md:w-60"</span><span class="s3">&gt;</span></p>
-<p class="p2"><span class="s5"><span class="Apple-converted-space">        </span></span><span class="s3">&lt;</span><span class="s4">i</span><span class="s5"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"fa-solid fa-magnifying-glass absolute left-3.5 top-1/2 -translate-y-1/2 text-cyan-400/60 text-xs"</span><span class="s3">&gt;&lt;/</span><span class="s4">i</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">        </span></span><span class="s3">&lt;</span><span class="s4">input</span><span class="s1"><span class="Apple-converted-space"> </span></span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">          </span></span><span class="s2">type</span><span class="s3">=</span><span class="s6">"text"</span><span class="s1"><span class="Apple-converted-space"> </span></span></p>
-<p class="p2"><span class="s5"><span class="Apple-converted-space">          </span></span><span class="s2">id</span><span class="s3">=</span><span class="s1">"searchInput"</span></p>
-<p class="p2"><span class="s5"><span class="Apple-converted-space">          </span></span><span class="s2">onkeyup</span><span class="s3">=</span><span class="s1">"handleSearch()"</span></p>
-<p class="p2"><span class="s5"><span class="Apple-converted-space">          </span></span><span class="s2">placeholder</span><span class="s3">=</span><span class="s1">"Search catalog..."</span><span class="s5"><span class="Apple-converted-space"> </span></span></p>
-<p class="p2"><span class="s5"><span class="Apple-converted-space">          </span></span><span class="s2">class</span><span class="s3">=</span><span class="s1">"w-full bg-slate-900/80 text-xs text-slate-200 pl-9 pr-4 py-2 rounded-full border border-cyan-500/20 focus:outline-none focus:border-cyan-400 focus:ring-1 focus:ring-cyan-400 transition-all placeholder:text-slate-500"</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">        </span></span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">      </span></span><span class="s3">&lt;/</span><span class="s4">div</span><span class="s3">&gt;</span></p>
-<p class="p8"><span class="s10"></span><br></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">    </span></span><span class="s3">&lt;/</span><span class="s4">div</span><span class="s3">&gt;</span></p>
-<p class="p3"><span class="s5"><span class="Apple-converted-space">  </span></span><span class="s3">&lt;/</span><span class="s1">header</span><span class="s3">&gt;</span></p>
-<p class="p8"><span class="s10"></span><br></p>
-<p class="p6"><span class="s5"><span class="Apple-converted-space">  </span></span><span class="s1">&lt;!-- MAIN CONTAINER --&gt;</span></p>
-<p class="p2"><span class="s5"><span class="Apple-converted-space">  </span></span><span class="s3">&lt;</span><span class="s4">main</span><span class="s5"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"max-w-7xl mx-auto px-6 md:px-10 lg:px-12 py-8 w-full flex-grow space-y-10"</span><span class="s3">&gt;</span></p>
-<p class="p8"><span class="s10"></span><br></p>
-<p class="p6"><span class="s5"><span class="Apple-converted-space">    </span></span><span class="s1">&lt;!-- HERO FEATURED SCROLLER --&gt;</span></p>
-<p class="p2"><span class="s5"><span class="Apple-converted-space">    </span></span><span class="s3">&lt;</span><span class="s4">section</span><span class="s5"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"relative w-full bg-slate-900/60 rounded-3xl border border-cyan-500/20 overflow-hidden shadow-2xl p-6 md:p-8 lg:p-10 backdrop-blur-md"</span><span class="s3">&gt;</span></p>
-<p class="p2"><span class="s5"><span class="Apple-converted-space">      </span></span><span class="s3">&lt;</span><span class="s4">div</span><span class="s5"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"absolute -top-24 -left-24 w-96 h-96 bg-cyan-500/10 rounded-full blur-3xl pointer-events-none"</span><span class="s3">&gt;&lt;/</span><span class="s4">div</span><span class="s3">&gt;</span></p>
-<p class="p2"><span class="s5"><span class="Apple-converted-space">      </span></span><span class="s3">&lt;</span><span class="s4">div</span><span class="s5"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"absolute -bottom-24 -right-24 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl pointer-events-none"</span><span class="s3">&gt;&lt;/</span><span class="s4">div</span><span class="s3">&gt;</span></p>
-<p class="p8"><span class="s10"></span><br></p>
-<p class="p2"><span class="s5"><span class="Apple-converted-space">      </span></span><span class="s3">&lt;</span><span class="s4">div</span><span class="s5"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"relative z-10 flex flex-col lg:flex-row items-center gap-8 lg:gap-10"</span><span class="s3">&gt;</span></p>
-<p class="p8"><span class="s1"><span class="Apple-converted-space">        </span></span></p>
-<p class="p6"><span class="s5"><span class="Apple-converted-space">        </span></span><span class="s1">&lt;!-- PROPORTIONAL HERO IMAGE --&gt;</span></p>
-<p class="p2"><span class="s5"><span class="Apple-converted-space">        </span></span><span class="s3">&lt;</span><span class="s4">div</span><span class="s5"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"w-full lg:w-7/12 flex-shrink-0 h-[300px] sm:h-[380px] lg:h-[420px] rounded-2xl overflow-hidden relative border border-slate-700/60 shadow-2xl group"</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">          </span></span><span class="s3">&lt;</span><span class="s4">img</span><span class="s1"><span class="Apple-converted-space"> </span></span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">id</span><span class="s3">=</span><span class="s6">"heroPoster"</span><span class="s1"><span class="Apple-converted-space"> </span></span></p>
-<p class="p2"><span class="s5"><span class="Apple-converted-space">            </span></span><span class="s2">src</span><span class="s3">=</span><span class="s1">"https://images.unsplash.com/photo-1536440136628-849c177e76a1?auto=format&amp;fit=crop&amp;w=1200&amp;q=80"</span><span class="s5"><span class="Apple-converted-space"> </span></span></p>
-<p class="p2"><span class="s5"><span class="Apple-converted-space">            </span></span><span class="s2">alt</span><span class="s3">=</span><span class="s1">"Inspector Zende"</span><span class="s5"><span class="Apple-converted-space"> </span></span></p>
-<p class="p2"><span class="s5"><span class="Apple-converted-space">            </span></span><span class="s2">class</span><span class="s3">=</span><span class="s1">"w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">          </span></span><span class="s3">&gt;</span></p>
-<p class="p2"><span class="s5"><span class="Apple-converted-space">          </span></span><span class="s3">&lt;</span><span class="s4">div</span><span class="s5"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent"</span><span class="s3">&gt;&lt;/</span><span class="s4">div</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">        </span></span><span class="s3">&lt;/</span><span class="s4">div</span><span class="s3">&gt;</span></p>
-<p class="p8"><span class="s10"></span><br></p>
-<p class="p6"><span class="s5"><span class="Apple-converted-space">        </span></span><span class="s1">&lt;!-- HERO CONTENT DETAILS --&gt;</span></p>
-<p class="p2"><span class="s5"><span class="Apple-converted-space">        </span></span><span class="s3">&lt;</span><span class="s4">div</span><span class="s5"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"w-full lg:w-5/12 flex flex-col justify-center space-y-4 text-left"</span><span class="s3">&gt;</span></p>
-<p class="p2"><span class="s5"><span class="Apple-converted-space">          </span></span><span class="s3">&lt;</span><span class="s4">div</span><span class="s5"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"text-xs font-semibold text-cyan-400/90 tracking-widest uppercase flex items-center gap-2"</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s3">&lt;</span><span class="s4">span</span><span class="s1"> </span><span class="s2">id</span><span class="s3">=</span><span class="s6">"heroYear"</span><span class="s3">&gt;</span><span class="s1">2025</span><span class="s3">&lt;/</span><span class="s4">span</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">          </span></span><span class="s3">&lt;/</span><span class="s4">div</span><span class="s3">&gt;</span></p>
-<p class="p8"><span class="s10"></span><br></p>
-<p class="p2"><span class="s5"><span class="Apple-converted-space">          </span></span><span class="s3">&lt;</span><span class="s4">h1</span><span class="s5"> </span><span class="s2">id</span><span class="s3">=</span><span class="s1">"heroTitle"</span><span class="s5"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"text-3xl sm:text-4xl lg:text-5xl font-syne font-extrabold text-white tracking-tight leading-tight"</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span>INSPECTOR ZENDE</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">          </span></span><span class="s3">&lt;/</span><span class="s4">h1</span><span class="s3">&gt;</span></p>
-<p class="p8"><span class="s10"></span><br></p>
-<p class="p2"><span class="s5"><span class="Apple-converted-space">          </span></span><span class="s3">&lt;</span><span class="s4">div</span><span class="s5"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"flex items-center gap-2 text-amber-400 text-lg font-bold"</span><span class="s3">&gt;</span></p>
-<p class="p2"><span class="s5"><span class="Apple-converted-space">            </span></span><span class="s3">&lt;</span><span class="s4">i</span><span class="s5"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"fa-solid fa-star"</span><span class="s3">&gt;&lt;/</span><span class="s4">i</span><span class="s3">&gt;</span></p>
-<p class="p2"><span class="s5"><span class="Apple-converted-space">            </span></span><span class="s3">&lt;</span><span class="s4">span</span><span class="s5"> </span><span class="s2">id</span><span class="s3">=</span><span class="s1">"heroRating"</span><span class="s5"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"text-slate-100 text-xl font-bold"</span><span class="s3">&gt;</span><span class="s11">⭐</span><span class="s5"> 4.5 / 5</span><span class="s3">&lt;/</span><span class="s4">span</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">          </span></span><span class="s3">&lt;/</span><span class="s4">div</span><span class="s3">&gt;</span></p>
-<p class="p8"><span class="s10"></span><br></p>
-<p class="p2"><span class="s5"><span class="Apple-converted-space">          </span></span><span class="s3">&lt;</span><span class="s4">p</span><span class="s5"> </span><span class="s2">id</span><span class="s3">=</span><span class="s1">"heroPitch"</span><span class="s5"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"text-slate-300 text-sm sm:text-base leading-relaxed italic bg-slate-950/60 p-4 rounded-xl border border-cyan-500/15"</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span>"A tense, razor-sharp edge-of-your-seat thrill ride that subverts every crime drama expectation."</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">          </span></span><span class="s3">&lt;/</span><span class="s4">p</span><span class="s3">&gt;</span></p>
-<p class="p8"><span class="s10"></span><br></p>
-<p class="p2"><span class="s5"><span class="Apple-converted-space">          </span></span><span class="s3">&lt;</span><span class="s4">div</span><span class="s5"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"pt-2 flex flex-wrap items-center gap-3"</span><span class="s3">&gt;</span></p>
-<p class="p2"><span class="s5"><span class="Apple-converted-space">            </span></span><span class="s3">&lt;</span><span class="s4">button</span><span class="s5"> </span><span class="s2">onclick</span><span class="s3">=</span><span class="s1">"openReviewModal()"</span><span class="s5"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"px-6 py-3 bg-gradient-to-r from-cyan-400 to-teal-400 hover:from-cyan-300 hover:to-teal-300 text-slate-950 font-bold rounded-xl shadow-lg shadow-cyan-500/25 transition-all text-xs sm:text-sm flex items-center gap-2"</span><span class="s3">&gt;</span></p>
-<p class="p2"><span class="s5"><span class="Apple-converted-space">              </span></span><span class="s3">&lt;</span><span class="s4">i</span><span class="s5"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"fa-solid fa-play"</span><span class="s3">&gt;&lt;/</span><span class="s4">i</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">              </span></span><span class="s3">&lt;</span><span class="s4">span</span><span class="s3">&gt;</span><span class="s1">Read Full Review</span><span class="s3">&lt;/</span><span class="s4">span</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s3">&lt;/</span><span class="s4">button</span><span class="s3">&gt;</span></p>
-<p class="p2"><span class="s5"><span class="Apple-converted-space">            </span></span><span class="s3">&lt;</span><span class="s4">button</span><span class="s5"> </span><span class="s2">onclick</span><span class="s3">=</span><span class="s1">"toggleWatchlist()"</span><span class="s5"> </span><span class="s2">id</span><span class="s3">=</span><span class="s1">"watchlistBtn"</span><span class="s5"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"px-5 py-3 bg-slate-800/80 hover:bg-slate-700 text-slate-200 font-semibold rounded-xl border border-slate-700 transition-all text-xs sm:text-sm flex items-center gap-2"</span><span class="s3">&gt;</span></p>
-<p class="p2"><span class="s5"><span class="Apple-converted-space">              </span></span><span class="s3">&lt;</span><span class="s4">i</span><span class="s5"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"fa-solid fa-plus"</span><span class="s3">&gt;&lt;/</span><span class="s4">i</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">              </span></span><span class="s3">&lt;</span><span class="s4">span</span><span class="s3">&gt;</span><span class="s1">Add to Watchlist</span><span class="s3">&lt;/</span><span class="s4">span</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s3">&lt;/</span><span class="s4">button</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">          </span></span><span class="s3">&lt;/</span><span class="s4">div</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">        </span></span><span class="s3">&lt;/</span><span class="s4">div</span><span class="s3">&gt;</span></p>
-<p class="p8"><span class="s10"></span><br></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">      </span></span><span class="s3">&lt;/</span><span class="s4">div</span><span class="s3">&gt;</span></p>
-<p class="p8"><span class="s10"></span><br></p>
-<p class="p6"><span class="s5"><span class="Apple-converted-space">      </span></span><span class="s1">&lt;!-- CAROUSEL CONTROLS --&gt;</span></p>
-<p class="p2"><span class="s5"><span class="Apple-converted-space">      </span></span><span class="s3">&lt;</span><span class="s4">button</span><span class="s5"> </span><span class="s2">onclick</span><span class="s3">=</span><span class="s1">"prevHero()"</span><span class="s5"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"absolute left-3 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full bg-slate-950/80 border border-cyan-500/30 text-cyan-400 hover:bg-cyan-500 hover:text-slate-950 flex items-center justify-center transition-all"</span><span class="s3">&gt;</span></p>
-<p class="p2"><span class="s5"><span class="Apple-converted-space">        </span></span><span class="s3">&lt;</span><span class="s4">i</span><span class="s5"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"fa-solid fa-chevron-left text-sm"</span><span class="s3">&gt;&lt;/</span><span class="s4">i</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">      </span></span><span class="s3">&lt;/</span><span class="s4">button</span><span class="s3">&gt;</span></p>
-<p class="p2"><span class="s5"><span class="Apple-converted-space">      </span></span><span class="s3">&lt;</span><span class="s4">button</span><span class="s5"> </span><span class="s2">onclick</span><span class="s3">=</span><span class="s1">"nextHero()"</span><span class="s5"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"absolute right-3 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full bg-slate-950/80 border border-cyan-500/30 text-cyan-400 hover:bg-cyan-500 hover:text-slate-950 flex items-center justify-center transition-all"</span><span class="s3">&gt;</span></p>
-<p class="p2"><span class="s5"><span class="Apple-converted-space">        </span></span><span class="s3">&lt;</span><span class="s4">i</span><span class="s5"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"fa-solid fa-chevron-right text-sm"</span><span class="s3">&gt;&lt;/</span><span class="s4">i</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">      </span></span><span class="s3">&lt;/</span><span class="s4">button</span><span class="s3">&gt;</span></p>
-<p class="p3"><span class="s5"><span class="Apple-converted-space">    </span></span><span class="s3">&lt;/</span><span class="s1">section</span><span class="s3">&gt;</span></p>
-<p class="p8"><span class="s10"></span><br></p>
-<p class="p6"><span class="s5"><span class="Apple-converted-space">    </span></span><span class="s1">&lt;!-- FILTER TABS --&gt;</span></p>
-<p class="p2"><span class="s5"><span class="Apple-converted-space">    </span></span><span class="s3">&lt;</span><span class="s4">section</span><span class="s5"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"flex items-center justify-center sm:justify-start gap-2.5 overflow-x-auto pb-2 no-scrollbar"</span><span class="s3">&gt;</span></p>
-<p class="p2"><span class="s5"><span class="Apple-converted-space">      </span></span><span class="s3">&lt;</span><span class="s4">button</span><span class="s5"> </span><span class="s2">onclick</span><span class="s3">=</span><span class="s1">"filterCategory('all')"</span><span class="s5"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"pill-btn px-5 py-2.5 rounded-full text-xs font-bold transition-all flex items-center gap-2 bg-cyan-400 text-slate-950 shadow-lg shadow-cyan-500/20"</span><span class="s5"> </span><span class="s2">data-cat</span><span class="s3">=</span><span class="s1">"all"</span><span class="s3">&gt;</span><span class="s11">🔥</span><span class="s5"> All Reviews</span><span class="s3">&lt;/</span><span class="s4">button</span><span class="s3">&gt;</span></p>
-<p class="p2"><span class="s5"><span class="Apple-converted-space">      </span></span><span class="s3">&lt;</span><span class="s4">button</span><span class="s5"> </span><span class="s2">onclick</span><span class="s3">=</span><span class="s1">"filterCategory('movies')"</span><span class="s5"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"pill-btn px-5 py-2.5 rounded-full text-xs font-bold transition-all flex items-center gap-2 bg-slate-900 hover:bg-slate-800 text-slate-300 border border-slate-800"</span><span class="s5"> </span><span class="s2">data-cat</span><span class="s3">=</span><span class="s1">"movies"</span><span class="s3">&gt;</span><span class="s11">🎬</span><span class="s5"> Movies</span><span class="s3">&lt;/</span><span class="s4">button</span><span class="s3">&gt;</span></p>
-<p class="p2"><span class="s5"><span class="Apple-converted-space">      </span></span><span class="s3">&lt;</span><span class="s4">button</span><span class="s5"> </span><span class="s2">onclick</span><span class="s3">=</span><span class="s1">"filterCategory('series')"</span><span class="s5"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"pill-btn px-5 py-2.5 rounded-full text-xs font-bold transition-all flex items-center gap-2 bg-slate-900 hover:bg-slate-800 text-slate-300 border border-slate-800"</span><span class="s5"> </span><span class="s2">data-cat</span><span class="s3">=</span><span class="s1">"series"</span><span class="s3">&gt;</span><span class="s11">📺</span><span class="s5"> Series</span><span class="s3">&lt;/</span><span class="s4">button</span><span class="s3">&gt;</span></p>
-<p class="p2"><span class="s5"><span class="Apple-converted-space">      </span></span><span class="s3">&lt;</span><span class="s4">button</span><span class="s5"> </span><span class="s2">onclick</span><span class="s3">=</span><span class="s1">"filterCategory('documentaries')"</span><span class="s5"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"pill-btn px-5 py-2.5 rounded-full text-xs font-bold transition-all flex items-center gap-2 bg-slate-900 hover:bg-slate-800 text-slate-300 border border-slate-800"</span><span class="s5"> </span><span class="s2">data-cat</span><span class="s3">=</span><span class="s1">"documentaries"</span><span class="s3">&gt;</span><span class="s11">📹</span><span class="s5"> Documentaries</span><span class="s3">&lt;/</span><span class="s4">button</span><span class="s3">&gt;</span></p>
-<p class="p2"><span class="s5"><span class="Apple-converted-space">      </span></span><span class="s3">&lt;</span><span class="s4">button</span><span class="s5"> </span><span class="s2">onclick</span><span class="s3">=</span><span class="s1">"filterCategory('videos')"</span><span class="s5"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"pill-btn px-5 py-2.5 rounded-full text-xs font-bold transition-all flex items-center gap-2 bg-slate-900 hover:bg-slate-800 text-slate-300 border border-slate-800"</span><span class="s5"> </span><span class="s2">data-cat</span><span class="s3">=</span><span class="s1">"videos"</span><span class="s3">&gt;</span><span class="s11">🎥</span><span class="s5"> Videos</span><span class="s3">&lt;/</span><span class="s4">button</span><span class="s3">&gt;</span></p>
-<p class="p3"><span class="s5"><span class="Apple-converted-space">    </span></span><span class="s3">&lt;/</span><span class="s1">section</span><span class="s3">&gt;</span></p>
-<p class="p8"><span class="s10"></span><br></p>
-<p class="p6"><span class="s5"><span class="Apple-converted-space">    </span></span><span class="s1">&lt;!-- STRICT 3 THUMBNAIL GRID (16:9 CINEMATIC ASPECT RATIO) --&gt;</span></p>
-<p class="p2"><span class="s5"><span class="Apple-converted-space">    </span></span><span class="s3">&lt;</span><span class="s4">section</span><span class="s5"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"space-y-6"</span><span class="s3">&gt;</span></p>
-<p class="p2"><span class="s5"><span class="Apple-converted-space">      </span></span><span class="s3">&lt;</span><span class="s4">div</span><span class="s5"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"flex items-center justify-between border-b border-cyan-500/10 pb-4"</span><span class="s3">&gt;</span></p>
-<p class="p2"><span class="s5"><span class="Apple-converted-space">        </span></span><span class="s3">&lt;</span><span class="s4">h2</span><span class="s5"> </span><span class="s2">id</span><span class="s3">=</span><span class="s1">"gridSectionTitle"</span><span class="s5"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"text-lg md:text-xl font-syne font-extrabold text-white tracking-wider uppercase flex items-center gap-2"</span><span class="s3">&gt;</span></p>
-<p class="p2"><span class="s5"><span class="Apple-converted-space">          </span></span><span class="s3">&lt;</span><span class="s4">span</span><span class="s5"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"w-2 h-5 bg-cyan-400 rounded-full inline-block"</span><span class="s3">&gt;&lt;/</span><span class="s4">span</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">          </span>LATEST REVIEWS</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">        </span></span><span class="s3">&lt;/</span><span class="s4">h2</span><span class="s3">&gt;</span></p>
-<p class="p2"><span class="s5"><span class="Apple-converted-space">        </span></span><span class="s3">&lt;</span><span class="s4">span</span><span class="s5"> </span><span class="s2">id</span><span class="s3">=</span><span class="s1">"reviewCount"</span><span class="s5"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"text-xs text-slate-400 bg-slate-900 px-3 py-1 rounded-full border border-slate-800"</span><span class="s3">&gt;</span><span class="s5">Showing 3 Reviews</span><span class="s3">&lt;/</span><span class="s4">span</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">      </span></span><span class="s3">&lt;/</span><span class="s4">div</span><span class="s3">&gt;</span></p>
-<p class="p8"><span class="s10"></span><br></p>
-<p class="p6"><span class="s5"><span class="Apple-converted-space">      </span></span><span class="s1">&lt;!-- 3-COLUMN GRID WITH 16:9 LANDSCAPE THUMBNAILS --&gt;</span></p>
-<p class="p2"><span class="s5"><span class="Apple-converted-space">      </span></span><span class="s3">&lt;</span><span class="s4">div</span><span class="s5"> </span><span class="s2">id</span><span class="s3">=</span><span class="s1">"reviewsGrid"</span><span class="s5"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"grid grid-cols-1 md:grid-cols-3 gap-6"</span><span class="s5"> </span><span class="s2">style</span><span class="s3">=</span><span class="s1">"grid-template-columns: repeat(3, minmax(0, 1fr));"</span><span class="s3">&gt;</span></p>
-<p class="p6"><span class="s5"><span class="Apple-converted-space">        </span></span><span class="s1">&lt;!-- Dynamically rendered 3 thumbnails --&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">      </span></span><span class="s3">&lt;/</span><span class="s4">div</span><span class="s3">&gt;</span></p>
-<p class="p8"><span class="s10"></span><br></p>
-<p class="p2"><span class="s5"><span class="Apple-converted-space">      </span></span><span class="s3">&lt;</span><span class="s4">div</span><span class="s5"> </span><span class="s2">id</span><span class="s3">=</span><span class="s1">"emptyState"</span><span class="s5"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"hidden w-full text-center py-12 bg-slate-900/40 rounded-2xl border border-slate-800"</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">        </span></span><span class="s3">&lt;</span><span class="s4">p</span><span class="s1"> </span><span class="s2">class</span><span class="s3">=</span><span class="s6">"text-sm font-semibold text-slate-400"</span><span class="s3">&gt;</span><span class="s1">No reviews found matching your filter.</span><span class="s3">&lt;/</span><span class="s4">p</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">      </span></span><span class="s3">&lt;/</span><span class="s4">div</span><span class="s3">&gt;</span></p>
-<p class="p3"><span class="s5"><span class="Apple-converted-space">    </span></span><span class="s3">&lt;/</span><span class="s1">section</span><span class="s3">&gt;</span></p>
-<p class="p8"><span class="s10"></span><br></p>
-<p class="p3"><span class="s5"><span class="Apple-converted-space">  </span></span><span class="s3">&lt;/</span><span class="s1">main</span><span class="s3">&gt;</span></p>
-<p class="p8"><span class="s10"></span><br></p>
-<p class="p6"><span class="s5"><span class="Apple-converted-space">  </span></span><span class="s1">&lt;!-- FOOTER --&gt;</span></p>
-<p class="p2"><span class="s5"><span class="Apple-converted-space">  </span></span><span class="s3">&lt;</span><span class="s4">footer</span><span class="s5"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"w-full bg-[#030712] border-t border-cyan-500/10 py-6 px-6 md:px-12 text-slate-500 text-xs"</span><span class="s3">&gt;</span></p>
-<p class="p2"><span class="s5"><span class="Apple-converted-space">    </span></span><span class="s3">&lt;</span><span class="s4">div</span><span class="s5"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4 text-center"</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">      </span></span><span class="s3">&lt;</span><span class="s4">p</span><span class="s3">&gt;</span><span class="s1">© 2026 STREAM⚡VERSE. All rights reserved.</span><span class="s3">&lt;/</span><span class="s4">p</span><span class="s3">&gt;</span></p>
-<p class="p2"><span class="s5"><span class="Apple-converted-space">      </span></span><span class="s3">&lt;</span><span class="s4">div</span><span class="s5"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"flex items-center gap-6 font-medium"</span><span class="s3">&gt;</span></p>
-<p class="p2"><span class="s5"><span class="Apple-converted-space">        </span></span><span class="s3">&lt;</span><span class="s4">a</span><span class="s5"> </span><span class="s2">href</span><span class="s3">=</span><span class="s1">"#"</span><span class="s5"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"hover:text-cyan-400 transition-colors"</span><span class="s3">&gt;</span><span class="s5">About</span><span class="s3">&lt;/</span><span class="s4">a</span><span class="s3">&gt;</span></p>
-<p class="p2"><span class="s5"><span class="Apple-converted-space">        </span></span><span class="s3">&lt;</span><span class="s4">a</span><span class="s5"> </span><span class="s2">href</span><span class="s3">=</span><span class="s1">"#"</span><span class="s5"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"hover:text-cyan-400 transition-colors"</span><span class="s3">&gt;</span><span class="s5">Contact</span><span class="s3">&lt;/</span><span class="s4">a</span><span class="s3">&gt;</span></p>
-<p class="p2"><span class="s5"><span class="Apple-converted-space">        </span></span><span class="s3">&lt;</span><span class="s4">a</span><span class="s5"> </span><span class="s2">href</span><span class="s3">=</span><span class="s1">"#"</span><span class="s5"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"hover:text-cyan-400 transition-colors"</span><span class="s3">&gt;</span><span class="s5">API</span><span class="s3">&lt;/</span><span class="s4">a</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">      </span></span><span class="s3">&lt;/</span><span class="s4">div</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">    </span></span><span class="s3">&lt;/</span><span class="s4">div</span><span class="s3">&gt;</span></p>
-<p class="p3"><span class="s5"><span class="Apple-converted-space">  </span></span><span class="s3">&lt;/</span><span class="s1">footer</span><span class="s3">&gt;</span></p>
-<p class="p8"><span class="s10"></span><br></p>
-<p class="p6"><span class="s5"><span class="Apple-converted-space">  </span></span><span class="s1">&lt;!-- REVIEW MODAL --&gt;</span></p>
-<p class="p2"><span class="s5"><span class="Apple-converted-space">  </span></span><span class="s3">&lt;</span><span class="s4">div</span><span class="s5"> </span><span class="s2">id</span><span class="s3">=</span><span class="s1">"reviewModal"</span><span class="s5"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"fixed inset-0 z-50 bg-slate-950/80 backdrop-blur-md hidden flex items-center justify-center p-4"</span><span class="s3">&gt;</span></p>
-<p class="p2"><span class="s5"><span class="Apple-converted-space">    </span></span><span class="s3">&lt;</span><span class="s4">div</span><span class="s5"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"bg-slate-900 border border-cyan-500/20 rounded-2xl max-w-lg w-full p-6 relative shadow-2xl"</span><span class="s3">&gt;</span></p>
-<p class="p2"><span class="s5"><span class="Apple-converted-space">      </span></span><span class="s3">&lt;</span><span class="s4">button</span><span class="s5"> </span><span class="s2">onclick</span><span class="s3">=</span><span class="s1">"closeReviewModal()"</span><span class="s5"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"absolute top-4 right-4 text-slate-400 hover:text-white text-lg"</span><span class="s3">&gt;</span></p>
-<p class="p2"><span class="s5"><span class="Apple-converted-space">        </span></span><span class="s3">&lt;</span><span class="s4">i</span><span class="s5"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"fa-solid fa-xmark"</span><span class="s3">&gt;&lt;/</span><span class="s4">i</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">      </span></span><span class="s3">&lt;/</span><span class="s4">button</span><span class="s3">&gt;</span></p>
-<p class="p2"><span class="s5"><span class="Apple-converted-space">      </span></span><span class="s3">&lt;</span><span class="s4">div</span><span class="s5"> </span><span class="s2">id</span><span class="s3">=</span><span class="s1">"modalContent"</span><span class="s3">&gt;&lt;/</span><span class="s4">div</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">    </span></span><span class="s3">&lt;/</span><span class="s4">div</span><span class="s3">&gt;</span></p>
-<p class="p3"><span class="s5"><span class="Apple-converted-space">  </span></span><span class="s3">&lt;/</span><span class="s1">div</span><span class="s3">&gt;</span></p>
-<p class="p8"><span class="s10"></span><br></p>
-<p class="p3"><span class="s5"><span class="Apple-converted-space">  </span></span><span class="s3">&lt;</span><span class="s1">script</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">    </span></span><span class="s6">const</span><span class="s1"> reviews = [</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">      </span>{</span></p>
-<p class="p7"><span class="s5"><span class="Apple-converted-space">        </span>id: </span><span class="s1">"jeevan-bheema-yojana"</span><span class="s5">,</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">        </span>type: </span><span class="s7">"movies"</span><span class="s1">,</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">        </span>typeLabel: </span><span class="s7">"Movie"</span><span class="s1">,</span></p>
-<p class="p7"><span class="s5"><span class="Apple-converted-space">        </span>title: </span><span class="s1">"Jeevan Bheema Yojana"</span><span class="s5">,</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">        </span>year: </span><span class="s8">2026</span><span class="s1">,</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">        </span>rating: </span><span class="s8">4.2</span><span class="s1">,</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">        </span>platform: </span><span class="s7">"Netflix"</span><span class="s1">,</span></p>
-<p class="p7"><span class="s5"><span class="Apple-converted-space">        </span>platformBadgeClass: </span><span class="s1">"bg-red-500/10 text-red-400 border-red-500/30"</span><span class="s5">,</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">        </span>platformIcon: </span><span class="s7">"fa-play-circle"</span><span class="s1">,</span></p>
-<p class="p7"><span class="s5"><span class="Apple-converted-space">        </span>phrase: </span><span class="s1">"A witty, unpredictable satire with standout performances."</span><span class="s5">,</span></p>
-<p class="p7"><span class="s5"><span class="Apple-converted-space">        </span>poster: </span><span class="s1">"https://images.unsplash.com/photo-1517604931442-7e0c8ed2963c?auto=format&amp;fit=crop&amp;w=1200&amp;q=80"</span><span class="s5">,</span></p>
-<p class="p7"><span class="s5"><span class="Apple-converted-space">        </span>reviewText: </span><span class="s1">"Jeevan Bheema Yojana shines with clever comedic timing and a grounded emotional core."</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">      </span>},</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">      </span>{</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">        </span>id: </span><span class="s7">"whalefall"</span><span class="s1">,</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">        </span>type: </span><span class="s7">"movies"</span><span class="s1">,</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">        </span>typeLabel: </span><span class="s7">"Movie"</span><span class="s1">,</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">        </span>title: </span><span class="s7">"Whalefall"</span><span class="s1">,</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">        </span>year: </span><span class="s8">2026</span><span class="s1">,</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">        </span>rating: </span><span class="s8">4.0</span><span class="s1">,</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">        </span>platform: </span><span class="s7">"Prime Video"</span><span class="s1">,</span></p>
-<p class="p7"><span class="s5"><span class="Apple-converted-space">        </span>platformBadgeClass: </span><span class="s1">"bg-sky-500/10 text-sky-400 border-sky-500/30"</span><span class="s5">,</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">        </span>platformIcon: </span><span class="s7">"fa-circle-play"</span><span class="s1">,</span></p>
-<p class="p7"><span class="s5"><span class="Apple-converted-space">        </span>phrase: </span><span class="s1">"A gripping, atmospheric high-stakes survival thrill ride."</span><span class="s5">,</span></p>
-<p class="p7"><span class="s5"><span class="Apple-converted-space">        </span>poster: </span><span class="s1">"https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&amp;fit=crop&amp;w=1200&amp;q=80"</span><span class="s5">,</span></p>
-<p class="p7"><span class="s5"><span class="Apple-converted-space">        </span>reviewText: </span><span class="s1">"Whalefall takes a wild premise and executes it with shocking technical precision."</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">      </span>},</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">      </span>{</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">        </span>id: </span><span class="s7">"sacrifices"</span><span class="s1">,</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">        </span>type: </span><span class="s7">"series"</span><span class="s1">,</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">        </span>typeLabel: </span><span class="s7">"Series"</span><span class="s1">,</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">        </span>title: </span><span class="s7">"Sacrifices"</span><span class="s1">,</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">        </span>year: </span><span class="s8">2026</span><span class="s1">,</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">        </span>rating: </span><span class="s8">3.8</span><span class="s1">,</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">        </span>platform: </span><span class="s7">"SonyLIV"</span><span class="s1">,</span></p>
-<p class="p7"><span class="s5"><span class="Apple-converted-space">        </span>platformBadgeClass: </span><span class="s1">"bg-purple-500/10 text-purple-400 border-purple-500/30"</span><span class="s5">,</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">        </span>platformIcon: </span><span class="s7">"fa-tv"</span><span class="s1">,</span></p>
-<p class="p7"><span class="s5"><span class="Apple-converted-space">        </span>phrase: </span><span class="s1">"A poignant, slow-burn masterpiece that will move you."</span><span class="s5">,</span></p>
-<p class="p7"><span class="s5"><span class="Apple-converted-space">        </span>poster: </span><span class="s1">"https://images.unsplash.com/photo-1485846234645-a62644f84728?auto=format&amp;fit=crop&amp;w=1200&amp;q=80"</span><span class="s5">,</span></p>
-<p class="p7"><span class="s5"><span class="Apple-converted-space">        </span>reviewText: </span><span class="s1">"Sacrifices explores complex character dynamics through gorgeous cinematography and haunting original music."</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">      </span>}</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">    </span>];</span></p>
-<p class="p8"><span class="s10"></span><br></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">    </span></span><span class="s6">let</span><span class="s1"> currentHeroIndex = </span><span class="s8">0</span><span class="s1">;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">    </span></span><span class="s6">let</span><span class="s1"> activeCategory = </span><span class="s7">'all'</span><span class="s1">;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">    </span></span><span class="s6">let</span><span class="s1"> searchQuery = </span><span class="s7">''</span><span class="s1">;</span></p>
-<p class="p8"><span class="s10"></span><br></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">    </span>window.onload = </span><span class="s6">function</span><span class="s1"> () {</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">      </span>renderHeroSlide(currentHeroIndex);</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">      </span>renderGrid();</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">    </span>};</span></p>
-<p class="p8"><span class="s10"></span><br></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">    </span></span><span class="s6">function</span><span class="s1"> renderHeroSlide(index) {</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">      </span></span><span class="s6">const</span><span class="s1"> heroData = {</span></p>
-<p class="p7"><span class="s5"><span class="Apple-converted-space">        </span>title: </span><span class="s1">"INSPECTOR ZENDE"</span><span class="s5">,</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">        </span>year: </span><span class="s8">2025</span><span class="s1">,</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">        </span>rating: </span><span class="s7">"4.5"</span><span class="s1">,</span></p>
-<p class="p7"><span class="s5"><span class="Apple-converted-space">        </span>phrase: </span><span class="s1">"A tense, razor-sharp edge-of-your-seat thrill ride that subverts every crime drama expectation."</span><span class="s5">,</span></p>
-<p class="p7"><span class="s5"><span class="Apple-converted-space">        </span>poster: </span><span class="s1">"https://images.unsplash.com/photo-1536440136628-849c177e76a1?auto=format&amp;fit=crop&amp;w=1200&amp;q=80"</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">      </span>};</span></p>
-<p class="p8"><span class="s10"></span><br></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">      </span>document.getElementById(</span><span class="s7">'heroPoster'</span><span class="s1">).src = heroData.poster;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">      </span>document.getElementById(</span><span class="s7">'heroTitle'</span><span class="s1">).innerText = heroData.title;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">      </span>document.getElementById(</span><span class="s7">'heroYear'</span><span class="s1">).innerText = heroData.year;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">      </span>document.getElementById(</span><span class="s7">'heroRating'</span><span class="s1">).innerText = </span><span class="s7">`</span><span class="s12">⭐</span><span class="s7"> </span><span class="s1">${heroData.rating}</span><span class="s7"> / 5`</span><span class="s1">;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">      </span>document.getElementById(</span><span class="s7">'heroPitch'</span><span class="s1">).innerText = </span><span class="s7">`"</span><span class="s1">${heroData.phrase}</span><span class="s7">"`</span><span class="s1">;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">    </span>}</span></p>
-<p class="p8"><span class="s10"></span><br></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">    </span></span><span class="s6">function</span><span class="s1"> nextHero() {</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">      </span>currentHeroIndex = (currentHeroIndex + </span><span class="s8">1</span><span class="s1">) % reviews.length;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">      </span>renderHeroSlide(currentHeroIndex);</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">    </span>}</span></p>
-<p class="p8"><span class="s10"></span><br></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">    </span></span><span class="s6">function</span><span class="s1"> prevHero() {</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">      </span>currentHeroIndex = (currentHeroIndex - </span><span class="s8">1</span><span class="s1"> + reviews.length) % reviews.length;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">      </span>renderHeroSlide(currentHeroIndex);</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">    </span>}</span></p>
-<p class="p8"><span class="s10"></span><br></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">    </span></span><span class="s6">function</span><span class="s1"> renderGrid() {</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">      </span></span><span class="s6">const</span><span class="s1"> grid = document.getElementById(</span><span class="s7">'reviewsGrid'</span><span class="s1">);</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">      </span>grid.innerHTML = </span><span class="s7">''</span><span class="s1">;</span></p>
-<p class="p8"><span class="s10"></span><br></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">      </span></span><span class="s6">const</span><span class="s1"> filtered = reviews.filter(item =&gt; {</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">        </span></span><span class="s6">const</span><span class="s1"> matchesCat = activeCategory === </span><span class="s7">'all'</span><span class="s1"> || item.type === activeCategory;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">        </span></span><span class="s6">const</span><span class="s1"> matchesSearch = item.title.toLowerCase().includes(searchQuery.toLowerCase());</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">        </span></span><span class="s6">return</span><span class="s1"> matchesCat &amp;&amp; matchesSearch;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">      </span>});</span></p>
-<p class="p8"><span class="s10"></span><br></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">      </span>filtered.forEach(item =&gt; {</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">        </span></span><span class="s6">const</span><span class="s1"> card = document.createElement(</span><span class="s7">'div'</span><span class="s1">);</span></p>
-<p class="p7"><span class="s5"><span class="Apple-converted-space">        </span>card.className = </span><span class="s1">"neon-border bg-slate-900/80 rounded-2xl overflow-hidden shadow-lg flex flex-col justify-between group transition-all duration-300"</span><span class="s5">;</span></p>
-<p class="p8"><span class="s10"></span><br></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">        </span>card.innerHTML = </span><span class="s7">`</span></p>
-<p class="p7"><span class="s1"><span class="Apple-converted-space">          </span>&lt;div&gt;</span></p>
-<p class="p7"><span class="s1"><span class="Apple-converted-space">            </span>&lt;!-- CINEMATIC 16:9 HORIZONTAL IMAGE CONTAINER --&gt;</span></p>
-<p class="p7"><span class="s1"><span class="Apple-converted-space">            </span>&lt;div class="relative w-full aspect-video overflow-hidden bg-slate-950"&gt;</span></p>
-<p class="p7"><span class="s1"><span class="Apple-converted-space">              </span>&lt;img src="</span><span class="s5">${item.poster}</span><span class="s1">" alt="</span><span class="s5">${item.title}</span><span class="s1">" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"&gt;</span></p>
-<p class="p7"><span class="s1"><span class="Apple-converted-space">              </span>&lt;span class="absolute top-2.5 left-2.5 bg-slate-950/80 backdrop-blur-md text-cyan-400 border border-cyan-500/30 text-[10px] font-bold uppercase tracking-wider px-2.5 py-0.5 rounded-md"&gt;</span></p>
-<p class="p5"><span class="s7"><span class="Apple-converted-space">                </span></span><span class="s1">${item.typeLabel}</span></p>
-<p class="p7"><span class="s1"><span class="Apple-converted-space">              </span>&lt;/span&gt;</span></p>
-<p class="p7"><span class="s1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</span></p>
-<p class="p8"><span class="s10"></span><br></p>
-<p class="p7"><span class="s1"><span class="Apple-converted-space">            </span>&lt;div class="p-5 flex flex-col space-y-3"&gt;</span></p>
-<p class="p7"><span class="s1"><span class="Apple-converted-space">              </span>&lt;!-- FULL MOVIE TITLE --&gt;</span></p>
-<p class="p7"><span class="s1"><span class="Apple-converted-space">              </span>&lt;h3 class="text-base font-bold text-white group-hover:text-cyan-400 transition-colors leading-snug whitespace-normal"&gt;</span></p>
-<p class="p7"><span class="s1"><span class="Apple-converted-space">                </span></span><span class="s5">${item.title}</span></p>
-<p class="p7"><span class="s1"><span class="Apple-converted-space">              </span>&lt;/h3&gt;</span></p>
-<p class="p8"><span class="s10"></span><br></p>
-<p class="p7"><span class="s1"><span class="Apple-converted-space">              </span>&lt;!-- STAR RATING --&gt;</span></p>
-<p class="p7"><span class="s1"><span class="Apple-converted-space">              </span>&lt;div class="flex items-center gap-1.5 text-xs text-amber-400 font-bold"&gt;</span></p>
-<p class="p7"><span class="s1"><span class="Apple-converted-space">                </span>&lt;i class="fa-solid fa-star"&gt;&lt;/i&gt;</span></p>
-<p class="p7"><span class="s1"><span class="Apple-converted-space">                </span>&lt;span class="text-slate-200"&gt;</span><span class="s13">⭐</span><span class="s1"> </span><span class="s5">${item.rating}</span><span class="s1"> / 5&lt;/span&gt;</span></p>
-<p class="p7"><span class="s1"><span class="Apple-converted-space">              </span>&lt;/div&gt;</span></p>
-<p class="p8"><span class="s10"></span><br></p>
-<p class="p7"><span class="s1"><span class="Apple-converted-space">              </span>&lt;!-- STREAMING ON BADGE --&gt;</span></p>
-<p class="p7"><span class="s1"><span class="Apple-converted-space">              </span>&lt;div class="flex items-center gap-1.5 text-xs text-slate-400"&gt;</span></p>
-<p class="p7"><span class="s1"><span class="Apple-converted-space">                </span>&lt;span&gt;Streaming on&lt;/span&gt;</span></p>
-<p class="p7"><span class="s1"><span class="Apple-converted-space">                </span>&lt;span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded border text-[11px] font-bold </span><span class="s5">${item.platformBadgeClass}</span><span class="s1">"&gt;</span></p>
-<p class="p7"><span class="s1"><span class="Apple-converted-space">                  </span>&lt;i class="fa-solid </span><span class="s5">${item.platformIcon}</span><span class="s1"> text-[10px]"&gt;&lt;/i&gt;</span></p>
-<p class="p7"><span class="s1"><span class="Apple-converted-space">                  </span></span><span class="s5">${item.platform}</span></p>
-<p class="p7"><span class="s1"><span class="Apple-converted-space">                </span>&lt;/span&gt;</span></p>
-<p class="p7"><span class="s1"><span class="Apple-converted-space">              </span>&lt;/div&gt;</span></p>
-<p class="p8"><span class="s10"></span><br></p>
-<p class="p7"><span class="s1"><span class="Apple-converted-space">              </span>&lt;!-- 1-LINE PITCH PHRASE --&gt;</span></p>
-<p class="p7"><span class="s1"><span class="Apple-converted-space">              </span>&lt;p class="text-xs text-slate-300 italic leading-relaxed bg-slate-950/60 p-2.5 rounded-lg border border-slate-800"&gt;</span></p>
-<p class="p7"><span class="s1"><span class="Apple-converted-space">                </span>"</span><span class="s5">${item.phrase}</span><span class="s1">"</span></p>
-<p class="p7"><span class="s1"><span class="Apple-converted-space">              </span>&lt;/p&gt;</span></p>
-<p class="p7"><span class="s1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</span></p>
-<p class="p7"><span class="s1"><span class="Apple-converted-space">          </span>&lt;/div&gt;</span></p>
-<p class="p8"><span class="s10"></span><br></p>
-<p class="p7"><span class="s1"><span class="Apple-converted-space">          </span>&lt;div class="p-5 pt-0"&gt;</span></p>
-<p class="p7"><span class="s1"><span class="Apple-converted-space">            </span>&lt;button onclick="openModalForId('</span><span class="s5">${item.id}</span><span class="s1">')" class="w-full py-2.5 bg-slate-800 hover:bg-cyan-400 hover:text-slate-950 text-slate-300 font-bold text-xs rounded-xl transition-all border border-slate-700 flex items-center justify-center gap-2"&gt;</span></p>
-<p class="p7"><span class="s1"><span class="Apple-converted-space">              </span>&lt;span&gt;Read Full Review&lt;/span&gt;</span></p>
-<p class="p7"><span class="s1"><span class="Apple-converted-space">              </span>&lt;i class="fa-solid fa-arrow-right text-[10px]"&gt;&lt;/i&gt;</span></p>
-<p class="p7"><span class="s1"><span class="Apple-converted-space">            </span>&lt;/button&gt;</span></p>
-<p class="p7"><span class="s1"><span class="Apple-converted-space">          </span>&lt;/div&gt;</span></p>
-<p class="p7"><span class="s1"><span class="Apple-converted-space">        </span>`</span><span class="s5">;</span></p>
-<p class="p8"><span class="s10"></span><br></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">        </span>grid.appendChild(card);</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">      </span>});</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">    </span>}</span></p>
-<p class="p8"><span class="s10"></span><br></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">    </span></span><span class="s6">function</span><span class="s1"> filterCategory(cat) {</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">      </span>activeCategory = cat;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">      </span>renderGrid();</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">    </span>}</span></p>
-<p class="p8"><span class="s10"></span><br></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">    </span></span><span class="s6">function</span><span class="s1"> handleSearch() {</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">      </span>searchQuery = document.getElementById(</span><span class="s7">'searchInput'</span><span class="s1">).value;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">      </span>renderGrid();</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">    </span>}</span></p>
-<p class="p8"><span class="s10"></span><br></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">    </span></span><span class="s6">function</span><span class="s1"> openReviewModal() {</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">      </span>openModalForId(reviews[currentHeroIndex].id);</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">    </span>}</span></p>
-<p class="p8"><span class="s10"></span><br></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">    </span></span><span class="s6">function</span><span class="s1"> openModalForId(id) {</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">      </span></span><span class="s6">const</span><span class="s1"> item = reviews.find(r =&gt; r.id === id);</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">      </span></span><span class="s6">if</span><span class="s1"> (!item) </span><span class="s6">return</span><span class="s1">;</span></p>
-<p class="p8"><span class="s10"></span><br></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">      </span>document.getElementById(</span><span class="s7">'modalContent'</span><span class="s1">).innerHTML = </span><span class="s7">`</span></p>
-<p class="p7"><span class="s1"><span class="Apple-converted-space">        </span>&lt;h2 class="text-xl font-bold text-white mb-1"&gt;</span><span class="s5">${item.title}</span><span class="s1">&lt;/h2&gt;</span></p>
-<p class="p7"><span class="s1"><span class="Apple-converted-space">        </span>&lt;p class="text-xs text-slate-400 mb-3"&gt;Directed by </span><span class="s5">${item.director}</span><span class="s1"> (</span><span class="s5">${item.year}</span><span class="s1">)&lt;/p&gt;</span></p>
-<p class="p7"><span class="s1"><span class="Apple-converted-space">        </span>&lt;p class="text-xs text-amber-400 font-bold mb-3"&gt;</span><span class="s13">⭐</span><span class="s1"> </span><span class="s5">${item.rating}</span><span class="s1"> / 5&lt;/p&gt;</span></p>
-<p class="p7"><span class="s1"><span class="Apple-converted-space">        </span>&lt;p class="text-xs text-slate-300 italic mb-4"&gt;"</span><span class="s5">${item.phrase}</span><span class="s1">"&lt;/p&gt;</span></p>
-<p class="p7"><span class="s1"><span class="Apple-converted-space">        </span>&lt;p class="text-xs text-slate-400 leading-relaxed"&gt;</span><span class="s5">${item.reviewText}</span><span class="s1">&lt;/p&gt;</span></p>
-<p class="p7"><span class="s1"><span class="Apple-converted-space">      </span>`</span><span class="s5">;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">      </span>document.getElementById(</span><span class="s7">'reviewModal'</span><span class="s1">).classList.remove(</span><span class="s7">'hidden'</span><span class="s1">);</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">    </span>}</span></p>
-<p class="p8"><span class="s10"></span><br></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">    </span></span><span class="s6">function</span><span class="s1"> closeReviewModal() {</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">      </span>document.getElementById(</span><span class="s7">'reviewModal'</span><span class="s1">).classList.add(</span><span class="s7">'hidden'</span><span class="s1">);</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">    </span>}</span></p>
-<p class="p8"><span class="s10"></span><br></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">    </span></span><span class="s6">function</span><span class="s1"> toggleWatchlist() {</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">      </span></span><span class="s6">const</span><span class="s1"> btn = document.getElementById(</span><span class="s7">'watchlistBtn'</span><span class="s1">);</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">      </span>btn.innerText = btn.innerText.includes(</span><span class="s7">'In Watchlist'</span><span class="s1">) ? </span><span class="s7">'+ Add to Watchlist'</span><span class="s1"> : </span><span class="s7">'✓ In Watchlist'</span><span class="s1">;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">    </span>}</span></p>
-<p class="p3"><span class="s5"><span class="Apple-converted-space">  </span></span><span class="s3">&lt;/</span><span class="s1">script</span><span class="s3">&gt;</span></p>
-<p class="p3"><span class="s3">&lt;/</span><span class="s1">body</span><span class="s3">&gt;</span></p>
-<p class="p3"><span class="s3">&lt;/</span><span class="s1">html</span><span class="s3">&gt;</span></p>
+<body class="h-full bg-slate-950 text-slate-100 font-sans antialiased selection:bg-brand-cyan selection:text-slate-950 flex flex-col min-h-screen">
+
+    <!-- Top Navigation -->
+    <header class="sticky top-0 z-50 bg-slate-950/80 backdrop-blur-md border-b border-slate-800/80">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <a href="#" onclick="switchView('landing')" class="flex items-center gap-3 group">
+                <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-cyan-500 to-brand-neon flex items-center justify-center shadow-lg shadow-cyan-500/20 group-hover:scale-105 transition-transform">
+                    <i class="fa-solid fa-bolt text-slate-950 text-xl font-black"></i>
+                </div>
+                <div class="flex flex-col">
+                    <span class="font-syne font-extrabold text-2xl tracking-wider text-white">STREAM<span class="text-brand-cyan">⚡</span>VERSE</span>
+                    <span class="text-[10px] tracking-widest text-slate-400 uppercase font-semibold">Cinematic Intelligence</span>
+                </div>
+            </a>
+            
+            <div class="flex items-center gap-4">
+                <div class="relative hidden sm:block">
+                    <span class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-slate-400">
+                        <i class="fa-solid fa-search text-xs"></i>
+                    </span>
+                    <input type="text" id="searchInput" oninput="filterMovies()" placeholder="Search movies, reviews..." class="bg-slate-900 border border-slate-800 text-slate-200 text-sm rounded-full pl-9 pr-4 py-2 focus:outline-none focus:border-brand-cyan transition-colors w-64 placeholder:text-slate-500">
+                </div>
+                <button class="bg-brand-cyan hover:bg-cyan-400 text-slate-950 px-5 py-2.5 rounded-full font-bold text-sm transition-all shadow-lg shadow-cyan-500/25 flex items-center gap-2">
+                    <i class="fa-solid fa-fire text-xs"></i> Trending
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content Area -->
+    <main class="flex-grow" id="mainContainer">
+        
+        <!-- ================= LANDING VIEW ================= -->
+        <div id="landingView" class="space-y-12 pb-16">
+            
+            <!-- Hero Showcase Scroller -->
+            <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8">
+                <div class="relative rounded-3xl overflow-hidden border border-slate-800 bg-slate-900 group">
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/40 to-transparent z-10"></div>
+                    <img src="https://images.unsplash.com/photo-1536440136628-849c177e76a1?auto=format&fit=crop&q=80&w=1600" alt="Hero Background" class="w-full h-[420px] sm:h-[480px] object-cover object-center group-hover:scale-105 transition-transform duration-700">
+                    
+                    <div class="absolute bottom-0 left-0 right-0 p-6 sm:p-10 z-20 flex flex-col sm:flex-row sm:items-end justify-between gap-6">
+                        <div class="space-y-3 max-w-2xl">
+                            <div class="flex items-center gap-3">
+                                <span class="bg-brand-cyan/20 border border-brand-cyan/40 text-brand-neon text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider backdrop-blur-md">Trending Review</span>
+                                <span class="text-slate-300 text-xs font-semibold flex items-center gap-1.5"><i class="fa-solid fa-calendar-days text-brand-cyan"></i> Oct 2026</span>
+                            </div>
+                            <h1 class="font-syne font-extrabold text-3xl sm:text-5xl text-white tracking-tight leading-tight">Inspector Zende</h1>
+                            <p class="text-slate-300 text-sm sm:text-base line-clamp-2">A masterclass in gritty urban procedural tension and obsessive investigative pursuit across Mumbai's neon alleyways.</p>
+                        </div>
+                        <button onclick="openReview('inspector-zende')" class="bg-white hover:bg-slate-200 text-slate-950 px-6 py-3.5 rounded-2xl font-extrabold text-sm transition-all shadow-xl flex items-center justify-center gap-3 shrink-0">
+                            <i class="fa-solid fa-play text-brand-cyan"></i> Read Deep Dive
+                        </button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Review Grid Section -->
+            <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex items-center justify-between mb-8 border-b border-slate-800/80 pb-4">
+                    <div>
+                        <h2 class="font-syne font-bold text-2xl sm:text-3xl text-white tracking-tight">Latest Reviews</h2>
+                        <p class="text-slate-400 text-xs sm:text-sm mt-1">Curated breakdowns of modern Indian cinema and streaming series</p>
+                    </div>
+                    <div class="text-xs font-bold text-brand-cyan uppercase tracking-wider bg-slate-900 border border-slate-800 px-4 py-2 rounded-xl">
+                        3 Items Listed
+                    </div>
+                </div>
+
+                <!-- 3 Thumbnail Row Grid -->
+                <div id="moviesGrid" class="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
+                    
+                    <!-- Card 1: Inspector Zende -->
+                    <div onclick="openReview('inspector-zende')" class="group bg-slate-900 rounded-3xl border border-slate-800/80 overflow-hidden hover:border-brand-cyan/50 transition-all duration-300 cursor-pointer flex flex-col shadow-xl">
+                        <div class="relative aspect-video overflow-hidden bg-slate-950">
+                            <img src="https://images.unsplash.com/photo-1536440136628-849c177e76a1?auto=format&fit=crop&q=80&w=800" alt="Inspector Zende" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                            <div class="absolute top-3 right-3 bg-slate-950/80 backdrop-blur-md border border-slate-800 px-3 py-1.5 rounded-xl text-xs font-extrabold text-amber-400 flex items-center gap-1.5 shadow-lg">
+                                ⭐ 4.5/5
+                            </div>
+                            <div class="absolute bottom-3 left-3 bg-slate-950/80 backdrop-blur-md border border-slate-800 px-3 py-1 rounded-lg text-[11px] font-bold text-slate-200">
+                                Streaming on Netflix
+                            </div>
+                        </div>
+                        <div class="p-6 flex flex-col flex-grow justify-between space-y-4">
+                            <div>
+                                <div class="flex items-center gap-2 text-xs font-semibold text-brand-cyan mb-2">
+                                    <span>Crime / Procedural</span>
+                                    <span>•</span>
+                                    <span>2025</span>
+                                </div>
+                                <h3 class="font-syne font-bold text-xl text-white group-hover:text-brand-neon transition-colors leading-snug">Inspector Zende</h3>
+                                <p class="text-slate-400 text-xs mt-2 line-clamp-2">An unyielding hunt across Bombay's nocturnal underbelly that redefines investigative pacing.</p>
+                            </div>
+                            <div class="pt-4 border-t border-slate-800/80 flex items-center justify-between text-xs font-bold text-slate-300">
+                                <span class="flex items-center gap-1.5"><i class="fa-regular fa-clock text-brand-cyan"></i> 142 min</span>
+                                <span class="text-brand-cyan group-hover:translate-x-1 transition-transform flex items-center gap-1">Full Review <i class="fa-solid fa-arrow-right text-[10px]"></i></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 2: Jeevan Bheema Yojana -->
+                    <div onclick="openReview('jeevan-bheema-yojana')" class="group bg-slate-900 rounded-3xl border border-slate-800/80 overflow-hidden hover:border-brand-cyan/50 transition-all duration-300 cursor-pointer flex flex-col shadow-xl">
+                        <div class="relative aspect-video overflow-hidden bg-slate-950">
+                            <img src="https://images.unsplash.com/photo-1485846234645-a62644f84728?auto=format&fit=crop&q=80&w=800" alt="Jeevan Bheema Yojana" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                            <div class="absolute top-3 right-3 bg-slate-950/80 backdrop-blur-md border border-slate-800 px-3 py-1.5 rounded-xl text-xs font-extrabold text-amber-400 flex items-center gap-1.5 shadow-lg">
+                                ⭐ 4.2/5
+                            </div>
+                            <div class="absolute bottom-3 left-3 bg-slate-950/80 backdrop-blur-md border border-slate-800 px-3 py-1 rounded-lg text-[11px] font-bold text-slate-200">
+                                Streaming on Disney+ Hotstar
+                            </div>
+                        </div>
+                        <div class="p-6 flex flex-col flex-grow justify-between space-y-4">
+                            <div>
+                                <div class="flex items-center gap-2 text-xs font-semibold text-brand-cyan mb-2">
+                                    <span>Satire / Drama</span>
+                                    <span>•</span>
+                                    <span>2026</span>
+                                </div>
+                                <h3 class="font-syne font-bold text-xl text-white group-hover:text-brand-neon transition-colors leading-snug">Jeevan Bheema Yojana</h3>
+                                <p class="text-slate-400 text-xs mt-2 line-clamp-2">A razor-sharp bureaucratic comedy examining middle-class aspirations and insurance loopholes.</p>
+                            </div>
+                            <div class="pt-4 border-t border-slate-800/80 flex items-center justify-between text-xs font-bold text-slate-300">
+                                <span class="flex items-center gap-1.5"><i class="fa-regular fa-clock text-brand-cyan"></i> 130 min</span>
+                                <span class="text-brand-cyan group-hover:translate-x-1 transition-transform flex items-center gap-1">Full Review <i class="fa-solid fa-arrow-right text-[10px]"></i></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 3: Whalefall -->
+                    <div onclick="openReview('whalefall')" class="group bg-slate-900 rounded-3xl border border-slate-800/80 overflow-hidden hover:border-brand-cyan/50 transition-all duration-300 cursor-pointer flex flex-col shadow-xl">
+                        <div class="relative aspect-video overflow-hidden bg-slate-950">
+                            <img src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&q=80&w=800" alt="Whalefall" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                            <div class="absolute top-3 right-3 bg-slate-950/80 backdrop-blur-md border border-slate-800 px-3 py-1.5 rounded-xl text-xs font-extrabold text-amber-400 flex items-center gap-1.5 shadow-lg">
+                                ⭐ 4.0/5
+                            </div>
+                            <div class="absolute bottom-3 left-3 bg-slate-950/80 backdrop-blur-md border border-slate-800 px-3 py-1 rounded-lg text-[11px] font-bold text-slate-200">
+                                Streaming on Prime Video
+                            </div>
+                        </div>
+                        <div class="p-6 flex flex-col flex-grow justify-between space-y-4">
+                            <div>
+                                <div class="flex items-center gap-2 text-xs font-semibold text-brand-cyan mb-2">
+                                    <span>Sci-Fi / Thriller</span>
+                                    <span>•</span>
+                                    <span>2026</span>
+                                </div>
+                                <h3 class="font-syne font-bold text-xl text-white group-hover:text-brand-neon transition-colors leading-snug">Whalefall</h3>
+                                <p class="text-slate-400 text-xs mt-2 line-clamp-2">An atmospheric deep-sea survival thriller exploring isolation and abyss pressures.</p>
+                            </div>
+                            <div class="pt-4 border-t border-slate-800/80 flex items-center justify-between text-xs font-bold text-slate-300">
+                                <span class="flex items-center gap-1.5"><i class="fa-regular fa-clock text-brand-cyan"></i> 118 min</span>
+                                <span class="text-brand-cyan group-hover:translate-x-1 transition-transform flex items-center gap-1">Full Review <i class="fa-solid fa-arrow-right text-[10px]"></i></span>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+        </div>
+
+
+        <!-- ================= REVIEW DETAIL VIEW (Hidden by default) ================= -->
+        <div id="reviewView" class="hidden max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-10 space-y-8">
+            
+            <!-- Navigation Back & Platform Badge -->
+            <div class="flex items-center justify-between">
+                <button onclick="switchView('landing')" class="inline-flex items-center gap-2 text-xs font-bold text-slate-400 hover:text-brand-cyan transition-colors bg-slate-900 border border-slate-800 px-4 py-2 rounded-xl">
+                    <i class="fa-solid fa-arrow-left"></i> Back to All Reviews
+                </button>
+                <div id="reviewPlatformBadge" class="bg-brand-cyan/10 border border-brand-cyan/30 text-brand-neon text-xs font-bold px-4 py-2 rounded-xl">
+                    Streaming on Netflix
+                </div>
+            </div>
+
+            <!-- YouTube Video Embed (16:9) -->
+            <div class="relative w-full aspect-video rounded-3xl overflow-hidden border border-slate-800 bg-slate-900 shadow-2xl">
+                <iframe id="reviewYoutubeEmbed" class="w-full h-full" src="" title="Movie Trailer / Review Clip" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+            </div>
+
+            <!-- Movie Header Info & Main Image -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-start bg-slate-900/60 border border-slate-800/80 rounded-3xl p-6 sm:p-8 backdrop-blur-sm">
+                <div class="md:col-span-1">
+                    <img id="reviewPoster" src="" alt="Movie Poster" class="w-full aspect-[2/3] object-cover rounded-2xl border border-slate-800 shadow-lg">
+                </div>
+                <div class="md:col-span-2 space-y-4">
+                    <div class="flex items-center gap-3 text-xs font-bold text-brand-cyan">
+                        <span id="reviewGenre">Crime / Procedural</span>
+                        <span>•</span>
+                        <span id="reviewYear">2025</span>
+                    </div>
+                    <h1 id="reviewTitle" class="font-syne font-extrabold text-3xl sm:text-4xl text-white tracking-tight">Inspector Zende</h1>
+                    
+                    <div class="flex items-center gap-4 pt-2">
+                        <div class="bg-amber-400/10 border border-amber-400/30 px-4 py-2 rounded-2xl flex items-center gap-2">
+                            <span class="text-amber-400 font-extrabold text-lg" id="reviewRatingScore">⭐ 4.5/5</span>
+                        </div>
+                        <div class="text-xs text-slate-400">
+                            <p class="font-semibold text-slate-200">Critical Verdict</p>
+                            <p id="reviewSubtitle">Exceptional investigative pacing & gritty realism</p>
+                        </div>
+                    </div>
+
+                    <div class="pt-4 border-t border-slate-800 text-sm text-slate-300 leading-relaxed" id="reviewSummaryText">
+                        A masterclass in gritty urban procedural tension and obsessive investigative pursuit across Mumbai's neon alleyways.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Written Review Content Breakdown -->
+            <div class="bg-slate-900 border border-slate-800/80 rounded-3xl p-6 sm:p-10 space-y-6 text-slate-300 text-base leading-relaxed shadow-xl">
+                <h3 class="font-syne font-bold text-2xl text-white border-b border-slate-800 pb-4">Detailed Breakdown</h3>
+                
+                <div id="reviewBodyContent" class="space-y-4">
+                    <!-- Populated dynamically via JS -->
+                </div>
+            </div>
+
+        </div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="border-t border-slate-800/80 bg-slate-950 mt-20 py-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left">
+            <div class="flex items-center gap-3">
+                <div class="w-8 h-8 rounded-lg bg-brand-cyan flex items-center justify-center text-slate-950 font-black">
+                    <i class="fa-solid fa-bolt text-sm"></i>
+                </div>
+                <span class="font-syne font-bold text-lg text-white">STREAM<span class="text-brand-cyan">⚡</span>VERSE</span>
+            </div>
+            <p class="text-xs text-slate-400">© 2026 StreamVerse Platforms. All cinematic rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript Data & Router -->
+    <script>
+        const reviewData = {
+            "inspector-zende": {
+                title: "Inspector Zende",
+                genre: "Crime / Procedural",
+                year: "2025",
+                rating: "⭐ 4.5/5",
+                platform: "Streaming on Netflix",
+                subtitle: "Exceptional investigative pacing & gritty realism",
+                summary: "An unyielding hunt across Bombay's nocturnal underbelly that redefines investigative pacing and atmospheric tension.",
+                poster: "https://images.unsplash.com/photo-1536440136628-849c177e76a1?auto=format&fit=crop&q=80&w=800",
+                youtube: "https://www.youtube.com/embed/dQw4w9WgXcQ", // Replace with actual trailer embed ID
+                body: `
+                    <p>Inspector Zende cuts through the usual tropes of Indian police procedurals by anchoring its narrative in quiet, meticulous procedural work rather than over-the-top action spectacles. Set against the claustrophobic corridors and neon-lit arterial roads of Bombay, the film captures a rare sense of geographic and temporal authenticity.</p>
+                    <h4 class="font-syne font-bold text-xl text-white pt-4">Performances & Direction</h4>
+                    <p>The lead performance relies heavily on micro-expressions and observational weight. Every interrogation scene feels like a tense chess match where silence speaks louder than bombastic dialogue. The direction avoids glossy filters in favor of gritty, high-contrast framing that underscores the moral ambiguity of urban policing.</p>
+                    <h4 class="font-syne font-bold text-xl text-white pt-4">Final Verdict</h4>
+                    <p>A triumphant return to grounded, intelligent crime thrillers on streaming. Essential viewing for fans of methodical detective work.</p>
+                `
+            },
+            "jeevan-bheema-yojana": {
+                title: "Jeevan Bheema Yojana",
+                genre: "Satire / Drama",
+                year: "2026",
+                rating: "⭐ 4.2/5",
+                platform: "Streaming on Disney+ Hotstar",
+                subtitle: "A razor-sharp bureaucratic comedy",
+                summary: "A razor-sharp bureaucratic comedy examining middle-class aspirations, family dynamics, and insurance loopholes.",
+                poster: "https://images.unsplash.com/photo-1485846234645-a62644f84728?auto=format&fit=crop&q=80&w=800",
+                youtube: "https://www.youtube.com/embed/dQw4w9WgXcQ",
+                body: `
+                    <p>Jeevan Bheema Yojana finds humor in the most mundane corners of middle-class existence: insurance claims, policy paperwork, and generational financial anxiety. The script balances witty deadpan dialogue with genuine emotional stakes.</p>
+                    <h4 class="font-syne font-bold text-xl text-white pt-4">Writing & Tone</h4>
+                    <p>What sets this apart from standard comedies is its commitment to character absurdity without losing touch with reality. The ensemble cast delivers impeccable comedic timing, turning routine office visits into high-stakes dramatic showdowns.</p>
+                    <h4 class="font-syne font-bold text-xl text-white pt-4">Final Verdict</h4>
+                    <p>Smart, heartfelt, and consistently entertaining. A refreshing satirical comedy.</p>
+                `
+            },
+            "whalefall": {
+                title: "Whalefall",
+                genre: "Sci-Fi / Thriller",
+                year: "2026",
+                rating: "⭐ 4.0/5",
+                platform: "Streaming on Prime Video",
+                subtitle: "Atmospheric deep-sea survival thriller",
+                summary: "An atmospheric deep-sea survival thriller exploring isolation, abyssal pressures, and human endurance.",
+                poster: "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&q=80&w=800",
+                youtube: "https://www.youtube.com/embed/dQw4w9WgXcQ",
+                body: `
+                    <p>Whalefall dives deep into the abyss, crafting a claustrophobic survival narrative that tests the absolute limits of psychological endurance under extreme oceanic pressure.</p>
+                    <h4 class="font-syne font-bold text-xl text-white pt-4">Visuals & Sound Design</h4>
+                    <p>The sound design is the true star here—every creak of the hull and rumble of the deep ocean floor reverberates through the speakers, building unbearable tension.</p>
+                    <h4 class="font-syne font-bold text-xl text-white pt-4">Final Verdict</h4>
+                    <p>A gripping, tightly paced thriller that keeps you breathless from start to finish.</p>
+                `
+            }
+        };
+
+        function switchView(viewName) {
+            const landing = document.getElementById('landingView');
+            const review = document.getElementById('reviewView');
+            
+            if (viewName === 'landing') {
+                review.classList.add('hidden');
+                landing.classList.remove('hidden');
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+        }
+
+        function openReview(movieId) {
+            const data = reviewData[movieId];
+            if (!data) return;
+
+            document.getElementById('reviewTitle').innerText = data.title;
+            document.getElementById('reviewGenre').innerText = data.genre;
+            document.getElementById('reviewYear').innerText = data.year;
+            document.getElementById('reviewRatingScore').innerText = data.rating;
+            document.getElementById('reviewPlatformBadge').innerText = data.platform;
+            document.getElementById('reviewSubtitle').innerText = data.subtitle;
+            document.getElementById('reviewSummaryText').innerText = data.summary;
+            document.getElementById('reviewPoster').src = data.poster;
+            document.getElementById('reviewYoutubeEmbed').src = data.youtube;
+            document.getElementById('reviewBodyContent').innerHTML = data.body;
+
+            document.getElementById('landingView').classList.add('hidden');
+            document.getElementById('reviewView').classList.remove('hidden');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function filterMovies() {
+            const query = document.getElementById('searchInput').value.toLowerCase();
+            const grid = document.getElementById('moviesGrid');
+            const cards = grid.getElementsByClassName('group');
+
+            for (let card of cards) {
+                const text = card.innerText.toLowerCase();
+                if (text.includes(query)) {
+                    card.style.display = "";
+                } else {
+                    card.style.display = "none";
+                }
+            }
+        }
+    </script>
 </body>
 </html>
