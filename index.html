@@ -33,6 +33,7 @@
 </head>
 <body class="h-full bg-slate-950 text-slate-100 font-sans antialiased flex flex-col min-h-screen">
 
+    <!-- Header Navigation -->
     <header class="sticky top-0 z-50 bg-slate-950/80 backdrop-blur-md border-b border-slate-800/80">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
             <a href="#" onclick="switchView('landing')" class="flex items-center gap-3 group">
@@ -46,20 +47,22 @@
             </a>
             
             <div class="flex items-center gap-4">
-                <button onclick="switchView('landing')" class="text-slate-300 hover:text-brand-cyan text-sm font-bold px-3 py-2">
+                <button onclick="switchView('landing')" class="text-slate-300 hover:text-brand-cyan text-sm font-bold px-3 py-2 transition-colors">
                     <i class="fa-solid fa-film mr-1"></i> Reviews
                 </button>
-                <button onclick="switchView('admin')" class="bg-brand-cyan/10 border border-brand-cyan/40 hover:bg-brand-cyan hover:text-slate-950 text-brand-neon px-4 py-2 rounded-full text-xs font-bold transition-all flex items-center gap-2">
+                <button onclick="switchView('admin')" class="bg-brand-cyan/10 border border-brand-cyan/40 hover:bg-brand-cyan hover:text-slate-950 text-brand-neon px-4 py-2 rounded-full text-xs font-bold transition-all flex items-center gap-2 shadow-lg shadow-cyan-500/10">
                     <i class="fa-solid fa-plus-circle"></i> Admin Studio
                 </button>
             </div>
         </div>
     </header>
 
+    <!-- Main Container Area -->
     <main class="flex-grow max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full py-8">
         
-        <!-- LANDING VIEW -->
+        <!-- ================= LANDING PAGE ================= -->
         <div id="landingView" class="space-y-12">
+            <!-- Hero Spotlight Section -->
             <div id="heroSection" class="relative rounded-3xl overflow-hidden border border-slate-800/80 bg-slate-900/40 shadow-2xl">
                 <div class="grid grid-cols-1 lg:grid-cols-12">
                     <div class="lg:col-span-7 p-8 lg:p-12 flex flex-col justify-between space-y-6">
@@ -72,7 +75,7 @@
                             <p id="heroSummary" class="text-slate-300 text-sm sm:text-base leading-relaxed line-clamp-3"></p>
                         </div>
                         <div class="pt-4 border-t border-slate-800/80">
-                            <button id="heroBtn" onclick="" class="bg-gradient-to-r from-brand-cyan to-brand-neon text-slate-950 font-extrabold px-6 py-3 rounded-2xl hover:opacity-90 transition-all flex items-center gap-2 text-sm shadow-lg shadow-cyan-500/20">
+                            <button id="heroBtn" onclick="" class="bg-gradient-to-r from-brand-cyan to-brand-neon text-slate-950 font-extrabold px-6 py-3 rounded-2xl hover:opacity-90 transition-all flex items-center gap-2 text-sm shadow-lg shadow-cyan-500/20 cursor-pointer">
                                 Read Full Review <i class="fa-solid fa-arrow-right"></i>
                             </button>
                         </div>
@@ -92,43 +95,48 @@
                 </div>
             </div>
 
+            <!-- Review Cards Grid -->
             <div id="moviesGrid" class="grid grid-cols-1 md:grid-cols-3 gap-8"></div>
         </div>
 
-        <!-- REVIEW DETAIL VIEW -->
+        <!-- ================= INSIDE REVIEW DETAIL PAGE ================= -->
         <div id="reviewView" class="hidden max-w-4xl mx-auto space-y-8">
-            <button onclick="switchView('landing')" class="inline-flex items-center gap-2 text-xs font-bold text-slate-400 hover:text-brand-cyan bg-slate-900 border border-slate-800 px-4 py-2 rounded-xl">
+            <button onclick="switchView('landing')" class="inline-flex items-center gap-2 text-xs font-bold text-slate-300 hover:text-brand-cyan bg-slate-900 border border-slate-800 px-4 py-2.5 rounded-xl transition-colors cursor-pointer">
                 <i class="fa-solid fa-arrow-left"></i> Back to Reviews
             </button>
 
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 bg-slate-900/60 border border-slate-800 rounded-3xl p-8 backdrop-blur-sm">
+            <!-- Movie Top Info Box -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 bg-slate-900/60 border border-slate-800 rounded-3xl p-8 backdrop-blur-sm shadow-xl">
                 <div class="md:col-span-1">
                     <img id="reviewPoster" src="" alt="Movie Poster" class="w-full aspect-[2/3] object-cover rounded-2xl border border-slate-800 shadow-lg">
                 </div>
-                <div class="md:col-span-2 space-y-4">
-                    <div class="flex items-center gap-3 text-xs font-bold text-brand-cyan">
+                <div class="md:col-span-2 space-y-4 flex flex-col justify-center">
+                    <div class="flex items-center gap-3 text-xs font-extrabold text-brand-cyan uppercase tracking-wider">
                         <span id="reviewGenre"></span> • <span id="reviewYear"></span>
                     </div>
-                    <h1 id="reviewTitle" class="font-syne font-extrabold text-4xl text-white"></h1>
-                    <div class="text-amber-400 font-extrabold text-lg" id="reviewRatingScore"></div>
-                    <p id="reviewSubtitle" class="text-slate-300 font-medium text-sm"></p>
-                    <p id="reviewSummaryText" class="text-slate-400 text-sm pt-2 border-t border-slate-800"></p>
+                    <h1 id="reviewTitle" class="font-syne font-extrabold text-3xl sm:text-4xl text-white leading-tight"></h1>
+                    <div class="text-amber-400 font-extrabold text-lg inline-block bg-slate-950/60 border border-slate-800 px-3 py-1 rounded-xl w-fit" id="reviewRatingScore"></div>
+                    <p id="reviewSubtitle" class="text-slate-200 font-semibold text-base italic"></p>
+                    <p id="reviewSummaryText" class="text-slate-400 text-sm pt-4 border-t border-slate-800/80 leading-relaxed"></p>
                 </div>
             </div>
 
-            <div class="bg-slate-900 border border-slate-800 rounded-3xl p-8 space-y-6 text-slate-300 leading-relaxed">
-                <h3 class="font-syne font-bold text-2xl text-white border-b border-slate-800 pb-4">Full Critique</h3>
-                <div id="reviewBodyContent" class="space-y-4"></div>
+            <!-- Full Review Critique Body -->
+            <div class="bg-slate-900 border border-slate-800 rounded-3xl p-8 sm:p-10 space-y-6 text-slate-300 leading-relaxed shadow-xl">
+                <h3 class="font-syne font-bold text-2xl text-white border-b border-slate-800 pb-4 flex items-center gap-3">
+                    <i class="fa-solid fa-feather-pointed text-brand-cyan"></i> Full Critique
+                </h3>
+                <div id="reviewBodyContent" class="space-y-6 text-base text-slate-300"></div>
             </div>
         </div>
 
-        <!-- ADMIN DASHBOARD -->
-        <div id="adminView" class="hidden max-w-3xl mx-auto bg-slate-900 border border-slate-800 rounded-3xl p-8 space-y-6">
+        <!-- ================= ADMIN STUDIO FORM ================= -->
+        <div id="adminView" class="hidden max-w-3xl mx-auto bg-slate-900 border border-slate-800 rounded-3xl p-8 sm:p-10 space-y-6 shadow-2xl">
             <div class="border-b border-slate-800 pb-4">
                 <h2 class="font-syne font-bold text-2xl text-white flex items-center gap-3">
                     <i class="fa-solid fa-pen-nib text-brand-cyan"></i> Publish New Film Review
                 </h2>
-                <p class="text-slate-400 text-xs mt-1">Fill out the form below to add a new review directly to your platform.</p>
+                <p class="text-slate-400 text-xs mt-1">Fill out the form below to instantly add a new review to your site.</p>
             </div>
 
             <form id="reviewForm" onsubmit="handleFormSubmit(event)" class="space-y-5">
@@ -165,7 +173,7 @@
 
                 <div>
                     <label class="block text-xs font-bold text-slate-300 uppercase tracking-wider mb-2">Short Summary</label>
-                    <textarea id="formSummary" rows="2" placeholder="Brief summary..." required class="w-full bg-slate-950 border border-slate-800 rounded-xl p-4 text-sm text-white focus:outline-none focus:border-brand-cyan"></textarea>
+                    <textarea id="formSummary" rows="2" placeholder="Brief summary for card display..." required class="w-full bg-slate-950 border border-slate-800 rounded-xl p-4 text-sm text-white focus:outline-none focus:border-brand-cyan"></textarea>
                 </div>
 
                 <div>
@@ -173,7 +181,7 @@
                     <textarea id="formBody" rows="6" placeholder="Write full review text here..." required class="w-full bg-slate-950 border border-slate-800 rounded-xl p-4 text-sm text-white focus:outline-none focus:border-brand-cyan"></textarea>
                 </div>
 
-                <button type="submit" class="w-full bg-brand-cyan hover:bg-cyan-400 text-slate-950 font-extrabold py-4 rounded-xl transition-all shadow-lg shadow-cyan-500/20 text-base">
+                <button type="submit" class="w-full bg-brand-cyan hover:bg-cyan-400 text-slate-950 font-extrabold py-4 rounded-xl transition-all shadow-lg shadow-cyan-500/20 text-base cursor-pointer">
                     🚀 Publish Review Instantly
                 </button>
             </form>
@@ -181,6 +189,7 @@
 
     </main>
 
+    <!-- JavaScript Engine -->
     <script>
         const defaultReviews = {
             "wicker": {
@@ -191,7 +200,7 @@
                 subtitle: "An eccentric, beautifully acted tale of loneliness and custom craft",
                 summary: "Olivia Colman shines in this delightfully strange and moving comedy about a fisherwoman who commissions a husband made entirely of wicker.",
                 poster: "https://images.unsplash.com/photo-1536440136628-849c177e76a1?auto=format&fit=crop&q=80&w=800",
-                body: "In Wicker, Olivia Colman delivers another masterful, deeply human performance. Playing a quiet fisherwoman on the margins of a conservative village, her life takes a surreal turn when she decides to commission a local basket maker to weave her a husband out of wicker."
+                body: "In <em>Wicker</em>, Olivia Colman delivers another masterful, deeply human performance. Playing a quiet fisherwoman on the margins of a conservative village, her life takes a surreal turn when she decides to commission a local basket maker to weave her a husband out of wicker.<br><br>What could have easily been an absurd gimmick is grounded entirely by Colman's vulnerability and emotional range. The film balances sharp dark humor with genuinely tender commentary on social rejection and self-worth."
             },
             "inspector-zende": {
                 title: "Inspector Zende",
@@ -201,12 +210,12 @@
                 subtitle: "A hilarious and sharp cat-and-mouse game",
                 summary: "Manoj Bajpayee drives this razor-sharp crime comedy with fantastic comic timing and sharp dialogue execution.",
                 poster: "https://images.unsplash.com/photo-1485846234645-a62644f84728?auto=format&fit=crop&q=80&w=800",
-                body: "Inspector Zende balances sharp witty banter with tight narrative execution. The performance by the lead cast gives this comedy thriller pure kinetic energy."
+                body: "Inspector Zende balances sharp witty banter with tight narrative execution. The performance by the lead cast gives this comedy thriller pure kinetic energy and non-stop entertainment."
             }
         };
 
         function getStoredReviews() {
-            const saved = localStorage.getItem('streamverse_reviews_v2');
+            const saved = localStorage.getItem('streamverse_reviews_v3');
             return saved ? JSON.parse(saved) : defaultReviews;
         }
 
@@ -215,6 +224,7 @@
             const keys = Object.keys(reviews);
             if (keys.length === 0) return;
 
+            // Hero Spotlight
             const heroKey = keys[0];
             const hero = reviews[heroKey];
             document.getElementById('heroTitle').innerText = hero.title || '';
@@ -224,6 +234,7 @@
             document.getElementById('heroRating').innerText = hero.rating || '';
             document.getElementById('heroBtn').setAttribute('onclick', `openReview('${heroKey}')`);
 
+            // All Review Cards Grid
             const grid = document.getElementById('moviesGrid');
             grid.innerHTML = '';
 
@@ -284,7 +295,7 @@
             document.getElementById('reviewSubtitle').innerText = data.subtitle;
             document.getElementById('reviewSummaryText').innerText = data.summary;
             document.getElementById('reviewPoster').src = data.poster;
-            document.getElementById('reviewBodyContent').innerHTML = `<p>${data.body}</p>`;
+            document.getElementById('reviewBodyContent').innerHTML = data.body;
 
             document.getElementById('landingView').classList.add('hidden');
             document.getElementById('adminView').classList.add('hidden');
@@ -317,12 +328,12 @@
                 subtitle: document.getElementById('formSubtitle').value,
                 summary: document.getElementById('formSummary').value,
                 poster: posterData,
-                body: document.getElementById('formBody').value
+                body: document.getElementById('formBody').value.replace(/\n/g, '<br>')
             };
 
             const currentReviews = getStoredReviews();
             currentReviews[key] = newReview;
-            localStorage.setItem('streamverse_reviews_v2', JSON.stringify(currentReviews));
+            localStorage.setItem('streamverse_reviews_v3', JSON.stringify(currentReviews));
 
             alert('🎉 Review Published Successfully!');
             document.getElementById('reviewForm').reset();
