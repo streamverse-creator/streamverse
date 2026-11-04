@@ -71,16 +71,42 @@
         
         <!-- ================= LANDING VIEW ================= -->
         <div id="landingView" class="space-y-12">
+            <!-- Hero Featured Review -->
+            <div id="heroSection" class="relative rounded-3xl overflow-hidden border border-slate-800/80 bg-slate-900/40 shadow-2xl">
+                <div class="grid grid-cols-1 lg:grid-cols-12">
+                    <div class="lg:col-span-7 p-8 lg:p-12 flex flex-col justify-between space-y-6">
+                        <div class="space-y-4">
+                            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-cyan/10 border border-brand-cyan/30 text-brand-cyan text-xs font-extrabold uppercase tracking-wider">
+                                <i class="fa-solid fa-star text-amber-400"></i> Spotlight Premiere
+                            </div>
+                            <h1 id="heroTitle" class="font-syne font-extrabold text-3xl sm:text-4xl lg:text-5xl text-white tracking-tight leading-none"></h1>
+                            <p id="heroSubtitle" class="text-brand-neon text-sm sm:text-base font-semibold"></p>
+                            <p id="heroSummary" class="text-slate-300 text-sm sm:text-base leading-relaxed line-clamp-3"></p>
+                        </div>
+                        <div class="pt-4 border-t border-slate-800/80 flex items-center gap-4">
+                            <button id="heroBtn" onclick="" class="bg-gradient-to-r from-brand-cyan to-brand-neon text-slate-950 font-extrabold px-6 py-3 rounded-2xl hover:opacity-90 transition-all flex items-center gap-2 text-sm shadow-lg shadow-cyan-500/20">
+                                Read Full Review <i class="fa-solid fa-arrow-right"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="lg:col-span-5 relative min-h-[300px] lg:min-h-full overflow-hidden bg-slate-950">
+                        <img id="heroPoster" src="" alt="Featured Poster" class="w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent lg:bg-gradient-to-r lg:from-slate-950 lg:via-transparent lg:to-transparent"></div>
+                        <div id="heroRating" class="absolute top-4 right-4 bg-slate-950/80 backdrop-blur-md border border-slate-800 px-4 py-2 rounded-2xl text-sm font-extrabold text-amber-400 flex items-center gap-1.5 shadow-xl"></div>
+                    </div>
+                </div>
+            </div>
+
             <div class="flex items-center justify-between border-b border-slate-800 pb-4">
                 <div>
-                    <h2 class="font-syne font-bold text-3xl text-white tracking-tight">Published Reviews</h2>
+                    <h2 class="font-syne font-bold text-3xl text-white tracking-tight">All Reviews</h2>
                     <p class="text-slate-400 text-sm mt-1">Latest film critiques and cinematic analysis</p>
                 </div>
             </div>
 
             <!-- Dynamic Review Cards Grid -->
             <div id="moviesGrid" class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <!-- Cards will render here automatically -->
+                <!-- Cards render dynamically -->
             </div>
         </div>
 
@@ -107,191 +133,4 @@
 
             <div class="bg-slate-900 border border-slate-800 rounded-3xl p-8 space-y-6 text-slate-300 leading-relaxed">
                 <h3 class="font-syne font-bold text-2xl text-white border-b border-slate-800 pb-4">Full Critique</h3>
-                <div id="reviewBodyContent" class="space-y-4"></div>
-            </div>
-        </div>
-
-        <!-- ================= ADMIN DASHBOARD ================= -->
-        <div id="adminView" class="hidden max-w-3xl mx-auto bg-slate-900 border border-slate-800 rounded-3xl p-8 space-y-6">
-            <div class="border-b border-slate-800 pb-4">
-                <h2 class="font-syne font-bold text-2xl text-white flex items-center gap-3">
-                    <i class="fa-solid fa-pen-nib text-brand-cyan"></i> Publish New Film Review
-                </h2>
-                <p class="text-slate-400 text-xs mt-1">Fill out the fields below to publish a review straight onto your platform.</p>
-            </div>
-
-            <form id="reviewForm" onsubmit="handleFormSubmit(event)" class="space-y-5">
-                <div>
-                    <label class="block text-xs font-bold text-slate-300 uppercase tracking-wider mb-2">Movie Title</label>
-                    <input type="text" id="formTitle" placeholder="e.g. Wicker" required class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-brand-cyan">
-                </div>
-
-                <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
-                    <div>
-                        <label class="block text-xs font-bold text-slate-300 uppercase tracking-wider mb-2">Genre</label>
-                        <input type="text" id="formGenre" placeholder="e.g. Dark Comedy / Romance" required class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-brand-cyan">
-                    </div>
-                    <div>
-                        <label class="block text-xs font-bold text-slate-300 uppercase tracking-wider mb-2">Release Year</label>
-                        <input type="text" id="formYear" placeholder="2026" required class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-brand-cyan">
-                    </div>
-                    <div>
-                        <label class="block text-xs font-bold text-slate-300 uppercase tracking-wider mb-2">Rating</label>
-                        <input type="text" id="formRating" placeholder="⭐ 4.5/5" required class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-brand-cyan">
-                    </div>
-                </div>
-
-                <div>
-                    <label class="block text-xs font-bold text-slate-300 uppercase tracking-wider mb-2">Headline / Subtitle</label>
-                    <input type="text" id="formSubtitle" placeholder="e.g. Olivia Colman shines in an eccentric masterpiece" required class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-brand-cyan">
-                </div>
-
-                <div>
-                    <label class="block text-xs font-bold text-slate-300 uppercase tracking-wider mb-2">Movie Poster Image (Select file from your Mac)</label>
-                    <input type="file" id="formPosterFile" accept="image/*" onchange="convertImageToBase64()" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-2.5 text-xs text-slate-400 file:mr-4 file:py-2 file:px-4 file:rounded-lg file:border-0 file:text-xs file:font-bold file:bg-brand-cyan file:text-slate-950 cursor-pointer">
-                    <input type="hidden" id="formPosterData">
-                </div>
-
-                <div>
-                    <label class="block text-xs font-bold text-slate-300 uppercase tracking-wider mb-2">Short Summary</label>
-                    <textarea id="formSummary" rows="2" placeholder="Brief summary of the film..." required class="w-full bg-slate-950 border border-slate-800 rounded-xl p-4 text-sm text-white focus:outline-none focus:border-brand-cyan"></textarea>
-                </div>
-
-                <div>
-                    <label class="block text-xs font-bold text-slate-300 uppercase tracking-wider mb-2">Full Written Critique</label>
-                    <textarea id="formBody" rows="6" placeholder="Write your full review here..." required class="w-full bg-slate-950 border border-slate-800 rounded-xl p-4 text-sm text-white focus:outline-none focus:border-brand-cyan"></textarea>
-                </div>
-
-                <button type="submit" class="w-full bg-brand-cyan hover:bg-cyan-400 text-slate-950 font-extrabold py-4 rounded-xl transition-all shadow-lg shadow-cyan-500/20 text-base">
-                    🚀 Publish Review Instantly
-                </button>
-            </form>
-        </div>
-
-    </main>
-
-    <!-- Script Logic -->
-    <script>
-        const defaultReviews = {
-            "wicker": {
-                title: "Wicker",
-                genre: "Dark Comedy / Romance",
-                year: "2026",
-                rating: "⭐ 4.5/5",
-                subtitle: "An eccentric, beautifully acted tale of loneliness and custom craft",
-                summary: "Olivia Colman shines in this delightfully strange and moving comedy about a fisherwoman who commissions a husband made entirely of wicker.",
-                poster: "https://images.unsplash.com/photo-1536440136628-849c177e76a1?auto=format&fit=crop&q=80&w=800",
-                body: "In Wicker, Olivia Colman delivers another masterful, deeply human performance. Playing a quiet fisherwoman on the margins of a conservative village, her life takes a surreal turn when she decides to commission a local basket maker to weave her a husband out of wicker."
-            }
-        };
-
-        function getStoredReviews() {
-            const saved = localStorage.getItem('streamverse_reviews');
-            return saved ? JSON.parse(saved) : defaultReviews;
-        }
-
-        function renderGrid() {
-            const reviews = getStoredReviews();
-            const grid = document.getElementById('moviesGrid');
-            grid.innerHTML = '';
-
-            Object.keys(reviews).forEach(key => {
-                const item = reviews[key];
-                const card = `
-                    <div onclick="openReview('${key}')" class="group bg-slate-900 rounded-3xl border border-slate-800 overflow-hidden hover:border-brand-cyan/50 transition-all duration-300 cursor-pointer flex flex-col shadow-xl">
-                        <div class="relative aspect-video overflow-hidden bg-slate-950">
-                            <img src="${item.poster}" alt="${item.title}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-                            <div class="absolute top-3 right-3 bg-slate-950/80 border border-slate-800 px-3 py-1.5 rounded-xl text-xs font-extrabold text-amber-400">${item.rating}</div>
-                        </div>
-                        <div class="p-6 flex flex-col flex-grow justify-between space-y-4">
-                            <div>
-                                <div class="text-xs font-semibold text-brand-cyan mb-2">${item.genre} • ${item.year}</div>
-                                <h3 class="font-syne font-bold text-xl text-white group-hover:text-brand-neon transition-colors">${item.title}</h3>
-                                <p class="text-slate-400 text-xs mt-2 line-clamp-2">${item.summary}</p>
-                            </div>
-                            <div class="pt-4 border-t border-slate-800 flex items-center justify-between text-xs font-bold text-brand-cyan">
-                                <span>Read Review</span>
-                                <i class="fa-solid fa-arrow-right"></i>
-                            </div>
-                        </div>
-                    </div>
-                `;
-                grid.innerHTML += card;
-            });
-        }
-
-        function switchView(viewName) {
-            document.getElementById('landingView').classList.add('hidden');
-            document.getElementById('reviewView').classList.add('hidden');
-            document.getElementById('adminView').classList.add('hidden');
-
-            if (viewName === 'landing') {
-                renderGrid();
-                document.getElementById('landingView').classList.remove('hidden');
-            } else if (viewName === 'admin') {
-                document.getElementById('adminView').classList.remove('hidden');
-            }
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
-
-        function openReview(key) {
-            const reviews = getStoredReviews();
-            const data = reviews[key];
-            if (!data) return;
-
-            document.getElementById('reviewTitle').innerText = data.title;
-            document.getElementById('reviewGenre').innerText = data.genre;
-            document.getElementById('reviewYear').innerText = data.year;
-            document.getElementById('reviewRatingScore').innerText = data.rating;
-            document.getElementById('reviewSubtitle').innerText = data.subtitle;
-            document.getElementById('reviewSummaryText').innerText = data.summary;
-            document.getElementById('reviewPoster').src = data.poster;
-            document.getElementById('reviewBodyContent').innerHTML = `<p>${data.body}</p>`;
-
-            document.getElementById('landingView').classList.add('hidden');
-            document.getElementById('adminView').classList.add('hidden');
-            document.getElementById('reviewView').classList.remove('hidden');
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
-
-        function convertImageToBase64() {
-            const file = document.getElementById('formPosterFile').files[0];
-            if (file) {
-                const reader = new FileReader();
-                reader.onload = function(e) {
-                    document.getElementById('formPosterData').value = e.target.result;
-                };
-                reader.readAsDataURL(file);
-            }
-        }
-
-    function handleFormSubmit(e) {
-            e.preventDefault();
-            const title = document.getElementById('formTitle').value;
-            const key = title.toLowerCase().replace(/[^a-z0-9]/g, '-');
-            const posterData = document.getElementById('formPosterData').value || 'https://images.unsplash.com/photo-1536440136628-849c177e76a1?auto=format&fit=crop&q=80&w=800';
-
-            const newReview = {
-                title: title,
-                genre: document.getElementById('formGenre').value,
-                year: document.getElementById('formYear').value,
-                rating: document.getElementById('formRating').value,
-                subtitle: document.getElementById('formSubtitle').value,
-                summary: document.getElementById('formSummary').value,
-                poster: posterData,
-                body: document.getElementById('formBody').value
-            };
-
-            const currentReviews = getStoredReviews();
-            currentReviews[key] = newReview;
-            localStorage.setItem('streamverse_reviews', JSON.stringify(currentReviews));
-
-            alert('🎉 Review Published Successfully!');
-            document.getElementById('reviewForm').reset();
-            switchView('landing');
-        }
-
-        renderGrid();
-    </script>
-</body>
-</html>
+                <div id="reviewBodyContent" class
