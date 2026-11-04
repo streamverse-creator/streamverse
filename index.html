@@ -8,7 +8,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Google Fonts: Syne for futuristic display headers + Inter for clean body -->
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Syne:wght@700;800&display=swap" rel="stylesheet">
@@ -34,30 +34,19 @@
         }
     </script>
     <style>
-        /* Custom Scrollbar */
-        ::-webkit-scrollbar {
-            width: 6px;
-            height: 6px;
-        }
-        ::-webkit-scrollbar-track {
-            background: #030712;
-        }
-        ::-webkit-scrollbar-thumb {
-            background: #1e293b;
-            border-radius: 3px;
-        }
-        ::-webkit-scrollbar-thumb:hover {
-            background: #06B6D4;
-        }
+        ::-webkit-scrollbar { width: 6px; height: 6px; }
+        ::-webkit-scrollbar-track { background: #030712; }
+        ::-webkit-scrollbar-thumb { background: #1e293b; border-radius: 3px; }
+        ::-webkit-scrollbar-thumb:hover { background: #06B6D4; }
     </style>
 </head>
-<body class="h-full bg-slate-950 text-slate-100 font-sans antialiased selection:bg-brand-cyan selection:text-slate-950 flex flex-col min-h-screen">
+<body class="h-full bg-slate-950 text-slate-100 font-sans antialiased flex flex-col min-h-screen">
 
-    <!-- Top Navigation -->
+    <!-- Navigation Bar -->
     <header class="sticky top-0 z-50 bg-slate-950/80 backdrop-blur-md border-b border-slate-800/80">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
             <a href="#" onclick="switchView('landing')" class="flex items-center gap-3 group">
-                <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-cyan-500 to-brand-neon flex items-center justify-center shadow-lg shadow-cyan-500/20 group-hover:scale-105 transition-transform">
+                <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-cyan-500 to-brand-neon flex items-center justify-center shadow-lg shadow-cyan-500/20">
                     <i class="fa-solid fa-bolt text-slate-950 text-xl font-black"></i>
                 </div>
                 <div class="flex flex-col">
@@ -67,346 +56,244 @@
             </a>
             
             <div class="flex items-center gap-4">
-                <div class="relative hidden sm:block">
-                    <span class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-slate-400">
-                        <i class="fa-solid fa-search text-xs"></i>
-                    </span>
-                    <input type="text" id="searchInput" oninput="filterMovies()" placeholder="Search movies, reviews..." class="bg-slate-900 border border-slate-800 text-slate-200 text-sm rounded-full pl-9 pr-4 py-2 focus:outline-none focus:border-brand-cyan transition-colors w-64 placeholder:text-slate-500">
-                </div>
-                <button class="bg-brand-cyan hover:bg-cyan-400 text-slate-950 px-5 py-2.5 rounded-full font-bold text-sm transition-all shadow-lg shadow-cyan-500/25 flex items-center gap-2">
-                    <i class="fa-solid fa-fire text-xs"></i> Trending
+                <button onclick="switchView('landing')" class="text-slate-300 hover:text-brand-cyan text-sm font-bold px-3 py-2">
+                    <i class="fa-solid fa-film mr-1"></i> Reviews
+                </button>
+                <button onclick="switchView('admin')" class="bg-brand-cyan/10 border border-brand-cyan/40 hover:bg-brand-cyan hover:text-slate-950 text-brand-neon px-4 py-2 rounded-full text-xs font-bold transition-all flex items-center gap-2">
+                    <i class="fa-solid fa-plus-circle"></i> Admin Studio
                 </button>
             </div>
         </div>
     </header>
 
-    <!-- Main Content Area -->
-    <main class="flex-grow" id="mainContainer">
+    <!-- Main Container -->
+    <main class="flex-grow max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full py-8">
         
         <!-- ================= LANDING VIEW ================= -->
-        <div id="landingView" class="space-y-12 pb-16">
-            
-            <!-- Hero Showcase Scroller -->
-            <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8">
-                <div class="relative rounded-3xl overflow-hidden border border-slate-800 bg-slate-900 group">
-                    <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/40 to-transparent z-10"></div>
-                    <img src="https://images.unsplash.com/photo-1536440136628-849c177e76a1?auto=format&fit=crop&q=80&w=1600" alt="Hero Background" class="w-full h-[420px] sm:h-[480px] object-cover object-center group-hover:scale-105 transition-transform duration-700">
-                    
-                    <div class="absolute bottom-0 left-0 right-0 p-6 sm:p-10 z-20 flex flex-col sm:flex-row sm:items-end justify-between gap-6">
-                        <div class="space-y-3 max-w-2xl">
-                            <div class="flex items-center gap-3">
-                                <span class="bg-brand-cyan/20 border border-brand-cyan/40 text-brand-neon text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider backdrop-blur-md">Trending Review</span>
-                                <span class="text-slate-300 text-xs font-semibold flex items-center gap-1.5"><i class="fa-solid fa-calendar-days text-brand-cyan"></i> Oct 2026</span>
-                            </div>
-                            <h1 class="font-syne font-extrabold text-3xl sm:text-5xl text-white tracking-tight leading-tight">Inspector Zende</h1>
-                            <p class="text-slate-300 text-sm sm:text-base line-clamp-2">A masterclass in gritty urban procedural tension and obsessive investigative pursuit across Mumbai's neon alleyways.</p>
-                        </div>
-                        <button onclick="openReview('inspector-zende')" class="bg-white hover:bg-slate-200 text-slate-950 px-6 py-3.5 rounded-2xl font-extrabold text-sm transition-all shadow-xl flex items-center justify-center gap-3 shrink-0">
-                            <i class="fa-solid fa-play text-brand-cyan"></i> Read Deep Dive
-                        </button>
-                    </div>
+        <div id="landingView" class="space-y-12">
+            <div class="flex items-center justify-between border-b border-slate-800 pb-4">
+                <div>
+                    <h2 class="font-syne font-bold text-3xl text-white tracking-tight">Published Reviews</h2>
+                    <p class="text-slate-400 text-sm mt-1">Latest film critiques and cinematic analysis</p>
                 </div>
-            </section>
+            </div>
 
-            <!-- Review Grid Section -->
-            <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="flex items-center justify-between mb-8 border-b border-slate-800/80 pb-4">
-                    <div>
-                        <h2 class="font-syne font-bold text-2xl sm:text-3xl text-white tracking-tight">Latest Reviews</h2>
-                        <p class="text-slate-400 text-xs sm:text-sm mt-1">Curated breakdowns of modern Indian cinema and streaming series</p>
-                    </div>
-                    <div class="text-xs font-bold text-brand-cyan uppercase tracking-wider bg-slate-900 border border-slate-800 px-4 py-2 rounded-xl">
-                        3 Items Listed
-                    </div>
-                </div>
-
-                <!-- 3 Thumbnail Row Grid -->
-                <div id="moviesGrid" class="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
-                    
-                    <!-- Card 1: Inspector Zende -->
-                    <div onclick="openReview('inspector-zende')" class="group bg-slate-900 rounded-3xl border border-slate-800/80 overflow-hidden hover:border-brand-cyan/50 transition-all duration-300 cursor-pointer flex flex-col shadow-xl">
-                        <div class="relative aspect-video overflow-hidden bg-slate-950">
-                            <img src="https://images.unsplash.com/photo-1536440136628-849c177e76a1?auto=format&fit=crop&q=80&w=800" alt="Inspector Zende" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-                            <div class="absolute top-3 right-3 bg-slate-950/80 backdrop-blur-md border border-slate-800 px-3 py-1.5 rounded-xl text-xs font-extrabold text-amber-400 flex items-center gap-1.5 shadow-lg">
-                                ⭐ 4.5/5
-                            </div>
-                            <div class="absolute bottom-3 left-3 bg-slate-950/80 backdrop-blur-md border border-slate-800 px-3 py-1 rounded-lg text-[11px] font-bold text-slate-200">
-                                Streaming on Netflix
-                            </div>
-                        </div>
-                        <div class="p-6 flex flex-col flex-grow justify-between space-y-4">
-                            <div>
-                                <div class="flex items-center gap-2 text-xs font-semibold text-brand-cyan mb-2">
-                                    <span>Crime / Procedural</span>
-                                    <span>•</span>
-                                    <span>2025</span>
-                                </div>
-                                <h3 class="font-syne font-bold text-xl text-white group-hover:text-brand-neon transition-colors leading-snug">Inspector Zende</h3>
-                                <p class="text-slate-400 text-xs mt-2 line-clamp-2">An unyielding hunt across Bombay's nocturnal underbelly that redefines investigative pacing.</p>
-                            </div>
-                            <div class="pt-4 border-t border-slate-800/80 flex items-center justify-between text-xs font-bold text-slate-300">
-                                <span class="flex items-center gap-1.5"><i class="fa-regular fa-clock text-brand-cyan"></i> 142 min</span>
-                                <span class="text-brand-cyan group-hover:translate-x-1 transition-transform flex items-center gap-1">Full Review <i class="fa-solid fa-arrow-right text-[10px]"></i></span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Card 2: Jeevan Bheema Yojana -->
-                    <div onclick="openReview('jeevan-bheema-yojana')" class="group bg-slate-900 rounded-3xl border border-slate-800/80 overflow-hidden hover:border-brand-cyan/50 transition-all duration-300 cursor-pointer flex flex-col shadow-xl">
-                        <div class="relative aspect-video overflow-hidden bg-slate-950">
-                            <img src="https://images.unsplash.com/photo-1485846234645-a62644f84728?auto=format&fit=crop&q=80&w=800" alt="Jeevan Bheema Yojana" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-                            <div class="absolute top-3 right-3 bg-slate-950/80 backdrop-blur-md border border-slate-800 px-3 py-1.5 rounded-xl text-xs font-extrabold text-amber-400 flex items-center gap-1.5 shadow-lg">
-                                ⭐ 4.2/5
-                            </div>
-                            <div class="absolute bottom-3 left-3 bg-slate-950/80 backdrop-blur-md border border-slate-800 px-3 py-1 rounded-lg text-[11px] font-bold text-slate-200">
-                                Streaming on Disney+ Hotstar
-                            </div>
-                        </div>
-                        <div class="p-6 flex flex-col flex-grow justify-between space-y-4">
-                            <div>
-                                <div class="flex items-center gap-2 text-xs font-semibold text-brand-cyan mb-2">
-                                    <span>Satire / Drama</span>
-                                    <span>•</span>
-                                    <span>2026</span>
-                                </div>
-                                <h3 class="font-syne font-bold text-xl text-white group-hover:text-brand-neon transition-colors leading-snug">Jeevan Bheema Yojana</h3>
-                                <p class="text-slate-400 text-xs mt-2 line-clamp-2">A razor-sharp bureaucratic comedy examining middle-class aspirations and insurance loopholes.</p>
-                            </div>
-                            <div class="pt-4 border-t border-slate-800/80 flex items-center justify-between text-xs font-bold text-slate-300">
-                                <span class="flex items-center gap-1.5"><i class="fa-regular fa-clock text-brand-cyan"></i> 130 min</span>
-                                <span class="text-brand-cyan group-hover:translate-x-1 transition-transform flex items-center gap-1">Full Review <i class="fa-solid fa-arrow-right text-[10px]"></i></span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Card 3: Whalefall -->
-                    <div onclick="openReview('whalefall')" class="group bg-slate-900 rounded-3xl border border-slate-800/80 overflow-hidden hover:border-brand-cyan/50 transition-all duration-300 cursor-pointer flex flex-col shadow-xl">
-                        <div class="relative aspect-video overflow-hidden bg-slate-950">
-                            <img src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&q=80&w=800" alt="Whalefall" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-                            <div class="absolute top-3 right-3 bg-slate-950/80 backdrop-blur-md border border-slate-800 px-3 py-1.5 rounded-xl text-xs font-extrabold text-amber-400 flex items-center gap-1.5 shadow-lg">
-                                ⭐ 4.0/5
-                            </div>
-                            <div class="absolute bottom-3 left-3 bg-slate-950/80 backdrop-blur-md border border-slate-800 px-3 py-1 rounded-lg text-[11px] font-bold text-slate-200">
-                                Streaming on Prime Video
-                            </div>
-                        </div>
-                        <div class="p-6 flex flex-col flex-grow justify-between space-y-4">
-                            <div>
-                                <div class="flex items-center gap-2 text-xs font-semibold text-brand-cyan mb-2">
-                                    <span>Sci-Fi / Thriller</span>
-                                    <span>•</span>
-                                    <span>2026</span>
-                                </div>
-                                <h3 class="font-syne font-bold text-xl text-white group-hover:text-brand-neon transition-colors leading-snug">Whalefall</h3>
-                                <p class="text-slate-400 text-xs mt-2 line-clamp-2">An atmospheric deep-sea survival thriller exploring isolation and abyss pressures.</p>
-                            </div>
-                            <div class="pt-4 border-t border-slate-800/80 flex items-center justify-between text-xs font-bold text-slate-300">
-                                <span class="flex items-center gap-1.5"><i class="fa-regular fa-clock text-brand-cyan"></i> 118 min</span>
-                                <span class="text-brand-cyan group-hover:translate-x-1 transition-transform flex items-center gap-1">Full Review <i class="fa-solid fa-arrow-right text-[10px]"></i></span>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-            </section>
+            <!-- Dynamic Review Cards Grid -->
+            <div id="moviesGrid" class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Cards will render here automatically -->
+            </div>
         </div>
 
+        <!-- ================= REVIEW DETAIL VIEW ================= -->
+        <div id="reviewView" class="hidden max-w-4xl mx-auto space-y-8">
+            <button onclick="switchView('landing')" class="inline-flex items-center gap-2 text-xs font-bold text-slate-400 hover:text-brand-cyan bg-slate-900 border border-slate-800 px-4 py-2 rounded-xl">
+                <i class="fa-solid fa-arrow-left"></i> Back to Reviews
+            </button>
 
-        <!-- ================= REVIEW DETAIL VIEW (Hidden by default) ================= -->
-        <div id="reviewView" class="hidden max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-10 space-y-8">
-            
-            <!-- Navigation Back & Platform Badge -->
-            <div class="flex items-center justify-between">
-                <button onclick="switchView('landing')" class="inline-flex items-center gap-2 text-xs font-bold text-slate-400 hover:text-brand-cyan transition-colors bg-slate-900 border border-slate-800 px-4 py-2 rounded-xl">
-                    <i class="fa-solid fa-arrow-left"></i> Back to All Reviews
-                </button>
-                <div id="reviewPlatformBadge" class="bg-brand-cyan/10 border border-brand-cyan/30 text-brand-neon text-xs font-bold px-4 py-2 rounded-xl">
-                    Streaming on Netflix
-                </div>
-            </div>
-
-            <!-- YouTube Video Embed (16:9) -->
-            <div class="relative w-full aspect-video rounded-3xl overflow-hidden border border-slate-800 bg-slate-900 shadow-2xl">
-                <iframe id="reviewYoutubeEmbed" class="w-full h-full" src="" title="Movie Trailer / Review Clip" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-            </div>
-
-            <!-- Movie Header Info & Main Image -->
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-start bg-slate-900/60 border border-slate-800/80 rounded-3xl p-6 sm:p-8 backdrop-blur-sm">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 bg-slate-900/60 border border-slate-800 rounded-3xl p-8 backdrop-blur-sm">
                 <div class="md:col-span-1">
                     <img id="reviewPoster" src="" alt="Movie Poster" class="w-full aspect-[2/3] object-cover rounded-2xl border border-slate-800 shadow-lg">
                 </div>
                 <div class="md:col-span-2 space-y-4">
                     <div class="flex items-center gap-3 text-xs font-bold text-brand-cyan">
-                        <span id="reviewGenre">Crime / Procedural</span>
-                        <span>•</span>
-                        <span id="reviewYear">2025</span>
+                        <span id="reviewGenre"></span> • <span id="reviewYear"></span>
                     </div>
-                    <h1 id="reviewTitle" class="font-syne font-extrabold text-3xl sm:text-4xl text-white tracking-tight">Inspector Zende</h1>
-                    
-                    <div class="flex items-center gap-4 pt-2">
-                        <div class="bg-amber-400/10 border border-amber-400/30 px-4 py-2 rounded-2xl flex items-center gap-2">
-                            <span class="text-amber-400 font-extrabold text-lg" id="reviewRatingScore">⭐ 4.5/5</span>
-                        </div>
-                        <div class="text-xs text-slate-400">
-                            <p class="font-semibold text-slate-200">Critical Verdict</p>
-                            <p id="reviewSubtitle">Exceptional investigative pacing & gritty realism</p>
-                        </div>
-                    </div>
-
-                    <div class="pt-4 border-t border-slate-800 text-sm text-slate-300 leading-relaxed" id="reviewSummaryText">
-                        A masterclass in gritty urban procedural tension and obsessive investigative pursuit across Mumbai's neon alleyways.
-                    </div>
+                    <h1 id="reviewTitle" class="font-syne font-extrabold text-4xl text-white"></h1>
+                    <div class="text-amber-400 font-extrabold text-lg" id="reviewRatingScore"></div>
+                    <p id="reviewSubtitle" class="text-slate-300 font-medium text-sm"></p>
+                    <p id="reviewSummaryText" class="text-slate-400 text-sm pt-2 border-t border-slate-800"></p>
                 </div>
             </div>
 
-            <!-- Written Review Content Breakdown -->
-            <div class="bg-slate-900 border border-slate-800/80 rounded-3xl p-6 sm:p-10 space-y-6 text-slate-300 text-base leading-relaxed shadow-xl">
-                <h3 class="font-syne font-bold text-2xl text-white border-b border-slate-800 pb-4">Detailed Breakdown</h3>
-                
-                <div id="reviewBodyContent" class="space-y-4">
-                    <!-- Populated dynamically via JS -->
-                </div>
+            <div class="bg-slate-900 border border-slate-800 rounded-3xl p-8 space-y-6 text-slate-300 leading-relaxed">
+                <h3 class="font-syne font-bold text-2xl text-white border-b border-slate-800 pb-4">Full Critique</h3>
+                <div id="reviewBodyContent" class="space-y-4"></div>
+            </div>
+        </div>
+
+        <!-- ================= ADMIN DASHBOARD (Your Easy Publisher) ================= -->
+        <div id="adminView" class="hidden max-w-3xl mx-auto bg-slate-900 border border-slate-800 rounded-3xl p-8 space-y-6">
+            <div class="border-b border-slate-800 pb-4">
+                <h2 class="font-syne font-bold text-2xl text-white flex items-center gap-3">
+                    <i class="fa-solid fa-pen-nib text-brand-cyan"></i> Publish New Film Review
+                </h2>
+                <p class="text-slate-400 text-xs mt-1">Fill out the fields below to publish a review straight onto your platform.</p>
             </div>
 
+            <form id="reviewForm" onsubmit="handleFormSubmit(event)" class="space-y-5">
+                <div>
+                    <label class="block text-xs font-bold text-slate-300 uppercase tracking-wider mb-2">Movie Title</label>
+                    <input type="text" id="formTitle" placeholder="e.g. Wicker" required class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-brand-cyan">
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                    <div>
+                        <label class="block text-xs font-bold text-slate-300 uppercase tracking-wider mb-2">Genre</label>
+                        <input type="text" id="formGenre" placeholder="e.g. Comedy / Drama" required class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-brand-cyan">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold text-slate-300 uppercase tracking-wider mb-2">Release Year</label>
+                        <input type="text" id="formYear" placeholder="2026" required class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-brand-cyan">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold text-slate-300 uppercase tracking-wider mb-2">Rating</label>
+                        <input type="text" id="formRating" placeholder="⭐ 4.5/5" required class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-brand-cyan">
+                    </div>
+                </div>
+
+                <div>
+                    <label class="block text-xs font-bold text-slate-300 uppercase tracking-wider mb-2">Headline / Subtitle</label>
+                    <input type="text" id="formSubtitle" placeholder="e.g. Olivia Colman shines in an eccentric masterpiece" required class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-brand-cyan">
+                </div>
+
+                <div>
+                    <label class="block text-xs font-bold text-slate-300 uppercase tracking-wider mb-2">Movie Poster Image (Select file from your Mac)</label>
+                    <input type="file" id="formPosterFile" accept="image/*" onchange="convertImageToBase64()" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-2.5 text-xs text-slate-400 file:mr-4 file:py-2 file:px-4 file:rounded-lg file:border-0 file:text-xs file:font-bold file:bg-brand-cyan file:text-slate-950 cursor-pointer">
+                    <input type="hidden" id="formPosterData">
+                </div>
+
+                <div>
+                    <label class="block text-xs font-bold text-slate-300 uppercase tracking-wider mb-2">Short Summary</label>
+                    <textarea id="formSummary" rows="2" placeholder="Brief summary of the film..." required class="w-full bg-slate-950 border border-slate-800 rounded-xl p-4 text-sm text-white focus:outline-none focus:border-brand-cyan"></textarea>
+                </div>
+
+                <div>
+                    <label class="block text-xs font-bold text-slate-300 uppercase tracking-wider mb-2">Full Written Critique</label>
+                    <textarea id="formBody" rows="6" placeholder="Write your full review here..." required class="w-full bg-slate-950 border border-slate-800 rounded-xl p-4 text-sm text-white focus:outline-none focus:border-brand-cyan"></textarea>
+                </div>
+
+                <button type="submit" class="w-full bg-brand-cyan hover:bg-cyan-400 text-slate-950 font-extrabold py-4 rounded-xl transition-all shadow-lg shadow-cyan-500/20 text-base">
+                    🚀 Publish Review Instantly
+                </button>
+            </form>
         </div>
 
     </main>
 
-    <!-- Footer -->
-    <footer class="border-t border-slate-800/80 bg-slate-950 mt-20 py-10">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left">
-            <div class="flex items-center gap-3">
-                <div class="w-8 h-8 rounded-lg bg-brand-cyan flex items-center justify-center text-slate-950 font-black">
-                    <i class="fa-solid fa-bolt text-sm"></i>
-                </div>
-                <span class="font-syne font-bold text-lg text-white">STREAM<span class="text-brand-cyan">⚡</span>VERSE</span>
-            </div>
-            <p class="text-xs text-slate-400">© 2026 StreamVerse Platforms. All cinematic rights reserved.</p>
-        </div>
-    </footer>
-
-    <!-- JavaScript Data & Router -->
+    <!-- Script Logic -->
     <script>
-        const reviewData = {
+        // Initial reviews database
+        const defaultReviews = {
             "wicker": {
-            title: "Wicker",
-            genre: "Dark Comedy / Romance",
-            year: "2026",
-            rating: "⭐ 4.5/5",
-            platform: "In Theaters / Streaming Soon",
-            subtitle: "An eccentric, beautifully acted tale of loneliness and custom craft",
-            summary: "Olivia Colman shines in this delightfully strange and moving comedy about a fisherwoman who commissions a husband made entirely of wicker.",
-            poster: "https://images.unsplash.com/photo-1536440136628-849c177e76a1?auto=format&fit=crop&q=80&w=800",
-            youtube: "https://www.youtube.com/embed/dQw4w9WgXcQ",
-            body: `
-                <p>In <em>Wicker</em>, Olivia Colman delivers another masterful, deeply human performance. Playing a quiet, ostracized fisherwoman living on the margins of a conservative village, her life takes a surreal turn when she decides to commission a local basket maker to weave her a husband out of wicker.</p>
-                <h4 class="font-syne font-bold text-xl text-white pt-4">Performances & Quirky Charm</h4>
-                <p>What could have easily been an absurd gimmick is grounded entirely by Colman's vulnerability and emotional range. The film balances sharp dark humor with genuinely tender commentary on social rejection, self-worth, and the strange ways we seek companionship.</p>
-                <h4 class="font-syne font-bold text-xl text-white pt-4">Final Verdict</h4>
-                <p>Whimsical, eccentric, and wonderfully acted. A standout dark comedy that demonstrates Olivia Colman at the height of her craft.</p>
-            `
-        },
-            "inspector-zende": {
-                title: "Inspector Zende",
-                genre: "Crime / Procedural",
-                year: "2025",
+                title: "Wicker",
+                genre: "Dark Comedy / Romance",
+                year: "2026",
                 rating: "⭐ 4.5/5",
-                platform: "Streaming on Netflix",
-                subtitle: "Exceptional investigative pacing & gritty realism",
-                summary: "An unyielding hunt across Bombay's nocturnal underbelly that redefines investigative pacing and atmospheric tension.",
+                subtitle: "An eccentric, beautifully acted tale of loneliness and custom craft",
+                summary: "Olivia Colman shines in this delightfully strange and moving comedy about a fisherwoman who commissions a husband made entirely of wicker.",
                 poster: "https://images.unsplash.com/photo-1536440136628-849c177e76a1?auto=format&fit=crop&q=80&w=800",
-                youtube: "https://www.youtube.com/embed/dQw4w9WgXcQ", // Replace with actual trailer embed ID
-                body: `
-                    <p>Inspector Zende cuts through the usual tropes of Indian police procedurals by anchoring its narrative in quiet, meticulous procedural work rather than over-the-top action spectacles. Set against the claustrophobic corridors and neon-lit arterial roads of Bombay, the film captures a rare sense of geographic and temporal authenticity.</p>
-                    <h4 class="font-syne font-bold text-xl text-white pt-4">Performances & Direction</h4>
-                    <p>The lead performance relies heavily on micro-expressions and observational weight. Every interrogation scene feels like a tense chess match where silence speaks louder than bombastic dialogue. The direction avoids glossy filters in favor of gritty, high-contrast framing that underscores the moral ambiguity of urban policing.</p>
-                    <h4 class="font-syne font-bold text-xl text-white pt-4">Final Verdict</h4>
-                    <p>A triumphant return to grounded, intelligent crime thrillers on streaming. Essential viewing for fans of methodical detective work.</p>
-                `
-            },
-            "jeevan-bheema-yojana": {
-                title: "Jeevan Bheema Yojana",
-                genre: "Satire / Drama",
-                year: "2026",
-                rating: "⭐ 4.2/5",
-                platform: "Streaming on Disney+ Hotstar",
-                subtitle: "A razor-sharp bureaucratic comedy",
-                summary: "A razor-sharp bureaucratic comedy examining middle-class aspirations, family dynamics, and insurance loopholes.",
-                poster: "https://images.unsplash.com/photo-1485846234645-a62644f84728?auto=format&fit=crop&q=80&w=800",
-                youtube: "https://www.youtube.com/embed/dQw4w9WgXcQ",
-                body: `
-                    <p>Jeevan Bheema Yojana finds humor in the most mundane corners of middle-class existence: insurance claims, policy paperwork, and generational financial anxiety. The script balances witty deadpan dialogue with genuine emotional stakes.</p>
-                    <h4 class="font-syne font-bold text-xl text-white pt-4">Writing & Tone</h4>
-                    <p>What sets this apart from standard comedies is its commitment to character absurdity without losing touch with reality. The ensemble cast delivers impeccable comedic timing, turning routine office visits into high-stakes dramatic showdowns.</p>
-                    <h4 class="font-syne font-bold text-xl text-white pt-4">Final Verdict</h4>
-                    <p>Smart, heartfelt, and consistently entertaining. A refreshing satirical comedy.</p>
-                `
-            },
-            "whalefall": {
-                title: "Whalefall",
-                genre: "Sci-Fi / Thriller",
-                year: "2026",
-                rating: "⭐ 4.0/5",
-                platform: "Streaming on Prime Video",
-                subtitle: "Atmospheric deep-sea survival thriller",
-                summary: "An atmospheric deep-sea survival thriller exploring isolation, abyssal pressures, and human endurance.",
-                poster: "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&q=80&w=800",
-                youtube: "https://www.youtube.com/embed/dQw4w9WgXcQ",
-                body: `
-                    <p>Whalefall dives deep into the abyss, crafting a claustrophobic survival narrative that tests the absolute limits of psychological endurance under extreme oceanic pressure.</p>
-                    <h4 class="font-syne font-bold text-xl text-white pt-4">Visuals & Sound Design</h4>
-                    <p>The sound design is the true star here—every creak of the hull and rumble of the deep ocean floor reverberates through the speakers, building unbearable tension.</p>
-                    <h4 class="font-syne font-bold text-xl text-white pt-4">Final Verdict</h4>
-                    <p>A gripping, tightly paced thriller that keeps you breathless from start to finish.</p>
-                `
+                body: "In Wicker, Olivia Colman delivers another masterful, deeply human performance. Playing a quiet fisherwoman on the margins of a conservative village, her life takes a surreal turn when she decides to commission a local basket maker to weave her a husband out of wicker."
             }
         };
 
-        function switchView(viewName) {
-            const landing = document.getElementById('landingView');
-            const review = document.getElementById('reviewView');
-            
-            if (viewName === 'landing') {
-                review.classList.add('hidden');
-                landing.classList.remove('hidden');
-                window.scrollTo({ top: 0, behavior: 'smooth' });
-            }
+        function getStoredReviews() {
+            const saved = localStorage.getItem('streamverse_reviews');
+            return saved ? JSON.parse(saved) : defaultReviews;
         }
 
-        function openReview(movieId) {
-            const data = reviewData[movieId];
+        function renderGrid() {
+            const reviews = getStoredReviews();
+            const grid = document.getElementById('moviesGrid');
+            grid.innerHTML = '';
+
+            Object.keys(reviews).forEach(key => {
+                const item = reviews[key];
+                const card = `
+                    <div onclick="openReview('${key}')" class="group bg-slate-900 rounded-3xl border border-slate-800 overflow-hidden hover:border-brand-cyan/50 transition-all duration-300 cursor-pointer flex flex-col shadow-xl">
+                        <div class="relative aspect-video overflow-hidden bg-slate-950">
+                            <img src="${item.poster}" alt="${item.title}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                            <div class="absolute top-3 right-3 bg-slate-950/80 border border-slate-800 px-3 py-1.5 rounded-xl text-xs font-extrabold text-amber-400">${item.rating}</div>
+                        </div>
+                        <div class="p-6 flex flex-col flex-grow justify-between space-y-4">
+                            <div>
+                                <div class="text-xs font-semibold text-brand-cyan mb-2">${item.genre} • ${item.year}</div>
+                                <h3 class="font-syne font-bold text-xl text-white group-hover:text-brand-neon transition-colors">${item.title}</h3>
+                                <p class="text-slate-400 text-xs mt-2 line-clamp-2">${item.summary}</p>
+                            </div>
+                            <div class="pt-4 border-t border-slate-800 flex items-center justify-between text-xs font-bold text-brand-cyan">
+                                <span>Read Review</span>
+                                <i class="fa-solid fa-arrow-right"></i>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                grid.innerHTML += card;
+            });
+        }
+
+        function switchView(viewName) {
+            document.getElementById('landingView').classList.add('hidden');
+            document.getElementById('reviewView').classList.add('hidden');
+            document.getElementById('adminView').classList.add('hidden');
+
+            if (viewName === 'landing') {
+                renderGrid();
+                document.getElementById('landingView').classList.remove('hidden');
+            } else if (viewName === 'admin') {
+                document.getElementById('adminView').classList.remove('hidden');
+            }
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function openReview(key) {
+            const reviews = getStoredReviews();
+            const data = reviews[key];
             if (!data) return;
 
             document.getElementById('reviewTitle').innerText = data.title;
             document.getElementById('reviewGenre').innerText = data.genre;
             document.getElementById('reviewYear').innerText = data.year;
             document.getElementById('reviewRatingScore').innerText = data.rating;
-            document.getElementById('reviewPlatformBadge').innerText = data.platform;
             document.getElementById('reviewSubtitle').innerText = data.subtitle;
             document.getElementById('reviewSummaryText').innerText = data.summary;
             document.getElementById('reviewPoster').src = data.poster;
-            document.getElementById('reviewYoutubeEmbed').src = data.youtube;
-            document.getElementById('reviewBodyContent').innerHTML = data.body;
+            document.getElementById('reviewBodyContent').innerHTML = `<p>${data.body}</p>`;
 
             document.getElementById('landingView').classList.add('hidden');
+            document.getElementById('adminView').classList.add('hidden');
             document.getElementById('reviewView').classList.remove('hidden');
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
-        function filterMovies() {
-            const query = document.getElementById('searchInput').value.toLowerCase();
-            const grid = document.getElementById('moviesGrid');
-            const cards = grid.getElementsByClassName('group');
-
-            for (let card of cards) {
-                const text = card.innerText.toLowerCase();
-                if (text.includes(query)) {
-                    card.style.display = "";
-                } else {
-                    card.style.display = "none";
-                }
+        function convertImageToBase64() {
+            const file = document.getElementById('formPosterFile').files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    document.getElementById('formPosterData').value = e.target.result;
+                };
+                reader.readAsDataURL(file);
             }
         }
+
+        function handleFormSubmit(e) {
+            e.preventDefault();
+            const title = document.getElementById('formTitle').value;
+            const key = title.toLowerCase().replace(/[^a-z0-9]/g, '-');
+            const posterData = document.getElementById('formPosterData').value || 'https://images.unsplash.com/photo-1536440136628-849c177e76a1?auto=format&fit=crop&q=80&w=800';
+
+            const newReview = {
+                title: title,
+                genre: document.getElementById('formGenre').value,
+                year: document.getElementById('formYear').value,
+                rating: document.getElementById('formRating').value,
+                subtitle: document.getElementById('formSubtitle').value,
+                summary: document.getElementById('formSummary').value,
+                poster: posterData,
+                body: document.getElementById('formBody').value
+            };
+
+            const currentReviews = getStoredReviews();
+            currentReviews[key] = newReview;
+            localStorage.setItem('streamverse_reviews', JSON.stringify(currentReviews));
+
+            alert('🎉 Review Published Successfully!');
+            document.getElementById('reviewForm').reset();
+            switchView('landing');
+        }
+
+        // Initialize grid on load
+        renderGrid();
     </script>
 </body>
 </html>
