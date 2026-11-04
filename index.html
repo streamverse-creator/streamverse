@@ -33,7 +33,7 @@
 </head>
 <body class="h-full bg-slate-950 text-slate-100 font-sans antialiased flex flex-col min-h-screen">
 
-    <!-- Clean Header Navigation -->
+    <!-- Header Navigation -->
     <header class="sticky top-0 z-50 bg-slate-950/80 backdrop-blur-md border-b border-slate-800/80">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
             <a href="#" onclick="switchView('landing')" class="flex items-center gap-3 group cursor-pointer">
@@ -60,7 +60,7 @@
         <!-- ================= LANDING PAGE ================= -->
         <div id="landingView" class="space-y-12">
             
-            <!-- Clean Hero Spotlight Banner -->
+            <!-- Hero Spotlight Banner -->
             <div id="heroSection" class="relative rounded-3xl overflow-hidden border border-slate-800/80 bg-slate-900/40 shadow-2xl">
                 <div class="grid grid-cols-1 lg:grid-cols-12">
                     <div class="lg:col-span-7 p-8 lg:p-12 flex flex-col justify-between space-y-6">
@@ -74,7 +74,7 @@
                             </button>
                         </div>
                     </div>
-                    <div class="lg:col-span-5 relative min-h-[320px] lg:min-h-full overflow-hidden bg-slate-950">
+                    <div class="lg:col-span-5 relative min-h-[320px] lg:min-h-full overflow-hidden bg-slate-900">
                         <img id="heroPoster" src="" alt="Featured Poster" class="w-full h-full object-cover">
                         <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent lg:bg-gradient-to-r lg:from-slate-950 lg:via-transparent lg:to-transparent"></div>
                         <div id="heroRating" class="absolute top-4 right-4 bg-slate-950/80 backdrop-blur-md border border-slate-800 px-4 py-2 rounded-2xl text-sm font-extrabold text-amber-400 flex items-center gap-1.5 shadow-xl"></div>
@@ -153,4 +153,279 @@
                     <h2 class="font-syne font-bold text-2xl text-white flex items-center gap-3">
                         <i class="fa-solid fa-pen-nib text-brand-cyan"></i> Publish New Review
                     </h2>
-                    <p class="text-slate-400 text-xs mt
+                    <p class="text-slate-400 text-xs mt-1">Publish content under Films, Series, Documentaries, or Videos.</p>
+                </div>
+                <button onclick="switchView('landing')" class="text-xs font-bold text-slate-400 hover:text-white bg-slate-950 border border-slate-800 px-3 py-1.5 rounded-lg cursor-pointer">Cancel</button>
+            </div>
+
+            <form id="reviewForm" onsubmit="handleFormSubmit(event)" class="space-y-5">
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-xs font-bold text-slate-300 uppercase tracking-wider mb-2">Title</label>
+                        <input type="text" id="formTitle" placeholder="e.g. Wicker" required class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-brand-cyan">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold text-slate-300 uppercase tracking-wider mb-2">Content Category</label>
+                        <select id="formCategory" required class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-brand-cyan cursor-pointer">
+                            <option value="Films">Films</option>
+                            <option value="Series">Series</option>
+                            <option value="Documentaries">Documentaries</option>
+                            <option value="Videos">Videos</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                    <div>
+                        <label class="block text-xs font-bold text-slate-300 uppercase tracking-wider mb-2">Genre</label>
+                        <input type="text" id="formGenre" placeholder="Dark Comedy / Romance" required class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-brand-cyan">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold text-slate-300 uppercase tracking-wider mb-2">Release Year</label>
+                        <input type="text" id="formYear" placeholder="2026" required class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-brand-cyan">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold text-slate-300 uppercase tracking-wider mb-2">Rating</label>
+                        <input type="text" id="formRating" placeholder="⭐ 4.5/5" required class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-brand-cyan">
+                    </div>
+                </div>
+
+                <div>
+                    <label class="block text-xs font-bold text-slate-300 uppercase tracking-wider mb-2">Headline / Subtitle</label>
+                    <input type="text" id="formSubtitle" placeholder="An eccentric, beautifully acted tale of loneliness" required class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-brand-cyan">
+                </div>
+
+                <div>
+                    <label class="block text-xs font-bold text-slate-300 uppercase tracking-wider mb-2">Cover Poster (Select file from Mac)</label>
+                    <input type="file" id="formPosterFile" accept="image/*" onchange="convertImageToBase64()" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-2.5 text-xs text-slate-400 file:mr-4 file:py-2 file:px-4 file:rounded-lg file:border-0 file:text-xs file:font-bold file:bg-brand-cyan file:text-slate-950 cursor-pointer">
+                    <input type="hidden" id="formPosterData">
+                </div>
+
+                <div>
+                    <label class="block text-xs font-bold text-slate-300 uppercase tracking-wider mb-2">Short Card Summary</label>
+                    <textarea id="formSummary" rows="2" placeholder="Brief summary for card display..." required class="w-full bg-slate-950 border border-slate-800 rounded-xl p-4 text-sm text-white focus:outline-none focus:border-brand-cyan"></textarea>
+                </div>
+
+                <div>
+                    <label class="block text-xs font-bold text-slate-300 uppercase tracking-wider mb-2">Full Written Critique</label>
+                    <textarea id="formBody" rows="6" placeholder="Write full review text here..." required class="w-full bg-slate-950 border border-slate-800 rounded-xl p-4 text-sm text-white focus:outline-none focus:border-brand-cyan"></textarea>
+                </div>
+
+                <button type="submit" class="w-full bg-brand-cyan hover:bg-cyan-400 text-slate-950 font-extrabold py-4 rounded-xl transition-all shadow-lg shadow-cyan-500/20 text-base cursor-pointer">
+                    🚀 Publish Review Instantly
+                </button>
+            </form>
+        </div>
+
+    </main>
+
+    <!-- Script Logic -->
+    <script>
+        const defaultReviews = {
+            "wicker": {
+                title: "Wicker",
+                category: "Films",
+                genre: "Dark Comedy / Romance",
+                year: "2026",
+                rating: "⭐ 4.5/5",
+                subtitle: "An eccentric, beautifully acted tale of loneliness and custom craft",
+                summary: "Olivia Colman shines in this delightfully strange and moving comedy about a fisherwoman who commissions a husband made entirely of wicker.",
+                poster: "https://images.unsplash.com/photo-1536440136628-849c177e76a1?auto=format&fit=crop&q=80&w=800",
+                body: "In <em>Wicker</em>, Olivia Colman delivers another masterful, deeply human performance. Playing a quiet fisherwoman on the margins of a conservative village, her life takes a surreal turn when she decides to commission a local basket maker to weave her a husband out of wicker.<br><br>What could have easily been an absurd gimmick is grounded entirely by Colman's vulnerability and emotional range. The film balances sharp dark humor with genuinely tender commentary on social rejection and self-worth."
+            },
+            "inspector-zende": {
+                title: "Inspector Zende",
+                category: "Films",
+                genre: "Comedy / Thriller",
+                year: "2025",
+                rating: "⭐ 4.0/5",
+                subtitle: "A hilarious and sharp cat-and-mouse game",
+                summary: "Manoj Bajpayee drives this razor-sharp crime comedy with fantastic comic timing and sharp dialogue execution.",
+                poster: "https://images.unsplash.com/photo-1485846234645-a62644f84728?auto=format&fit=crop&q=80&w=800",
+                body: "Inspector Zende balances sharp witty banter with tight narrative execution. The performance by the lead cast gives this comedy thriller pure kinetic energy and non-stop entertainment."
+            },
+            "jeevan-bheema-yojana": {
+                title: "Jeevan Bheema Yojana",
+                category: "Films",
+                genre: "Dark Comedy",
+                year: "2026",
+                rating: "⭐ 4.2/5",
+                subtitle: "A chaotic comedy of errors and insurance scams",
+                summary: "A wildly inventive story following identity confusion, insurance scams, and brilliant ensemble situational humor.",
+                poster: "https://images.unsplash.com/photo-1517604931442-7e0c8ed2963c?auto=format&fit=crop&q=80&w=800",
+                body: "Jeevan Bheema Yojana delivers relentless laughs driven by clever situational writing and pitch-perfect ensemble acting."
+            }
+        };
+
+        let activeCategory = 'all';
+
+        function getStoredReviews() {
+            const saved = localStorage.getItem('streamverse_reviews_v8');
+            if (!saved) {
+                localStorage.setItem('streamverse_reviews_v8', JSON.stringify(defaultReviews));
+                return defaultReviews;
+            }
+            return JSON.parse(saved);
+        }
+
+        function setCategoryFilter(category) {
+            activeCategory = category;
+            
+            document.querySelectorAll('.category-tab').forEach(tab => {
+                tab.className = "category-tab px-4 py-2 rounded-xl text-xs font-bold transition-all border border-slate-800 bg-slate-900 text-slate-400 hover:text-white hover:border-slate-700 cursor-pointer";
+            });
+            
+            const activeTabBtn = document.getElementById(`tab-${category}`);
+            if (activeTabBtn) {
+                activeTabBtn.className = "category-tab active-tab px-4 py-2 rounded-xl text-xs font-bold transition-all border border-brand-cyan/40 bg-brand-cyan text-slate-950 shadow-md cursor-pointer";
+            }
+
+            renderGrid();
+        }
+
+        function renderGrid() {
+            const reviews = getStoredReviews();
+            const keys = Object.keys(reviews);
+            if (keys.length === 0) return;
+
+            // Hero Spotlight
+            const heroKey = keys[0];
+            const hero = reviews[heroKey];
+            document.getElementById('heroTitle').innerText = hero.title || '';
+            document.getElementById('heroSubtitle').innerText = hero.subtitle || '';
+            document.getElementById('heroPoster').src = hero.poster || '';
+            document.getElementById('heroRating').innerText = hero.rating || '';
+            document.getElementById('heroBtn').setAttribute('onclick', `openReview('${heroKey}')`);
+
+            // Filter Grid Items
+            const grid = document.getElementById('moviesGrid');
+            grid.innerHTML = '';
+
+            let matchesCount = 0;
+
+            keys.forEach(key => {
+                const item = reviews[key];
+                const categoryMatch = (activeCategory === 'all' || item.category === activeCategory);
+
+                if (categoryMatch) {
+                    matchesCount++;
+                    const card = `
+                        <div onclick="openReview('${key}')" class="group bg-slate-900 rounded-3xl border border-slate-800/80 overflow-hidden hover:border-brand-cyan/50 transition-all duration-300 cursor-pointer flex flex-col shadow-xl">
+                            <div class="relative aspect-video overflow-hidden bg-slate-900">
+                                <img src="${item.poster}" alt="${item.title}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                                <div class="absolute top-3 right-3 bg-slate-950/80 backdrop-blur-md border border-slate-800 px-3 py-1.5 rounded-xl text-xs font-extrabold text-amber-400 flex items-center gap-1.5 shadow-lg">
+                                    ${item.rating}
+                                </div>
+                                <div class="absolute bottom-3 left-3 bg-slate-950/80 backdrop-blur-md border border-slate-800 px-2.5 py-1 rounded-lg text-[10px] font-extrabold text-brand-cyan uppercase tracking-wider">
+                                    ${item.category || 'Films'}
+                                </div>
+                            </div>
+                            <div class="p-6 flex flex-col flex-grow justify-between space-y-4">
+                                <div>
+                                    <div class="flex items-center gap-2 text-xs font-semibold text-brand-cyan mb-2">
+                                        <span>${item.genre}</span>
+                                        <span>•</span>
+                                        <span>${item.year}</span>
+                                    </div>
+                                    <h3 class="font-syne font-bold text-xl text-white group-hover:text-brand-neon transition-colors leading-snug">${item.title}</h3>
+                                    <p class="text-slate-400 text-xs mt-2 line-clamp-2">${item.summary}</p>
+                                </div>
+                                <div class="pt-4 border-t border-slate-800/80 flex items-center justify-between text-xs font-bold text-slate-300">
+                                    <span class="flex items-center gap-1.5"><i class="fa-regular fa-clock text-brand-cyan"></i> Critique</span>
+                                    <span class="text-brand-cyan group-hover:translate-x-1 transition-transform flex items-center gap-1">Read Review <i class="fa-solid fa-arrow-right text-[10px]"></i></span>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                    grid.innerHTML += card;
+                }
+            });
+
+            if (matchesCount === 0) {
+                grid.innerHTML = `
+                    <div class="col-span-full py-16 text-center text-slate-500 space-y-3">
+                        <i class="fa-solid fa-folder-open text-3xl text-slate-600"></i>
+                        <p class="text-sm font-semibold">No reviews published under "${activeCategory}" yet.</p>
+                    </div>
+                `;
+            }
+        }
+
+        function switchView(viewName) {
+            document.getElementById('landingView').classList.add('hidden');
+            document.getElementById('reviewView').classList.add('hidden');
+            document.getElementById('adminView').classList.add('hidden');
+
+            if (viewName === 'landing') {
+                renderGrid();
+                document.getElementById('landingView').classList.remove('hidden');
+            } else if (viewName === 'admin') {
+                document.getElementById('adminView').classList.remove('hidden');
+            }
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function openReview(key) {
+            const reviews = getStoredReviews();
+            const data = reviews[key];
+            if (!data) return;
+
+            document.getElementById('reviewTitle').innerText = data.title;
+            document.getElementById('reviewCategory').innerText = data.category || 'Films';
+            document.getElementById('reviewGenre').innerText = data.genre;
+            document.getElementById('reviewYear').innerText = data.year;
+            document.getElementById('reviewRatingScore').innerText = data.rating;
+            document.getElementById('reviewSubtitle').innerText = data.subtitle;
+            document.getElementById('reviewSummaryText').innerText = data.summary;
+            document.getElementById('reviewPoster').src = data.poster;
+            document.getElementById('reviewBodyContent').innerHTML = data.body;
+
+            document.getElementById('landingView').classList.add('hidden');
+            document.getElementById('adminView').classList.add('hidden');
+            document.getElementById('reviewView').classList.remove('hidden');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function convertImageToBase64() {
+            const file = document.getElementById('formPosterFile').files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    document.getElementById('formPosterData').value = e.target.result;
+                };
+                reader.readAsDataURL(file);
+            }
+        }
+
+        function handleFormSubmit(e) {
+            e.preventDefault();
+            const title = document.getElementById('formTitle').value;
+            const category = document.getElementById('formCategory').value;
+            const key = title.toLowerCase().replace(/[^a-z0-9]/g, '-');
+            const posterData = document.getElementById('formPosterData').value || 'https://images.unsplash.com/photo-1536440136628-849c177e76a1?auto=format&fit=crop&q=80&w=800';
+
+            const newReview = {
+                title: title,
+                category: category,
+                genre: document.getElementById('formGenre').value,
+                year: document.getElementById('formYear').value,
+                rating: document.getElementById('formRating').value,
+                subtitle: document.getElementById('formSubtitle').value,
+                summary: document.getElementById('formSummary').value,
+                poster: posterData,
+                body: document.getElementById('formBody').value.replace(/\n/g, '<br>')
+            };
+
+            const currentReviews = getStoredReviews();
+            currentReviews[key] = newReview;
+            localStorage.setItem('streamverse_reviews_v8', JSON.stringify(currentReviews));
+
+            alert(`🎉 Review Published under ${category}!`);
+            document.getElementById('reviewForm').reset();
+            switchView('landing');
+        }
+
+        renderGrid();
+    </script>
+</body>
+</html>
