@@ -111,7 +111,7 @@
             </div>
         </div>
 
-        <!-- ================= ADMIN DASHBOARD (Your Easy Publisher) ================= -->
+        <!-- ================= ADMIN DASHBOARD ================= -->
         <div id="adminView" class="hidden max-w-3xl mx-auto bg-slate-900 border border-slate-800 rounded-3xl p-8 space-y-6">
             <div class="border-b border-slate-800 pb-4">
                 <h2 class="font-syne font-bold text-2xl text-white flex items-center gap-3">
@@ -129,7 +129,7 @@
                 <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
                     <div>
                         <label class="block text-xs font-bold text-slate-300 uppercase tracking-wider mb-2">Genre</label>
-                        <input type="text" id="formGenre" placeholder="e.g. Comedy / Drama" required class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-brand-cyan">
+                        <input type="text" id="formGenre" placeholder="e.g. Dark Comedy / Romance" required class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-brand-cyan">
                     </div>
                     <div>
                         <label class="block text-xs font-bold text-slate-300 uppercase tracking-wider mb-2">Release Year</label>
@@ -172,7 +172,6 @@
 
     <!-- Script Logic -->
     <script>
-        // Initial reviews database
         const defaultReviews = {
             "wicker": {
                 title: "Wicker",
@@ -266,7 +265,7 @@
             }
         }
 
-        function handleFormSubmit(e) {
+    function handleFormSubmit(e) {
             e.preventDefault();
             const title = document.getElementById('formTitle').value;
             const key = title.toLowerCase().replace(/[^a-z0-9]/g, '-');
@@ -292,7 +291,6 @@
             switchView('landing');
         }
 
-        // Initialize grid on load
         renderGrid();
     </script>
 </body>
