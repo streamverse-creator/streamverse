@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,600;0,6..72,700;1,6..72,400&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Syne:wght@700;800&display=swap" rel="stylesheet">
     <script>
         tailwind.config = {
             theme: {
@@ -16,6 +16,7 @@
                     fontFamily: {
                         sans: ['"Plus Jakarta Sans"', 'sans-serif'],
                         syne: ['Syne', 'sans-serif'],
+                        serif: ['Newsreader', 'Georgia', 'serif'],
                     },
                     colors: {
                         brand: { cyan: '#06B6D4', neon: '#22D3EE', violet: '#A855F7', pink: '#EC4899', dark: '#030712' }
@@ -29,6 +30,8 @@
         ::-webkit-scrollbar-track { background: #030712; }
         ::-webkit-scrollbar-thumb { background: #1e293b; border-radius: 3px; }
         ::-webkit-scrollbar-thumb:hover { background: #06B6D4; }
+        .editorial-body p { margin-bottom: 1.25rem; line-height: 1.8; font-size: 1.125rem; color: #cbd5e1; }
+        .editorial-body p:first-of-type::first-letter { font-family: 'Newsreader', serif; font-size: 3.5rem; float: left; line-height: 1; padding-right: 0.75rem; color: #22D3EE; font-weight: 700; }
     </style>
 </head>
 <body class="h-full bg-slate-950 text-slate-100 font-sans antialiased flex flex-col min-h-screen">
@@ -54,7 +57,7 @@
         </div>
     </header>
 
-    <!-- Main Content -->
+    <!-- Main Content Container -->
     <main class="flex-grow max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full py-8">
         
         <!-- ================= LANDING PAGE ================= -->
@@ -89,7 +92,6 @@
                     <p class="text-slate-400 text-xs mt-1">Latest critiques across film, TV, and digital media</p>
                 </div>
 
-                <!-- 4 Category Tabs + All -->
                 <div class="flex items-center gap-2 overflow-x-auto pb-2 sm:pb-0">
                     <button onclick="setCategoryFilter('all')" id="tab-all" class="category-tab active-tab px-4 py-2 rounded-xl text-xs font-bold transition-all border border-brand-cyan/40 bg-brand-cyan text-slate-950 shadow-md cursor-pointer">
                         All
@@ -109,19 +111,19 @@
                 </div>
             </div>
 
-            <!-- Review Cards Grid -->
             <div id="moviesGrid" class="grid grid-cols-1 md:grid-cols-3 gap-8"></div>
         </div>
 
-        <!-- ================= INSIDE REVIEW DETAIL PAGE ================= -->
+        <!-- ================= INSIDE REVIEW DETAIL PAGE (GUARDIAN STYLE) ================= -->
         <div id="reviewView" class="hidden max-w-4xl mx-auto space-y-8">
             <button onclick="switchView('landing')" class="inline-flex items-center gap-2 text-xs font-bold text-slate-300 hover:text-brand-cyan bg-slate-900 border border-slate-800 px-4 py-2.5 rounded-xl transition-colors cursor-pointer">
                 <i class="fa-solid fa-arrow-left"></i> Back to Reviews
             </button>
 
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 bg-slate-900/60 border border-slate-800 rounded-3xl p-8 backdrop-blur-sm shadow-xl">
+            <!-- Guardian-Style Header Block -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 bg-slate-900/80 border border-slate-800 rounded-3xl p-8 backdrop-blur-sm shadow-2xl">
                 <div class="md:col-span-1">
-                    <img id="reviewPoster" src="" alt="Movie Poster" class="w-full aspect-[2/3] object-cover rounded-2xl border border-slate-800 shadow-lg">
+                    <img id="reviewPoster" src="" alt="Movie Poster" class="w-full aspect-[2/3] object-cover rounded-2xl border border-slate-800 shadow-xl">
                 </div>
                 <div class="md:col-span-2 space-y-4 flex flex-col justify-center">
                     <div class="flex items-center gap-3 text-xs font-extrabold text-brand-cyan uppercase tracking-wider">
@@ -131,18 +133,28 @@
                         <span>•</span>
                         <span id="reviewYear"></span>
                     </div>
-                    <h1 id="reviewTitle" class="font-syne font-extrabold text-3xl sm:text-4xl text-white leading-tight"></h1>
-                    <div class="text-amber-400 font-extrabold text-lg inline-block bg-slate-950/60 border border-slate-800 px-3 py-1 rounded-xl w-fit" id="reviewRatingScore"></div>
-                    <p id="reviewSubtitle" class="text-slate-200 font-semibold text-base italic"></p>
-                    <p id="reviewSummaryText" class="text-slate-400 text-sm pt-4 border-t border-slate-800/80 leading-relaxed"></p>
+                    
+                    <h1 id="reviewTitle" class="font-syne font-extrabold text-4xl sm:text-5xl text-white leading-none"></h1>
+                    
+                    <div class="text-amber-400 font-extrabold text-lg inline-block bg-slate-950/60 border border-slate-800 px-3.5 py-1 rounded-xl w-fit" id="reviewRatingScore"></div>
+                    
+                    <!-- Headline / Subtitle in Guardian Serif -->
+                    <p id="reviewSubtitle" class="font-serif italic font-normal text-2xl text-slate-100 leading-snug pt-2 border-t border-slate-800/80"></p>
+                    
+                    <p id="reviewSummaryText" class="text-slate-400 text-sm leading-relaxed"></p>
                 </div>
             </div>
 
-            <div class="bg-slate-900 border border-slate-800 rounded-3xl p-8 sm:p-10 space-y-6 text-slate-300 leading-relaxed shadow-xl">
-                <h3 class="font-syne font-bold text-2xl text-white border-b border-slate-800 pb-4 flex items-center gap-3">
-                    <i class="fa-solid fa-feather-pointed text-brand-cyan"></i> Full Critique
-                </h3>
-                <div id="reviewBodyContent" class="space-y-6 text-base text-slate-300"></div>
+            <!-- Critique Body in Guardian Editorial Serif -->
+            <div class="bg-slate-900 border border-slate-800 rounded-3xl p-8 sm:p-12 space-y-6 shadow-2xl">
+                <div class="border-b border-slate-800 pb-4 flex items-center justify-between">
+                    <h3 class="font-syne font-bold text-2xl text-white flex items-center gap-3">
+                        <i class="fa-solid fa-feather-pointed text-brand-cyan"></i> Full Critique
+                    </h3>
+                    <span class="text-xs font-bold text-slate-400 uppercase tracking-widest font-sans">StreamVerse Editorial</span>
+                </div>
+                
+                <div id="reviewBodyContent" class="font-serif editorial-body"></div>
             </div>
         </div>
 
@@ -192,7 +204,7 @@
 
                 <div>
                     <label class="block text-xs font-bold text-slate-300 uppercase tracking-wider mb-2">Headline / Subtitle</label>
-                    <input type="text" id="formSubtitle" placeholder="An eccentric, beautifully acted tale of loneliness" required class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-brand-cyan">
+                    <input type="text" id="formSubtitle" placeholder="An Eccentric, Beautifully Acted Tale of Loneliness And Custom Craft" required class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-brand-cyan">
                 </div>
 
                 <div>
@@ -228,204 +240,6 @@
                 genre: "Dark Comedy / Romance",
                 year: "2026",
                 rating: "⭐ 4.5/5",
-                subtitle: "An eccentric, beautifully acted tale of loneliness and custom craft",
+                subtitle: "An Eccentric, Beautifully Acted Tale of Loneliness And Custom Craft",
                 summary: "Olivia Colman shines in this delightfully strange and moving comedy about a fisherwoman who commissions a husband made entirely of wicker.",
-                poster: "https://images.unsplash.com/photo-1536440136628-849c177e76a1?auto=format&fit=crop&q=80&w=800",
-                body: "In <em>Wicker</em>, Olivia Colman delivers another masterful, deeply human performance. Playing a quiet fisherwoman on the margins of a conservative village, her life takes a surreal turn when she decides to commission a local basket maker to weave her a husband out of wicker.<br><br>What could have easily been an absurd gimmick is grounded entirely by Colman's vulnerability and emotional range. The film balances sharp dark humor with genuinely tender commentary on social rejection and self-worth."
-            },
-            "inspector-zende": {
-                title: "Inspector Zende",
-                category: "Films",
-                genre: "Comedy / Thriller",
-                year: "2025",
-                rating: "⭐ 4.0/5",
-                subtitle: "A hilarious and sharp cat-and-mouse game",
-                summary: "Manoj Bajpayee drives this razor-sharp crime comedy with fantastic comic timing and sharp dialogue execution.",
-                poster: "https://images.unsplash.com/photo-1485846234645-a62644f84728?auto=format&fit=crop&q=80&w=800",
-                body: "Inspector Zende balances sharp witty banter with tight narrative execution. The performance by the lead cast gives this comedy thriller pure kinetic energy and non-stop entertainment."
-            },
-            "jeevan-bheema-yojana": {
-                title: "Jeevan Bheema Yojana",
-                category: "Films",
-                genre: "Dark Comedy",
-                year: "2026",
-                rating: "⭐ 4.2/5",
-                subtitle: "A chaotic comedy of errors and insurance scams",
-                summary: "A wildly inventive story following identity confusion, insurance scams, and brilliant ensemble situational humor.",
-                poster: "https://images.unsplash.com/photo-1517604931442-7e0c8ed2963c?auto=format&fit=crop&q=80&w=800",
-                body: "Jeevan Bheema Yojana delivers relentless laughs driven by clever situational writing and pitch-perfect ensemble acting."
-            }
-        };
-
-        let activeCategory = 'all';
-
-        function getStoredReviews() {
-            const saved = localStorage.getItem('streamverse_reviews_v8');
-            if (!saved) {
-                localStorage.setItem('streamverse_reviews_v8', JSON.stringify(defaultReviews));
-                return defaultReviews;
-            }
-            return JSON.parse(saved);
-        }
-
-        function setCategoryFilter(category) {
-            activeCategory = category;
-            
-            document.querySelectorAll('.category-tab').forEach(tab => {
-                tab.className = "category-tab px-4 py-2 rounded-xl text-xs font-bold transition-all border border-slate-800 bg-slate-900 text-slate-400 hover:text-white hover:border-slate-700 cursor-pointer";
-            });
-            
-            const activeTabBtn = document.getElementById(`tab-${category}`);
-            if (activeTabBtn) {
-                activeTabBtn.className = "category-tab active-tab px-4 py-2 rounded-xl text-xs font-bold transition-all border border-brand-cyan/40 bg-brand-cyan text-slate-950 shadow-md cursor-pointer";
-            }
-
-            renderGrid();
-        }
-
-        function renderGrid() {
-            const reviews = getStoredReviews();
-            const keys = Object.keys(reviews);
-            if (keys.length === 0) return;
-
-            // Hero Spotlight
-            const heroKey = keys[0];
-            const hero = reviews[heroKey];
-            document.getElementById('heroTitle').innerText = hero.title || '';
-            document.getElementById('heroSubtitle').innerText = hero.subtitle || '';
-            document.getElementById('heroPoster').src = hero.poster || '';
-            document.getElementById('heroRating').innerText = hero.rating || '';
-            document.getElementById('heroBtn').setAttribute('onclick', `openReview('${heroKey}')`);
-
-            // Filter Grid Items
-            const grid = document.getElementById('moviesGrid');
-            grid.innerHTML = '';
-
-            let matchesCount = 0;
-
-            keys.forEach(key => {
-                const item = reviews[key];
-                const categoryMatch = (activeCategory === 'all' || item.category === activeCategory);
-
-                if (categoryMatch) {
-                    matchesCount++;
-                    const card = `
-                        <div onclick="openReview('${key}')" class="group bg-slate-900 rounded-3xl border border-slate-800/80 overflow-hidden hover:border-brand-cyan/50 transition-all duration-300 cursor-pointer flex flex-col shadow-xl">
-                            <div class="relative aspect-video overflow-hidden bg-slate-900">
-                                <img src="${item.poster}" alt="${item.title}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-                                <div class="absolute top-3 right-3 bg-slate-950/80 backdrop-blur-md border border-slate-800 px-3 py-1.5 rounded-xl text-xs font-extrabold text-amber-400 flex items-center gap-1.5 shadow-lg">
-                                    ${item.rating}
-                                </div>
-                                <div class="absolute bottom-3 left-3 bg-slate-950/80 backdrop-blur-md border border-slate-800 px-2.5 py-1 rounded-lg text-[10px] font-extrabold text-brand-cyan uppercase tracking-wider">
-                                    ${item.category || 'Films'}
-                                </div>
-                            </div>
-                            <div class="p-6 flex flex-col flex-grow justify-between space-y-4">
-                                <div>
-                                    <div class="flex items-center gap-2 text-xs font-semibold text-brand-cyan mb-2">
-                                        <span>${item.genre}</span>
-                                        <span>•</span>
-                                        <span>${item.year}</span>
-                                    </div>
-                                    <h3 class="font-syne font-bold text-xl text-white group-hover:text-brand-neon transition-colors leading-snug">${item.title}</h3>
-                                    <p class="text-slate-400 text-xs mt-2 line-clamp-2">${item.summary}</p>
-                                </div>
-                                <div class="pt-4 border-t border-slate-800/80 flex items-center justify-between text-xs font-bold text-slate-300">
-                                    <span class="flex items-center gap-1.5"><i class="fa-regular fa-clock text-brand-cyan"></i> Critique</span>
-                                    <span class="text-brand-cyan group-hover:translate-x-1 transition-transform flex items-center gap-1">Read Review <i class="fa-solid fa-arrow-right text-[10px]"></i></span>
-                                </div>
-                            </div>
-                        </div>
-                    `;
-                    grid.innerHTML += card;
-                }
-            });
-
-            if (matchesCount === 0) {
-                grid.innerHTML = `
-                    <div class="col-span-full py-16 text-center text-slate-500 space-y-3">
-                        <i class="fa-solid fa-folder-open text-3xl text-slate-600"></i>
-                        <p class="text-sm font-semibold">No reviews published under "${activeCategory}" yet.</p>
-                    </div>
-                `;
-            }
-        }
-
-        function switchView(viewName) {
-            document.getElementById('landingView').classList.add('hidden');
-            document.getElementById('reviewView').classList.add('hidden');
-            document.getElementById('adminView').classList.add('hidden');
-
-            if (viewName === 'landing') {
-                renderGrid();
-                document.getElementById('landingView').classList.remove('hidden');
-            } else if (viewName === 'admin') {
-                document.getElementById('adminView').classList.remove('hidden');
-            }
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
-
-        function openReview(key) {
-            const reviews = getStoredReviews();
-            const data = reviews[key];
-            if (!data) return;
-
-            document.getElementById('reviewTitle').innerText = data.title;
-            document.getElementById('reviewCategory').innerText = data.category || 'Films';
-            document.getElementById('reviewGenre').innerText = data.genre;
-            document.getElementById('reviewYear').innerText = data.year;
-            document.getElementById('reviewRatingScore').innerText = data.rating;
-            document.getElementById('reviewSubtitle').innerText = data.subtitle;
-            document.getElementById('reviewSummaryText').innerText = data.summary;
-            document.getElementById('reviewPoster').src = data.poster;
-            document.getElementById('reviewBodyContent').innerHTML = data.body;
-
-            document.getElementById('landingView').classList.add('hidden');
-            document.getElementById('adminView').classList.add('hidden');
-            document.getElementById('reviewView').classList.remove('hidden');
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
-
-        function convertImageToBase64() {
-            const file = document.getElementById('formPosterFile').files[0];
-            if (file) {
-                const reader = new FileReader();
-                reader.onload = function(e) {
-                    document.getElementById('formPosterData').value = e.target.result;
-                };
-                reader.readAsDataURL(file);
-            }
-        }
-
-        function handleFormSubmit(e) {
-            e.preventDefault();
-            const title = document.getElementById('formTitle').value;
-            const category = document.getElementById('formCategory').value;
-            const key = title.toLowerCase().replace(/[^a-z0-9]/g, '-');
-            const posterData = document.getElementById('formPosterData').value || 'https://images.unsplash.com/photo-1536440136628-849c177e76a1?auto=format&fit=crop&q=80&w=800';
-
-            const newReview = {
-                title: title,
-                category: category,
-                genre: document.getElementById('formGenre').value,
-                year: document.getElementById('formYear').value,
-                rating: document.getElementById('formRating').value,
-                subtitle: document.getElementById('formSubtitle').value,
-                summary: document.getElementById('formSummary').value,
-                poster: posterData,
-                body: document.getElementById('formBody').value.replace(/\n/g, '<br>')
-            };
-
-            const currentReviews = getStoredReviews();
-            currentReviews[key] = newReview;
-            localStorage.setItem('streamverse_reviews_v8', JSON.stringify(currentReviews));
-
-            alert(`🎉 Review Published under ${category}!`);
-            document.getElementById('reviewForm').reset();
-            switchView('landing');
-        }
-
-        renderGrid();
-    </script>
-</body>
-</html>
+                poster: "
