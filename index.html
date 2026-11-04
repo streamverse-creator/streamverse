@@ -33,7 +33,7 @@
 </head>
 <body class="h-full bg-slate-950 text-slate-100 font-sans antialiased flex flex-col min-h-screen">
 
-    <!-- Clean Header Navigation -->
+    <!-- Header Navigation -->
     <header class="sticky top-0 z-50 bg-slate-950/80 backdrop-blur-md border-b border-slate-800/80">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
             <a href="#" onclick="switchView('landing')" class="flex items-center gap-3 group cursor-pointer">
@@ -60,7 +60,7 @@
         <!-- ================= LANDING PAGE ================= -->
         <div id="landingView" class="space-y-12">
             
-            <!-- Clean Hero Spotlight Banner -->
+            <!-- Hero Spotlight Banner -->
             <div id="heroSection" class="relative rounded-3xl overflow-hidden border border-slate-800/80 bg-slate-900/40 shadow-2xl">
                 <div class="grid grid-cols-1 lg:grid-cols-12">
                     <div class="lg:col-span-7 p-8 lg:p-12 flex flex-col justify-between space-y-6">
@@ -103,4 +103,104 @@
                     <button onclick="setCategoryFilter('Documentaries')" id="tab-Documentaries" class="category-tab px-4 py-2 rounded-xl text-xs font-bold transition-all border border-slate-800 bg-slate-900 text-slate-400 hover:text-white hover:border-slate-700 cursor-pointer">
                         <i class="fa-solid fa-video mr-1.5 text-brand-cyan"></i> Documentaries
                     </button>
-                    <button onclick="setCategoryFilter('Videos')" id="tab-Videos" class="category-tab px-4 py-2 rounded-xl text-xs font-bold transition-all border border-slate-800 bg-slate-900 text-slate-400 hover:
+                    <button onclick="setCategoryFilter('Videos')" id="tab-Videos" class="category-tab px-4 py-2 rounded-xl text-xs font-bold transition-all border border-slate-800 bg-slate-900 text-slate-400 hover:text-white hover:border-slate-700 cursor-pointer">
+                        <i class="fa-solid fa-play mr-1.5 text-brand-cyan"></i> Videos
+                    </button>
+                </div>
+            </div>
+
+            <!-- Review Cards Grid -->
+            <div id="moviesGrid" class="grid grid-cols-1 md:grid-cols-3 gap-8"></div>
+        </div>
+
+        <!-- ================= INSIDE REVIEW DETAIL PAGE ================= -->
+        <div id="reviewView" class="hidden max-w-4xl mx-auto space-y-8">
+            <button onclick="switchView('landing')" class="inline-flex items-center gap-2 text-xs font-bold text-slate-300 hover:text-brand-cyan bg-slate-900 border border-slate-800 px-4 py-2.5 rounded-xl transition-colors cursor-pointer">
+                <i class="fa-solid fa-arrow-left"></i> Back to Reviews
+            </button>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 bg-slate-900/60 border border-slate-800 rounded-3xl p-8 backdrop-blur-sm shadow-xl">
+                <div class="md:col-span-1">
+                    <img id="reviewPoster" src="" alt="Movie Poster" class="w-full aspect-[2/3] object-cover rounded-2xl border border-slate-800 shadow-lg">
+                </div>
+                <div class="md:col-span-2 space-y-4 flex flex-col justify-center">
+                    <div class="flex items-center gap-3 text-xs font-extrabold text-brand-cyan uppercase tracking-wider">
+                        <span id="reviewCategory" class="px-2.5 py-1 bg-brand-cyan/10 border border-brand-cyan/30 rounded-lg text-brand-neon"></span>
+                        <span>•</span>
+                        <span id="reviewGenre"></span>
+                        <span>•</span>
+                        <span id="reviewYear"></span>
+                    </div>
+                    <h1 id="reviewTitle" class="font-syne font-extrabold text-3xl sm:text-4xl text-white leading-tight"></h1>
+                    <div class="text-amber-400 font-extrabold text-lg inline-block bg-slate-950/60 border border-slate-800 px-3 py-1 rounded-xl w-fit" id="reviewRatingScore"></div>
+                    <p id="reviewSubtitle" class="text-slate-200 font-semibold text-base italic"></p>
+                    <p id="reviewSummaryText" class="text-slate-400 text-sm pt-4 border-t border-slate-800/80 leading-relaxed"></p>
+                </div>
+            </div>
+
+            <div class="bg-slate-900 border border-slate-800 rounded-3xl p-8 sm:p-10 space-y-6 text-slate-300 leading-relaxed shadow-xl">
+                <h3 class="font-syne font-bold text-2xl text-white border-b border-slate-800 pb-4 flex items-center gap-3">
+                    <i class="fa-solid fa-feather-pointed text-brand-cyan"></i> Full Critique
+                </h3>
+                <div id="reviewBodyContent" class="space-y-6 text-base text-slate-300"></div>
+            </div>
+        </div>
+
+        <!-- ================= ADMIN STUDIO FORM ================= -->
+        <div id="adminView" class="hidden max-w-3xl mx-auto bg-slate-900 border border-slate-800 rounded-3xl p-8 sm:p-10 space-y-6 shadow-2xl">
+            <div class="border-b border-slate-800 pb-4 flex items-center justify-between">
+                <div>
+                    <h2 class="font-syne font-bold text-2xl text-white flex items-center gap-3">
+                        <i class="fa-solid fa-pen-nib text-brand-cyan"></i> Publish New Review
+                    </h2>
+                    <p class="text-slate-400 text-xs mt-1">Publish content under Films, Series, Documentaries, or Videos.</p>
+                </div>
+                <button onclick="switchView('landing')" class="text-xs font-bold text-slate-400 hover:text-white bg-slate-950 border border-slate-800 px-3 py-1.5 rounded-lg cursor-pointer">Cancel</button>
+            </div>
+
+            <form id="reviewForm" onsubmit="handleFormSubmit(event)" class="space-y-5">
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-xs font-bold text-slate-300 uppercase tracking-wider mb-2">Title</label>
+                        <input type="text" id="formTitle" placeholder="e.g. Wicker" required class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-brand-cyan">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold text-slate-300 uppercase tracking-wider mb-2">Content Category</label>
+                        <select id="formCategory" required class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-brand-cyan cursor-pointer">
+                            <option value="Films">Films</option>
+                            <option value="Series">Series</option>
+                            <option value="Documentaries">Documentaries</option>
+                            <option value="Videos">Videos</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                    <div>
+                        <label class="block text-xs font-bold text-slate-300 uppercase tracking-wider mb-2">Genre</label>
+                        <input type="text" id="formGenre" placeholder="Dark Comedy / Romance" required class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-brand-cyan">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold text-slate-300 uppercase tracking-wider mb-2">Release Year</label>
+                        <input type="text" id="formYear" placeholder="2026" required class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-brand-cyan">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold text-slate-300 uppercase tracking-wider mb-2">Rating</label>
+                        <input type="text" id="formRating" placeholder="⭐ 4.5/5" required class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-brand-cyan">
+                    </div>
+                </div>
+
+                <div>
+                    <label class="block text-xs font-bold text-slate-300 uppercase tracking-wider mb-2">Headline / Subtitle</label>
+                    <input type="text" id="formSubtitle" placeholder="An eccentric, beautifully acted tale of loneliness" required class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-brand-cyan">
+                </div>
+
+                <div>
+                    <label class="block text-xs font-bold text-slate-300 uppercase tracking-wider mb-2">Cover Poster (Select file from Mac)</label>
+                    <input type="file" id="formPosterFile" accept="image/*" onchange="convertImageToBase64()" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-2.5 text-xs text-slate-400 file:mr-4 file:py-2 file:px-4 file:rounded-lg file:border-0 file:text-xs file:font-bold file:bg-brand-cyan file:text-slate-950 cursor-pointer">
+                    <input type="hidden" id="formPosterData">
+                </div>
+
+                <div>
+                    <label class="block text-xs font-bold text-slate-300 uppercase tracking-wider mb-2">Short Card Summary</label>
+                    <textarea id="formSummary" rows="2" placeholder="Brief summary for card display..." required class="w-full bg-slate-950 border border-slate-800 rounded-xl
