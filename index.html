@@ -290,8 +290,14 @@
         let activeCategory = 'all';
 
         function getStoredReviews() {
-            const STORAGE_KEY = 'streamverse_reviews_v16';
-            let saved = localStorage.getItem(STORAGE_KEY);
+            const CURRENT_KEY = 'streamverse_reviews_v17';
+            
+            // Purge all legacy storage keys to guarantee stale cached reviews are wiped out
+            for (let i = 1; i < 17; i++) {
+                localStorage.removeItem(`streamverse_reviews_v${i}`);
+            }
+
+            let saved = localStorage.getItem(CURRENT_KEY);
             let parsed = null;
             
             try {
@@ -301,7 +307,7 @@
             }
 
             if (!parsed || Object.keys(parsed).length === 0) {
-                localStorage.setItem(STORAGE_KEY, JSON.stringify(defaultReviews));
+                localStorage.setItem(CURRENT_KEY, JSON.stringify(defaultReviews));
                 return defaultReviews;
             }
             return parsed;
@@ -442,7 +448,6 @@
             const key = title.toLowerCase().replace(/[^a-z0-9]/g, '-');
             const posterData = document.getElementById('formPosterData').value || 'https://images.unsplash.com/photo-1536440136628-849c177e76a1?auto=format&fit=crop&q=80&w=800';
 
-            // Properly convert raw textarea newlines to full paragraphs
             const rawBody = document.getElementById('formBody').value;
             const formattedBody = rawBody
                 .split(/\n\s*\n/)
@@ -465,7 +470,7 @@
 
             const currentReviews = getStoredReviews();
             currentReviews[key] = newReview;
-            localStorage.setItem('streamverse_reviews_v16', JSON.stringify(currentReviews));
+            localStorage.setItem('streamverse_reviews_v17', JSON.stringify(currentReviews));
 
             alert(`🎉 Review Published under ${category}!`);
             document.getElementById('reviewForm').reset();
