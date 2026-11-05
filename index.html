@@ -31,7 +31,6 @@
         ::-webkit-scrollbar-thumb { background: #1e293b; border-radius: 3px; }
         ::-webkit-scrollbar-thumb:hover { background: #06B6D4; }
         .editorial-body p { margin-bottom: 1.75rem; line-height: 1.9; font-size: 1.35rem; color: #e2e8f0; }
-        .editorial-body blockquote { margin-top: 2rem; margin-bottom: 2rem; padding-left: 1.5rem; border-left: 3px solid #cbd5e1; font-style: italic; font-size: 1.45rem; color: #ffffff; }
     </style>
 </head>
 <body class="h-full bg-slate-950 text-slate-100 font-sans antialiased flex flex-col min-h-screen">
@@ -144,9 +143,11 @@
                         </div>
                     </div>
                     
+                    <!-- Headline / Subtitle in Newsreader Serif -->
                     <p id="reviewSubtitle" class="font-serif italic font-normal text-2xl text-slate-100 leading-snug pt-3 border-t border-slate-800/80"></p>
                     
-                    <p id="reviewSummaryText" class="text-slate-400 text-sm leading-relaxed"></p>
+                    <!-- 2 Lines Below Headline Matched to Editorial Serif Font -->
+                    <p id="reviewSummaryText" class="font-serif text-slate-300 text-lg leading-relaxed"></p>
                 </div>
             </div>
 
@@ -251,7 +252,6 @@
                 poster: "https://images.unsplash.com/photo-1536440136628-849c177e76a1?auto=format&fit=crop&q=80&w=800",
                 body: `<p>In <em>Wicker</em>, Olivia Colman delivers another masterful, deeply human performance. Playing a quiet fisherwoman on the margins of a conservative village, her life takes a surreal turn when she decides to commission a local basket maker to weave her a husband out of wicker.</p>
                 <p>What could have easily been an absurd gimmick is grounded entirely by Colman's vulnerability and emotional range. The film balances sharp dark humor with genuinely tender commentary on social rejection, intimacy, and self-worth.</p>
-                <blockquote>"Colman transforms what might have been a quaint fable into an emotionally devastating investigation of isolation."</blockquote>
                 <p>The craftsmanship throughout the production design is immaculate. The texture of the seaside village, combined with the tactile beauty of the artisanal wicker sculpture, gives the film a distinct cinematic atmosphere that stays with you long after the credits roll.</p>
                 <p>Ultimately, <em>Wicker</em> stands out as one of the most original and beautifully acted dark comedies of the year—a poignant reminder of the creative ways human beings cope with solitude.</p>`
             },
@@ -284,7 +284,7 @@
         let activeCategory = 'all';
 
         function getStoredReviews() {
-            const STORAGE_KEY = 'streamverse_reviews_v13';
+            const STORAGE_KEY = 'streamverse_reviews_v14';
             let saved = localStorage.getItem(STORAGE_KEY);
             let parsed = null;
             
@@ -294,7 +294,6 @@
                 parsed = null;
             }
 
-            // Self-healing fallback: If missing or empty object, re-seed defaults immediately
             if (!parsed || Object.keys(parsed).length === 0) {
                 localStorage.setItem(STORAGE_KEY, JSON.stringify(defaultReviews));
                 return defaultReviews;
@@ -452,7 +451,7 @@
 
             const currentReviews = getStoredReviews();
             currentReviews[key] = newReview;
-            localStorage.setItem('streamverse_reviews_v13', JSON.stringify(currentReviews));
+            localStorage.setItem('streamverse_reviews_v14', JSON.stringify(currentReviews));
 
             alert(`🎉 Review Published under ${category}!`);
             document.getElementById('reviewForm').reset();
