@@ -30,7 +30,14 @@
         ::-webkit-scrollbar-track { background: #030712; }
         ::-webkit-scrollbar-thumb { background: #1e293b; border-radius: 3px; }
         ::-webkit-scrollbar-thumb:hover { background: #06B6D4; }
-        .editorial-body p { margin-bottom: 1.75rem; line-height: 1.9; font-size: 1.35rem; color: #e2e8f0; }
+        /* Guardian Typography & Compact Spacing */
+        .editorial-body p { 
+            font-family: 'Newsreader', Georgia, serif; 
+            font-size: 1.15rem; 
+            line-height: 1.65; 
+            color: #cbd5e1; 
+            margin-bottom: 1.25rem; 
+        }
     </style>
 </head>
 <body class="h-full bg-slate-950 text-slate-100 font-sans antialiased flex flex-col min-h-screen">
@@ -153,7 +160,7 @@
 
             <!-- Critique Body -->
             <div class="bg-slate-900 border border-slate-800 rounded-3xl p-8 sm:p-14 shadow-2xl">
-                <div id="reviewBodyContent" class="font-serif editorial-body max-w-4xl mx-auto"></div>
+                <div id="reviewBodyContent" class="editorial-body max-w-4xl mx-auto"></div>
             </div>
         </div>
 
@@ -250,10 +257,9 @@
                 subtitle: "An Eccentric, Beautifully Acted Tale of Loneliness And Custom Craft",
                 summary: "Olivia Colman shines in this delightfully strange and moving comedy about a fisherwoman who commissions a husband made entirely of wicker.",
                 poster: "https://images.unsplash.com/photo-1536440136628-849c177e76a1?auto=format&fit=crop&q=80&w=800",
-                body: `<p>In <em>Wicker</em>, Olivia Colman delivers another masterful, deeply human performance. Playing a quiet fisherwoman on the margins of a conservative village, her life takes a surreal turn when she decides to commission a local basket maker to weave her a husband out of wicker.</p>
-                <p>What could have easily been an absurd gimmick is grounded entirely by Colman's vulnerability and emotional range. The film balances sharp dark humor with genuinely tender commentary on social rejection, intimacy, and self-worth.</p>
-                <p>The craftsmanship throughout the production design is immaculate. The texture of the seaside village, combined with the tactile beauty of the artisanal wicker sculpture, gives the film a distinct cinematic atmosphere that stays with you long after the credits roll.</p>
-                <p>Ultimately, <em>Wicker</em> stands out as one of the most original and beautifully acted dark comedies of the year—a poignant reminder of the creative ways human beings cope with solitude.</p>`
+                body: `<p>&lsquo;Wicker&rsquo; is based on a fable by Ursula Mills and has a wonderfully strange premise. While it tells an engaging and interesting story, it also cleverly weaves in social satire through its plot. This is a film that slowly pulls you in. The film initially unsettles you with the relentless taunts the fisherwoman has to endure, but once the wicker man enters her life, it wins you over with its charm. You gradually become invested in the lives of the villagers with each character endowed with distinct quirks and traits. This is a film that&rsquo;s also wickedly funny, and moving all at the same time. Wonderful performances by the cast only add to the viewing pleasure. It&rsquo;s a film that dares to be different and transforms a bizarre story into a pleasantly refreshing watch.</p>
+                <p>Set in the medieval era in a small seaside farming village where everyone is known by their trade, the film follows a fisherwoman (Olivia Colman) who is mocked for her smell, her independence and the fact that she is unmarried. The tailor&rsquo;s wife (Elizabeth Debicki) and other village women seem to take particular pleasure in making her feel like an outsider. After years of putting up with their taunts, she approaches the local basketmaker (Peter Dinklage) and asks him to weave her a husband out of wicker.</p>
+                <p>He fulfils her request, giving her a companion (Alexander Skarsgård) who is affectionate, attentive and eager to make her happy. For the first time, the fisherwoman feels wanted. Curious villagers gather outside her cottage, and their interest soon gives way to envy. The husbands become defensive, while their wives wonder why their own partners cannot be as attentive. The fisherwoman&rsquo;s newfound happiness soon becomes a problem for the rest of the village, where husbands and wives begin to question their own relationships.</p>`
             },
             "inspector-zende": {
                 title: "Inspector Zende",
@@ -284,7 +290,7 @@
         let activeCategory = 'all';
 
         function getStoredReviews() {
-            const STORAGE_KEY = 'streamverse_reviews_v14';
+            const STORAGE_KEY = 'streamverse_reviews_v15';
             let saved = localStorage.getItem(STORAGE_KEY);
             let parsed = null;
             
@@ -451,7 +457,7 @@
 
             const currentReviews = getStoredReviews();
             currentReviews[key] = newReview;
-            localStorage.setItem('streamverse_reviews_v14', JSON.stringify(currentReviews));
+            localStorage.setItem('streamverse_reviews_v15', JSON.stringify(currentReviews));
 
             alert(`🎉 Review Published under ${category}!`);
             document.getElementById('reviewForm').reset();
